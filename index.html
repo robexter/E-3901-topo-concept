@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111f">
+<title>E-3901 — Fracionadora Topo Concept V2</title>
+<style>
+:root{
+  --bg:#06101b; --panel:#0d1b2a; --panel2:#10253b; --stroke:#294a65;
+  --txt:#eef6fb; --muted:#94a9ba; --cyan:#4fc3f7; --gas:#a78bfa;
+  --hc:#f6b94b; --water:#39bdf8; --good:#4fd1a1; --warn:#ffd166; --bad:#ff7272;
+  --shadow:0 18px 42px rgba(0,0,0,.28); --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 15% 0%,#0b2136 0,transparent 34%),linear-gradient(180deg,#06101b,#081421 70%,#06101b);color:var(--txt);
+font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button{font:inherit}
+.app{max-width:1500px;margin:auto;padding:14px}
+.card{background:linear-gradient(180deg,rgba(16,37,59,.97),rgba(9,23,37,.98));border:1px solid #1f3b54;border-radius:var(--r);box-shadow:var(--shadow)}
+header{padding:20px 22px;margin-bottom:14px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+header h1{margin:2px 0 6px;font-size:clamp(1.55rem,3vw,2.65rem)}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:900}
+header p{margin:0;color:var(--muted);line-height:1.5;max-width:900px}
+.version{padding:8px 11px;border-radius:999px;border:1px solid #31536e;background:#0b1c2c;color:#cfe4f1;font-size:.8rem;white-space:nowrap}
+
+.toolbar{padding:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.tool-label{font-size:.8rem;color:var(--muted);margin-right:4px}
+.btn{border:1px solid #2e506b;background:#0a1b2b;color:#d4e6f0;padding:9px 12px;border-radius:999px;cursor:pointer;transition:.2s}
+.btn:hover,.btn.active{transform:translateY(-1px);border-color:var(--cyan);box-shadow:0 0 0 3px rgba(79,195,247,.1)}
+.btn.gas.active{border-color:var(--gas);color:#d7ceff}.btn.hc.active{border-color:var(--hc);color:#ffdca3}.btn.water.active{border-color:var(--water);color:#afe7ff}
+.spacer{flex:1}.switch{display:inline-flex;align-items:center;gap:8px;color:#cce0eb;font-size:.83rem}
+
+.process-card{padding:12px;position:relative;overflow:hidden}
+.process-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:2px 4px 10px}
+.process-head h2{margin:0;font-size:1.18rem}.process-head small{color:var(--muted)}
+.diagram-scroll{overflow-x:auto;overflow-y:hidden;border-radius:14px;background:
+linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+background-size:28px 28px}
+svg{display:block;min-width:1180px;width:100%;height:auto}
+.eqshape{fill:#0b1d2e;stroke:#50708a;stroke-width:2}
+.eqshape:hover{stroke:#7db2d4}
+.eqtext{fill:#eef6fb;font-weight:800;font-size:15px;pointer-events:none}
+.eqsub{fill:#91a7b8;font-size:11px;pointer-events:none}
+.pipe{fill:none;stroke:#4a6275;stroke-width:5;stroke-linecap:round}
+.flow{fill:none;stroke-width:5;stroke-linecap:round;stroke-dasharray:14 12;animation:dash 1.1s linear infinite}
+.flow.gas{stroke:var(--gas)}.flow.hc{stroke:var(--hc)}.flow.water{stroke:var(--water)}
+.flow.dim{opacity:.12}.flow.hide{opacity:.04}
+.eqgroup.dim{opacity:.25;filter:saturate(.3)}
+@keyframes dash{to{stroke-dashoffset:-26}}
+.lamp{cursor:pointer}
+.lamp circle{fill:#17283a;stroke:#ffd166;stroke-width:2}
+.lamp text{font-size:18px;pointer-events:none}
+.lamp:hover circle{filter:drop-shadow(0 0 8px #ffd166)}
+.mini-badge{fill:#0b1826;stroke:#35536a;stroke-width:1.4}
+.mini-text{fill:#b9ccd8;font-size:10px;font-weight:700}
+.note-svg{fill:#a7bdcb;font-size:11px}
+
+.layout{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(320px,.6fr);gap:14px;margin-top:14px}
+.side-panel{padding:17px;min-height:430px;position:sticky;top:10px;align-self:start}
+.side-panel h3{margin:0 0 4px}.side-panel .subtitle{color:var(--muted);font-size:.84rem;margin-bottom:12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tab{border:1px solid #2f506a;background:#0b1b2a;color:#bdd2df;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:.8rem}
+.tab.active{background:#12314b;color:#fff;border-color:#4b86ae}
+.panel-content{font-size:.9rem;line-height:1.55;color:#d4e4ed}
+.panel-content ul{padding-left:18px;margin:.5rem 0}
+.callout{padding:10px 12px;border-left:3px solid var(--cyan);background:#0a1a29;border-radius:9px;margin-top:10px;color:#d3e4ee}
+.warn{border-left-color:var(--warn)}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+.kpi{padding:10px;border:1px solid #2b4a61;border-radius:11px;background:#091826}.kpi b{display:block}.kpi span{font-size:.76rem;color:var(--muted)}
+
+.section-title{display:flex;justify-content:space-between;gap:10px;align-items:end;margin:18px 2px 9px}
+.section-title h2{margin:0;font-size:1.18rem}.section-title p{margin:0;color:var(--muted);font-size:.84rem}
+.interface-grid,.scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.interface-card,.scenario{padding:16px}
+.vessel-wrap{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}
+.vessel{height:220px;width:140px;border:3px solid #58768d;border-radius:20px 20px 30px 30px;position:relative;overflow:hidden;background:#07131e}
+.waterLayer,.hcLayer{position:absolute;left:0;right:0;bottom:0;transition:.25s}
+.waterLayer{background:linear-gradient(#45c4fb,#1578ad);height:30%}
+.hcLayer{background:linear-gradient(#ffca69,#b56c1c);height:28%;bottom:30%}
+.vesselTag{position:absolute;z-index:4;top:9px;left:0;right:0;text-align:center;font-weight:900}
+.readout{position:absolute;right:7px;bottom:7px;z-index:4;background:rgba(3,9,15,.74);padding:5px 7px;border-radius:7px;font-size:.72rem}
+input[type=range]{width:100%}
+.status{margin-top:9px;color:#b9cedb;font-size:.84rem;line-height:1.45}
+.scenario h3{margin-top:0}
+.trends{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.trend{padding:10px;border:1px solid #29485f;border-radius:10px;text-align:center;background:#091725}.trend b{display:block}.up{color:var(--warn);font-size:1.25rem}
+.answers{display:grid;gap:7px}.answer{border:1px solid #2b4a62;background:#091827;color:#d8e8f1;text-align:left;padding:10px;border-radius:10px;cursor:pointer}
+.answer:hover{border-color:#527a97}.answer.good{border-color:var(--good);background:rgba(79,209,161,.07)}.answer.bad{border-color:var(--bad);background:rgba(255,114,114,.06)}
+.feedback{min-height:42px;margin-top:9px;color:#cfe3ed;font-size:.86rem}
+.footer{margin-top:14px;padding:13px;text-align:center;color:#839cad;font-size:.78rem}
+
+.cic-strip{display:none;padding:9px 12px;margin-bottom:10px;border:1px solid #2c4b64;border-radius:12px;background:#091a29}
+.cic-strip.show{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cic-chip{padding:8px;border-radius:9px;background:#0c2133;border:1px solid #2f5067;text-align:center}.cic-chip b{display:block;font-size:.78rem}.cic-chip span{font-size:.7rem;color:#9cb2c1}
+
+@media(max-width:1000px){
+  .layout{grid-template-columns:1fr}.side-panel{position:relative;top:auto;min-height:auto}
+  .interface-grid,.scenario-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .app{padding:8px} header{padding:15px;align-items:flex-start;flex-direction:column}
+  .process-card{padding:8px}.toolbar{overflow-x:auto;flex-wrap:nowrap}.btn{white-space:nowrap}
+  .spacer{display:none}.switch{white-space:nowrap}
+  .vessel-wrap{grid-template-columns:120px 1fr}.vessel{width:110px;height:190px}
+  .cic-strip.show{grid-template-columns:1fr 1fr}.trends{grid-template-columns:1fr}
+}
+
+#installBtn{font-weight:800;border-color:#4fc3f7;background:#0d2940}
+#installBtn:hover{box-shadow:0 0 0 3px rgba(79,195,247,.15)}
+.install-help{
+  display:none;margin:10px 0 14px;padding:10px 12px;border-radius:12px;
+  background:#0b1b2b;border:1px solid #2d506a;color:#cfe3ef;font-size:.82rem
+}
+.install-help.show{display:block}
+
+</style>
+
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="E-3901 Concept">
+
+</head>
+<body>
+<div class="app">
+<header class="card">
+  <div>
+    <div class="eyebrow">CONCEPT TEMPLATE • FCC U-39 • V2 VISUAL</div>
+    <h1>E-3901 — Fracionadora Topo</h1>
+    <p>Fluxograma didático interativo com correntes animadas, hotspots diretamente sobre os equipamentos e leitura operacional orientada ao CIC.</p>
+  </div>
+  <div class="version">V2 • visual + diagnóstico</div>
+</header>
+
+<div class="toolbar card">
+  <span class="tool-label">Siga a molécula:</span>
+  <button class="btn active" data-track="all">Tudo</button>
+  <button class="btn gas" data-track="gas">Gás</button>
+  <button class="btn hc" data-track="hc">Hidrocarboneto</button>
+  <button class="btn water" data-track="water">Água ácida</button>
+  
+<button class="btn" id="installBtn" style="display:none">⬇ Instalar App</button>
+<div class="spacer"></div>
+  <label class="switch"><input id="cicMode" type="checkbox"> Modo CIC</label>
+</div>
+
+<div id="installHelp" class="install-help card">
+  <b>Instalação no iPhone/iPad:</b> abra no Safari, toque em <b>Compartilhar</b> e depois em <b>Adicionar à Tela de Início</b>.
+</div>
+
+<div id="cicStrip" class="cic-strip card">
+  <div class="cic-chip"><b>LIC-39163</b><span>Nível HC F-3906</span></div>
+  <div class="cic-chip"><b>LIC-39164</b><span>Interface F-3906</span></div>
+  <div class="cic-chip"><b>LIC-39165</b><span>Nível HC F-3907</span></div>
+  <div class="cic-chip"><b>LIC-39166</b><span>Interface F-3907</span></div>
+  <div class="cic-chip"><b>F-3915</b><span>Nível água ácida</span></div>
+</div>
+
+<section class="process-card card">
+  <div class="process-head">
+    <h2>Mapa operacional do topo</h2>
+    <small>Clique nas lâmpadas ou nos equipamentos.</small>
+  </div>
+  <div class="diagram-scroll">
+  <svg viewBox="0 0 1450 760" role="img" aria-label="Fluxograma interativo do sistema de topo da E-3901">
+    <defs>
+      <marker id="arrowGas" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a78bfa"/></marker>
+      <marker id="arrowHC" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#f6b94b"/></marker>
+      <marker id="arrowWater" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#39bdf8"/></marker>
+    </defs>
+
+    <!-- tower -->
+    <g class="eqgroup" data-flow="gas hc water" data-target="e3901">
+      <rect class="eqshape" x="55" y="130" width="130" height="360" rx="55"/>
+      <line x1="73" y1="195" x2="167" y2="195" stroke="#355773"/>
+      <line x1="73" y1="245" x2="167" y2="245" stroke="#355773"/>
+      <line x1="73" y1="295" x2="167" y2="295" stroke="#355773"/>
+      <line x1="73" y1="345" x2="167" y2="345" stroke="#355773"/>
+      <line x1="73" y1="395" x2="167" y2="395" stroke="#355773"/>
+      <text class="eqtext" x="120" y="315" text-anchor="middle">E-3901</text>
+      <text class="eqsub" x="120" y="335" text-anchor="middle">FRACIONADORA</text>
+    </g>
+    <g class="lamp" data-target="e3901"><circle cx="170" cy="145" r="17"/><text x="170" y="152" text-anchor="middle">💡</text></g>
+
+    <!-- C-3902 -->
+    <g class="eqgroup" data-flow="gas hc water" data-target="c3902">
+      <rect class="eqshape" x="265" y="150" width="150" height="85" rx="12"/>
+      <path d="M282 173 h116 M282 191 h116 M282 209 h116" stroke="#456881" stroke-width="2"/>
+      <text class="eqtext" x="340" y="185" text-anchor="middle">C-3902</text>
+      <text class="eqsub" x="340" y="205" text-anchor="middle">1º resfriamento</text>
+    </g>
+    <g class="lamp" data-target="c3902"><circle cx="405" cy="155" r="17"/><text x="405" y="162" text-anchor="middle">💡</text></g>
+
+    <!-- F3906 -->
+    <g class="eqgroup" data-flow="gas hc water" data-target="f3906">
+      <rect class="eqshape" x="500" y="135" width="175" height="115" rx="54"/>
+      <line x1="520" y1="200" x2="655" y2="200" stroke="#f6b94b" stroke-width="6"/>
+      <line x1="520" y1="220" x2="655" y2="220" stroke="#39bdf8" stroke-width="8"/>
+      <text class="eqtext" x="587" y="172" text-anchor="middle">F-3906</text>
+      <text class="eqsub" x="587" y="190" text-anchor="middle">Tambor de refluxo</text>
+    </g>
+    <g class="lamp" data-target="f3906"><circle cx="655" cy="140" r="17"/><text x="655" y="147" text-anchor="middle">💡</text></g>
+
+    <!-- C3903 -->
+    <g class="eqgroup" data-flow="gas hc water" data-target="c3903">
+      <rect class="eqshape" x="775" y="150" width="155" height="85" rx="12"/>
+      <path d="M792 173 h120 M792 191 h120 M792 209 h120" stroke="#456881" stroke-width="2"/>
+      <text class="eqtext" x="852" y="185" text-anchor="middle">C-3903 A/D</text>
+      <text class="eqsub" x="852" y="205" text-anchor="middle">2º resfriamento</text>
+    </g>
+    <g class="lamp" data-target="c3903"><circle cx="915" cy="155" r="17"/><text x="915" y="162" text-anchor="middle">💡</text></g>
+
+    <!-- F3907 -->
+    <g class="eqgroup" data-flow="gas hc water" data-target="f3907">
+      <rect class="eqshape" x="1018" y="135" width="175" height="115" rx="54"/>
+      <line x1="1038" y1="200" x2="1173" y2="200" stroke="#f6b94b" stroke-width="6"/>
+      <line x1="1038" y1="220" x2="1173" y2="220" stroke="#39bdf8" stroke-width="8"/>
+      <text class="eqtext" x="1105" y="172" text-anchor="middle">F-3907</text>
+      <text class="eqsub" x="1105" y="190" text-anchor="middle">Tambor de topo</text>
+    </g>
+    <g class="lamp" data-target="f3907"><circle cx="1173" cy="140" r="17"/><text x="1173" y="147" text-anchor="middle">💡</text></g>
+
+    <!-- F3908 -->
+    <g class="eqgroup" data-flow="gas" data-target="f3908">
+      <rect class="eqshape" x="1270" y="135" width="135" height="115" rx="45"/>
+      <text class="eqtext" x="1337" y="175" text-anchor="middle">F-3908</text>
+      <text class="eqsub" x="1337" y="195" text-anchor="middle">KO J-3902</text>
+    </g>
+    <g class="lamp" data-target="f3908"><circle cx="1390" cy="140" r="17"/><text x="1390" y="147" text-anchor="middle">💡</text></g>
+
+    <!-- main gas paths -->
+    <path class="flow gas" data-flow="gas" d="M185 160 H265" marker-end="url(#arrowGas)"/>
+    <path class="flow gas" data-flow="gas" d="M415 192 H500" marker-end="url(#arrowGas)"/>
+    <path class="flow gas" data-flow="gas" d="M675 165 H775" marker-end="url(#arrowGas)"/>
+    <path class="flow gas" data-flow="gas" d="M930 192 H1018" marker-end="url(#arrowGas)"/>
+    <path class="flow gas" data-flow="gas" d="M1193 165 H1270" marker-end="url(#arrowGas)"/>
+    <path class="flow gas" data-flow="gas" d="M1405 190 H1435" marker-end="url(#arrowGas)"/>
+    <text class="note-svg" x="1375" y="225">→ J-3902</text>
+
+    <!-- HC F3906 to J3904 -->
+    <g class="eqgroup" data-flow="hc" data-target="j3904">
+      <circle class="eqshape" cx="590" cy="405" r="48"/>
+      <path d="M565 405 q25 -28 50 0 q-25 28 -50 0z" fill="none" stroke="#64839a" stroke-width="2"/>
+      <text class="eqtext" x="590" y="398" text-anchor="middle">J-3904</text>
+      <text class="eqsub" x="590" y="418" text-anchor="middle">refluxo</text>
+    </g>
+    <g class="lamp" data-target="j3904"><circle cx="628" cy="374" r="15"/><text x="628" y="380" text-anchor="middle">💡</text></g>
+    <path class="flow hc" data-flow="hc" d="M575 250 V350" marker-end="url(#arrowHC)"/>
+    <path class="flow hc" data-flow="hc" d="M542 405 H195 V300" marker-end="url(#arrowHC)"/>
+    <text class="mini-text" x="340" y="392">refluxo para E-3901</text>
+
+    <!-- HC F3907 to J3905/E3904 -->
+    <g class="eqgroup" data-flow="hc" data-target="j3905">
+      <circle class="eqshape" cx="1105" cy="405" r="48"/>
+      <path d="M1080 405 q25 -28 50 0 q-25 28 -50 0z" fill="none" stroke="#64839a" stroke-width="2"/>
+      <text class="eqtext" x="1105" y="398" text-anchor="middle">J-3905</text>
+      <text class="eqsub" x="1105" y="418" text-anchor="middle">líquido topo</text>
+    </g>
+    <g class="lamp" data-target="j3905"><circle cx="1143" cy="374" r="15"/><text x="1143" y="380" text-anchor="middle">💡</text></g>
+    <path class="flow hc" data-flow="hc" d="M1105 250 V350" marker-end="url(#arrowHC)"/>
+    <path class="flow hc" data-flow="hc" d="M1153 405 H1270" marker-end="url(#arrowHC)"/>
+    <rect class="mini-badge" x="1270" y="382" width="100" height="45" rx="10"/>
+    <text class="mini-text" x="1320" y="410" text-anchor="middle">→ E-3904</text>
+
+    <!-- water F3906/7 to F3915 -->
+    <g class="eqgroup" data-flow="water" data-target="f3915">
+      <rect class="eqshape" x="725" y="535" width="180" height="100" rx="45"/>
+      <text class="eqtext" x="815" y="575" text-anchor="middle">F-3915</text>
+      <text class="eqsub" x="815" y="595" text-anchor="middle">Tambor água ácida</text>
+    </g>
+    <g class="lamp" data-target="f3915"><circle cx="885" cy="545" r="16"/><text x="885" y="551" text-anchor="middle">💡</text></g>
+    <path class="flow water" data-flow="water" d="M620 250 V500 H770 V535" marker-end="url(#arrowWater)"/>
+    <path class="flow water" data-flow="water" d="M1060 250 V500 H860 V535" marker-end="url(#arrowWater)"/>
+    <rect class="mini-badge" x="500" y="466" width="110" height="30" rx="8"/>
+    <text class="mini-text" x="555" y="486" text-anchor="middle">LIC-39164</text>
+    <rect class="mini-badge" x="1065" y="466" width="110" height="30" rx="8"/>
+    <text class="mini-text" x="1120" y="486" text-anchor="middle">LIC-39166</text>
+
+    <!-- J3924 / U80 -->
+    <g class="eqgroup" data-flow="water" data-target="j3924">
+      <circle class="eqshape" cx="1000" cy="585" r="46"/>
+      <path d="M975 585 q25 -28 50 0 q-25 28 -50 0z" fill="none" stroke="#64839a" stroke-width="2"/>
+      <text class="eqtext" x="1000" y="578" text-anchor="middle">J-3924</text>
+      <text class="eqsub" x="1000" y="598" text-anchor="middle">água ácida</text>
+    </g>
+    <g class="lamp" data-target="j3924"><circle cx="1036" cy="552" r="15"/><text x="1036" y="558" text-anchor="middle">💡</text></g>
+    <path class="flow water" data-flow="water" d="M905 585 H954" marker-end="url(#arrowWater)"/>
+    <path class="flow water" data-flow="water" d="M1046 585 H1210" marker-end="url(#arrowWater)"/>
+    <rect class="mini-badge" x="1210" y="560" width="100" height="50" rx="12"/>
+    <text class="eqtext" x="1260" y="590" text-anchor="middle">U-80</text>
+
+    <!-- I3905 -->
+    <g class="eqgroup" data-flow="gas" data-target="i3905">
+      <path class="eqshape" d="M995 315 h70 l40 28 -40 28 h-70 l28-28z"/>
+      <text class="eqtext" x="1047" y="339" text-anchor="middle">I-3905</text>
+      <text class="eqsub" x="1047" y="357" text-anchor="middle">ejetor</text>
+    </g>
+    <g class="lamp" data-target="i3905"><circle cx="1090" cy="315" r="15"/><text x="1090" y="321" text-anchor="middle">💡</text></g>
+    <path class="flow gas" data-flow="gas" d="M875 343 H995" marker-end="url(#arrowGas)"/>
+    <text class="mini-text" x="885" y="331">gases da destilação</text>
+    <path class="flow gas" data-flow="gas" d="M1105 343 V250" marker-end="url(#arrowGas)"/>
+
+    <!-- captions -->
+    <text class="note-svg" x="470" y="690">Água: F-3906 / F-3907 → F-3915 → J-3924 → U-80</text>
+    <text class="note-svg" x="940" y="690">HC: F-3906 → J-3904 / F-3907 → J-3905</text>
+  </svg>
+  </div>
+</section>
+
+<div class="layout">
+  <section class="card" style="padding:16px">
+    <div class="section-title" style="margin-top:0"><h2>Leitura operacional</h2><p>Selecione um hotspot no fluxograma</p></div>
+    <div class="callout">A V2 mantém o conteúdo técnico da V1, mas agora organiza o aprendizado diretamente sobre o fluxo do processo.</div>
+
+    <div class="section-title"><h2>Interfaces F-3906 / F-3907</h2><p>Simule nível de água</p></div>
+    <div class="interface-grid">
+      <div class="interface-card card">
+        <div class="vessel-wrap">
+          <div class="vessel" id="v1">
+            <div class="vesselTag">F-3906</div>
+            <div class="waterLayer"></div><div class="hcLayer"></div>
+            <div class="readout">LIC-39164: <span>30</span>%</div>
+          </div>
+          <div>
+            <input type="range" min="8" max="70" value="30" data-vessel="v1">
+            <div class="status" id="v1status">Interface em faixa intermediária.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="interface-card card">
+        <div class="vessel-wrap">
+          <div class="vessel" id="v2">
+            <div class="vesselTag">F-3907</div>
+            <div class="waterLayer"></div><div class="hcLayer"></div>
+            <div class="readout">LIC-39166: <span>30</span>%</div>
+          </div>
+          <div>
+            <input type="range" min="8" max="70" value="30" data-vessel="v2">
+            <div class="status" id="v2status">Interface em faixa intermediária.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="side-panel card" id="sidePanel">
+    <h3 id="panelTitle">F-3906</h3>
+    <div class="subtitle" id="panelSubtitle">Tambor de refluxo da E-3901</div>
+    <div class="tabs">
+      <button class="tab active" data-tab="funcao">Função</button>
+      <button class="tab" data-tab="cic">CIC</button>
+      <button class="tab" data-tab="desvios">Desvios</button>
+      <button class="tab" data-tab="entenda">Entenda melhor</button>
+    </div>
+    <div class="panel-content" id="panelContent"></div>
+  </aside>
+</div>
+
+<div class="section-title"><h2>Diagnóstico CIC</h2><p>O que mudou primeiro?</p></div>
+<div class="scenario-grid">
+  <section class="scenario card">
+    <h3>Cenário 1 — mudança localizada</h3>
+    <div class="trends">
+      <div class="trend"><b>LIC-39164</b>→ estável</div>
+      <div class="trend"><b>LIC-39166</b><span class="up">↑</span> subindo</div>
+      <div class="trend"><b>F-3915</b><span class="up">↑</span> lento</div>
+    </div>
+    <div class="answers">
+      <button class="answer" data-correct="false">Falha global de todo o sistema de topo.</button>
+      <button class="answer" data-correct="true">Investigar primeiro o segundo estágio: formação/retirada de água no F-3907.</button>
+      <button class="answer" data-correct="false">Falha imediata da J-3904.</button>
+    </div>
+    <div class="feedback"></div>
+  </section>
+
+  <section class="scenario card">
+    <h3>Cenário 2 — restrição comum a jusante</h3>
+    <div class="trends">
+      <div class="trend"><b>F-3915</b><span class="up">↑</span> subindo</div>
+      <div class="trend"><b>LIC-39164</b><span class="up">↑</span> subindo</div>
+      <div class="trend"><b>LIC-39166</b><span class="up">↑</span> subindo</div>
+    </div>
+    <div class="answers">
+      <button class="answer" data-correct="true">Avaliar capacidade de retirada do F-3915/J-3924 e restrições comuns a jusante.</button>
+      <button class="answer" data-correct="false">Atuar apenas no refluxo da E-3901.</button>
+      <button class="answer" data-correct="false">Concluir que os dois transmissores falharam simultaneamente.</button>
+    </div>
+    <div class="feedback"></div>
+  </section>
+</div>
+
+<div class="footer card">E-3901 — Fracionadora Topo Concept • V2 visual • conteúdo técnico preservado, interação ampliada</div>
+</div>
+
+<script>
+const data={
+  e3901:{
+    title:'E-3901', sub:'Fracionadora principal — seção de topo',
+    funcao:'Receber os vapores craqueados do conversor, realizar o fracionamento e enviar pelo topo a corrente de gases/vapores que seguirá para condensação e recuperação.',
+    cic:'No topo, o operador deve correlacionar temperatura, pressão, refluxo e comportamento dos vasos F-3906/F-3907. Alterações no topo aparecem como mudanças de condensação, níveis e carga para o compressor.',
+    desvios:'Temperatura de topo fora do esperado altera a quantidade e composição do condensado. Pressão elevada aumenta a carga sobre o sistema de gás e compressor.',
+    entenda:'O topo é a fronteira entre o fracionamento e a recuperação de gases. O que não condensa segue para compressão; o que condensa é separado em água e hidrocarboneto.'
+  },
+  c3902:{
+    title:'C-3902', sub:'Primeiro estágio de resfriamento/condensação',
+    funcao:'Resfriar a corrente de topo antes do F-3906, promovendo condensação de vapor d’água e hidrocarbonetos.',
+    cic:'Mais resfriamento tende a aumentar a formação de líquido no F-3906. Menos resfriamento desloca parte da condensação para jusante.',
+    desvios:'Perda de capacidade térmica pode elevar a carga de vapor para o estágio seguinte e alterar a distribuição de líquidos entre F-3906 e F-3907.',
+    entenda:'A condensação não acontece toda em um ponto. O sistema utiliza estágios para remover líquido progressivamente e proteger a compressão.'
+  },
+  f3906:{
+    title:'F-3906', sub:'Tambor de refluxo da E-3901',
+    funcao:'Primeira separação de gás, hidrocarboneto líquido e água após a condensação do topo.',
+    cic:'LIC-39163 acompanha nível de hidrocarboneto. LIC-39164 acompanha a interface água/HC. O hidrocarboneto alimenta a J-3904 e a água segue ao F-3915.',
+    desvios:'Interface subindo com aumento da abertura da válvula sugere maior geração de água, restrição na drenagem ou problema de medição. Interface muito baixa aumenta risco de HC na água ácida.',
+    entenda:'É um separador de três fases. A diferença de densidade mantém água no fundo, hidrocarboneto acima e gás no topo.'
+  },
+  c3903:{
+    title:'C-3903 A/D', sub:'Segundo estágio de resfriamento/condensação',
+    funcao:'Promover resfriamento adicional da corrente proveniente do F-3906 antes do F-3907.',
+    cic:'Mudanças de desempenho aqui aparecem principalmente no F-3907: quantidade de condensado, interface e carga gasosa para o F-3908.',
+    desvios:'Menor capacidade de resfriamento pode reduzir a recuperação líquida no F-3907 e aumentar a carga de gás para o compressor.',
+    entenda:'O segundo estágio recupera material que permaneceu em fase vapor após a primeira separação.'
+  },
+  f3907:{
+    title:'F-3907', sub:'Tambor de topo da E-3901',
+    funcao:'Segunda separação de gás, hidrocarboneto líquido e água antes do sistema de compressão.',
+    cic:'LIC-39165 controla nível de HC. LIC-39166 controla interface de água. O HC segue pela J-3905; a água para F-3915; o gás para F-3908/J-3902.',
+    desvios:'Se LIC-39166 sobe enquanto LIC-39164 permanece estável, investigar primeiro alterações no segundo estágio ou retirada local do F-3907.',
+    entenda:'Não é redundante ao F-3906: ele captura líquido adicional após novo resfriamento.'
+  },
+  f3908:{
+    title:'F-3908', sub:'Tambor knockout do compressor J-3902',
+    funcao:'Remover líquido remanescente da corrente de gás antes da sucção do compressor.',
+    cic:'Nível e arraste de líquido são críticos. A pressão de sucção do compressor condiciona as pressões a montante do sistema de topo.',
+    desvios:'Arraste de líquido representa risco operacional para o compressor. Pressão de sucção elevada repercute em toda a linha de topo.',
+    entenda:'O knockout é a última barreira líquida antes da máquina rotativa.'
+  },
+  j3904:{
+    title:'J-3904 A/B', sub:'Bomba de refluxo da E-3901',
+    funcao:'Bombear o hidrocarboneto líquido do F-3906 para uso como refluxo da fracionadora.',
+    cic:'A vazão de refluxo participa diretamente do controle térmico do topo da E-3901.',
+    desvios:'Perda de refluxo pode elevar temperatura de topo, alterar separação e modificar a condensação nos vasos.',
+    entenda:'Refluxo devolve líquido frio ao topo e fornece contato líquido-vapor para melhorar o fracionamento.'
+  },
+  j3905:{
+    title:'J-3905 A/B', sub:'Bomba de líquido de topo',
+    funcao:'Transferir o hidrocarboneto separado no F-3907 para o sistema de absorção, incluindo a E-3904.',
+    cic:'Seu comportamento deve ser analisado junto ao LIC-39165 e à demanda da absorção primária.',
+    desvios:'Perda de retirada eleva nível de HC no F-3907 e pode comprometer a separação gás/líquido.',
+    entenda:'A corrente do F-3907 não volta diretamente como refluxo principal; ela é integrada à recuperação de componentes leves.'
+  },
+  i3905:{
+    title:'I-3905', sub:'Ejetor dos gases da destilação',
+    funcao:'Promover a sucção e introdução de gases de destilação no sistema do F-3907 utilizando a energia de um fluido motriz.',
+    cic:'Acompanhe reflexos de pressão e vazão sobre o F-3907 e a sucção do compressor.',
+    desvios:'Perda de efeito de sucção reduz a transferência dos gases externos; aumento de carga altera a vazão de gás que segue ao compressor.',
+    entenda:'Fluido motriz acelera na garganta → pressão estática cai → corrente secundária é succionada → mistura e descarga. Princípio associado a Venturi e quantidade de movimento.'
+  },
+  f3915:{
+    title:'F-3915', sub:'Tambor de água ácida',
+    funcao:'Receber e acumular água ácida, fornecendo inventário para a J-3924.',
+    cic:'Entrada maior que saída faz o nível subir. Se F-3915 sobe e as interfaces dos dois vasos sobem, avaliar retirada comum a jusante.',
+    desvios:'Nível alto reduz capacidade de receber novas drenagens. Nível baixo pode comprometer a sucção da bomba.',
+    entenda:'O vaso desacopla a geração instantânea de água ácida da transferência para a U-80.'
+  },
+  j3924:{
+    title:'J-3924 A/B', sub:'Bomba de água ácida',
+    funcao:'Transferir normalmente a água ácida do F-3915 para a U-80.',
+    cic:'Referência de partida: F-3915 > 30% → ligar; F-3915 < 10% → desligar. Tratar isso como referência de procedimento, não como intertravamento permanente.',
+    desvios:'Indisponibilidade reduz a retirada do F-3915 e pode, progressivamente, elevar as interfaces de F-3906 e F-3907.',
+    entenda:'Também existem alinhamentos alternativos para drenagem/esgotamento de outros vasos conforme procedimento.'
+  }
+};
+
+const panelTitle=document.getElementById('panelTitle');
+const panelSubtitle=document.getElementById('panelSubtitle');
+const panelContent=document.getElementById('panelContent');
+let current='f3906', currentTab='funcao';
+
+function renderPanel(){
+  const d=data[current]||data.f3906;
+  panelTitle.textContent=d.title; panelSubtitle.textContent=d.sub;
+  let html='<div>'+d[currentTab]+'</div>';
+  if(current==='f3906' && currentTab==='cic') html += '<div class="kpis"><div class="kpi"><b>LIC-39163</b><span>Nível de HC</span></div><div class="kpi"><b>LIC-39164</b><span>Interface água/HC</span></div></div>';
+  if(current==='f3907' && currentTab==='cic') html += '<div class="kpis"><div class="kpi"><b>LIC-39165</b><span>Nível de HC</span></div><div class="kpi"><b>LIC-39166</b><span>Interface água/HC</span></div></div>';
+  if(current==='f3906' && currentTab==='entenda') html += '<div class="callout warn"><b>Tag pendente:</b> LIC-39167 permanece a confirmar; a base atual utiliza LIC-39164 para a interface do F-3906.</div>';
+  panelContent.innerHTML=html;
+}
+renderPanel();
+
+document.querySelectorAll('[data-target]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const t=el.dataset.target;
+    if(data[t]){ current=t; currentTab='funcao'; document.querySelectorAll('.tab').forEach((x,i)=>x.classList.toggle('active',i===0)); renderPanel(); document.getElementById('sidePanel').scrollIntoView({behavior:'smooth',block:'center'}); }
+  });
+});
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    tab.classList.add('active'); currentTab=tab.dataset.tab; renderPanel();
+  });
+});
+
+document.querySelectorAll('.btn[data-track]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.btn[data-track]').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+    const t=b.dataset.track;
+    document.querySelectorAll('[data-flow]').forEach(el=>{
+      el.classList.remove('dim','hide');
+      if(t==='all') return;
+      const arr=(el.dataset.flow||'').split(' ');
+      if(!arr.includes(t)){
+        if(el.classList.contains('flow')) el.classList.add('hide'); else el.classList.add('dim');
+      }
+    });
+  });
+});
+
+document.getElementById('cicMode').addEventListener('change',e=>{
+  document.getElementById('cicStrip').classList.toggle('show',e.target.checked);
+});
+
+document.querySelectorAll('input[type=range][data-vessel]').forEach(sl=>{
+  const update=()=>{
+    const v=document.getElementById(sl.dataset.vessel), val=+sl.value;
+    v.querySelector('.waterLayer').style.height=val+'%';
+    const hc=v.querySelector('.hcLayer'); hc.style.bottom=val+'%'; hc.style.height=Math.max(18,58-val/2)+'%';
+    v.querySelector('.readout span').textContent=val;
+    const status=document.getElementById(sl.dataset.vessel+'status');
+    if(val<18) status.innerHTML='<b>Interface baixa:</b> maior risco de hidrocarboneto acompanhar a drenagem de água.';
+    else if(val>55) status.innerHTML='<b>Interface alta:</b> redução do volume útil e aproximação da água da retirada de HC.';
+    else status.textContent='Interface em faixa intermediária: margem de separação preservada.';
+  };
+  sl.addEventListener('input',update); update();
+});
+
+document.querySelectorAll('.scenario').forEach(sc=>{
+  sc.querySelectorAll('.answer').forEach(a=>{
+    a.addEventListener('click',()=>{
+      sc.querySelectorAll('.answer').forEach(x=>x.classList.remove('good','bad'));
+      const ok=a.dataset.correct==='true'; a.classList.add(ok?'good':'bad');
+      sc.querySelector('.feedback').innerHTML=ok
+        ? '<b>Correto.</b> A leitura conjunta das tendências direciona a investigação antes de qualquer ação isolada.'
+        : '<b>Reavalie.</b> Compare quais variáveis mudaram juntas e qual ponto é comum entre elas.';
+    });
+  });
+});
+</script>
+
+<script>
+let deferredPrompt = null;
+const installBtn = document.getElementById('installBtn');
+const installHelp = document.getElementById('installHelp');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (installBtn) installBtn.style.display = 'inline-flex';
+});
+
+if (installBtn) {
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.style.display = 'none';
+    } else {
+      const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+      if (isIOS && installHelp) installHelp.classList.add('show');
+      else alert('Se a instalação não aparecer, use o menu do navegador e escolha “Instalar app” ou “Adicionar à tela inicial”.');
+    }
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  if (installBtn) installBtn.style.display = 'none';
+});
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.error('Service Worker:', err));
+  });
+}
+</script>
+
+</body>
+</html>

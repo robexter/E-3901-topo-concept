@@ -1,0 +1,19 @@
+E-3901 Fracionadora Topo Concept — PWA
+
+Arquivos:
+- index.html
+- manifest.json
+- sw.js
+- icon-192.png
+- icon-512.png
+
+GitHub Pages:
+1. Crie/abra o repositório.
+2. Envie TODOS os arquivos para a raiz do repositório.
+3. Em Settings > Pages, publique a branch main e pasta /root.
+4. Abra o endereço HTTPS do GitHub Pages.
+5. No Android/Chrome, use o botão “Instalar App”.
+6. No iPhone/iPad, Safari > Compartilhar > Adicionar à Tela de Início.
+
+Importante:
+O Service Worker e a instalação PWA exigem HTTPS (GitHub Pages atende esse requisito).

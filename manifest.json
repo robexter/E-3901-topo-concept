@@ -1,0 +1,25 @@
+{
+  "name": "E-3901 Fracionadora Topo Concept",
+  "short_name": "E-3901 Concept",
+  "description": "Concept interativo do sistema de topo da fracionadora E-3901 da FCC U-39.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#06101b",
+  "theme_color": "#07111f",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
