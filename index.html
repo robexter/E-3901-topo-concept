@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <meta content="#0f172a" name="theme-color"/>
-<title>E-3901 — Fracionadora Topo Concept PWA • Treinamento Técnico V6</title>
+<title>E-3901 — Fracionadora Topo Concept PWA • V7 Estável</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -457,7 +457,6 @@ body.training-open{overflow:hidden}
   .clean-details .hotspot-grid{grid-template-columns:1fr}
 }
 </style>
-
 <style id="training-technical-v6">
 .module-head-clean{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
 .module-head-clean h2{margin:0 0 6px}
@@ -565,12 +564,135 @@ body.training-open{overflow:hidden}
   .quiz-footer-clean .module-action{flex:1}
 }
 </style>
+
+<style id="training-v7-stable-css">
+.competency-panel{
+  margin-top:14px;
+  border:1px solid #29465d;
+  background:#081725;
+  border-radius:14px;
+  padding:14px;
+}
+.competency-panel h3{margin:0 0 10px}
+.competency-list{display:grid;gap:9px}
+.comp-row{
+  display:grid;
+  grid-template-columns:minmax(150px,.9fr) minmax(160px,1.5fr) 54px;
+  gap:10px;
+  align-items:center;
+  font-size:.82rem
+}
+.comp-row .bar{
+  height:9px;
+  border-radius:999px;
+  background:#06121b;
+  border:1px solid #27465e;
+  overflow:hidden
+}
+.comp-row .bar span{
+  display:block;
+  height:100%;
+  background:linear-gradient(90deg,#5f8db4,#55d6be);
+  transition:width .35s
+}
+.comp-row b{text-align:right}
+.review-box{
+  display:none;
+  margin-top:14px;
+  border:1px solid rgba(255,193,78,.24);
+  background:rgba(255,193,78,.045);
+  border-radius:14px;
+  padding:14px
+}
+.review-box.show{display:block}
+.review-box h3{margin:0 0 8px}
+.review-box p{color:#b8cbd8;line-height:1.5}
+.review-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.remedial-card{
+  margin-top:10px;
+  border:1px solid #31516a;
+  background:#091827;
+  border-radius:12px;
+  padding:12px
+}
+.remedial-card h4{margin:0 0 8px}
+.remedial-options{display:grid;gap:7px}
+.remedial-options button{
+  text-align:left;
+  border:1px solid #31516a;
+  background:#0c1b28;
+  color:#eef7ff;
+  padding:9px 10px;
+  border-radius:9px
+}
+.remedial-options button.correct{border-color:rgba(88,214,141,.58);background:rgba(88,214,141,.09)}
+.remedial-options button.wrong{border-color:rgba(255,107,107,.52);background:rgba(255,107,107,.06)}
+.branch-banner{
+  display:none;
+  margin:10px 0 12px;
+  padding:11px 12px;
+  border-radius:11px;
+  background:#0a1b28;
+  border:1px solid #31516a;
+  color:#c5d8e4;
+  font-size:.84rem;
+  line-height:1.48
+}
+.branch-banner.show{display:block}
+.branch-banner.good{border-color:rgba(88,214,141,.36);background:rgba(88,214,141,.055)}
+.branch-banner.partial{border-color:rgba(255,193,78,.34);background:rgba(255,193,78,.05)}
+.branch-banner.poor{border-color:rgba(255,107,107,.34);background:rgba(255,107,107,.045)}
+.confidence-row{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:9px
+}
+.confidence-row span{
+  color:#819aad;
+  font-size:.75rem;
+  margin-right:3px;
+  align-self:center
+}
+.confidence-btn{
+  border:1px solid #29465d;
+  background:#0b1b28;
+  color:#bfd1de;
+  padding:6px 8px;
+  border-radius:8px;
+  font-size:.73rem
+}
+.confidence-btn.active{
+  border-color:#5f8db4;
+  background:#12304a;
+  color:#eef7ff
+}
+.eval-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  margin-top:10px
+}
+.eval-summary-grid>div{
+  border:1px solid #29465d;
+  background:#091827;
+  border-radius:11px;
+  padding:10px
+}
+.eval-summary-grid b{display:block;font-size:1.05rem}
+.eval-summary-grid small{color:#91a9bd}
+@media(max-width:760px){
+  .comp-row{grid-template-columns:1fr 50px}
+  .comp-row .bar{grid-column:1/-1}
+  .eval-summary-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 <div class="app">
 <div class="hero hero-clean">
 <div class="hero-card">
-<span class="kicker">CONCEPT TEMPLATE • U-39 • V4</span>
+<span class="kicker">CONCEPT TEMPLATE • U-39 • V7 ESTÁVEL</span>
 <h1>E-3901<br/>Fracionadora — Topo</h1>
 <p>
         One page interativa baseada na própria tela do processo. A proposta é aprender diretamente sobre o diagrama operacional:
@@ -714,7 +836,7 @@ body.training-open{overflow:hidden}
 <div class="section">
 <div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
 </div>
-<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V6 • treinamento técnico refinado</div>
+<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V7 ESTÁVEL • treinamento adaptativo</div>
 </div>
 <div class="training-backdrop-clean" id="trainingBackdropClean" onclick="closeTrainingDrawer()"></div><aside aria-hidden="true" class="training-drawer-clean" id="trainingDrawerClean"><div class="training-drawer-head"><div><strong>Treinamentos</strong><small id="trainingBreadcrumbClean">Visão geral</small></div><button aria-label="Fechar treinamentos" class="drawer-close" onclick="closeTrainingDrawer()">✕</button></div><div class="training-drawer-body"><nav class="training-drawer-nav"><button class="active" data-training-clean="home" onclick="selectTrainingModule('home', this)"><strong>Visão geral</strong><small>Resumo do método e módulos</small></button><button data-training-clean="quizTreino" onclick="selectTrainingModule('quizTreino', this)"><strong>Quizzes</strong><small>Fixação de equipamentos, fases e malhas</small></button><button data-training-clean="simCIC" onclick="selectTrainingModule('simCIC', this)"><strong>Cenários + Simulações CIC</strong><small>Tendências, diagnóstico e prioridade</small></button><button data-training-clean="mecanica" onclick="selectTrainingModule('mecanica', this)"><strong>Mecânica dos Fluidos</strong><small>Pressão, vazão, ejetor e separação</small></button><button data-training-clean="unitarias" onclick="selectTrainingModule('unitarias', this)"><strong>Operações Unitárias</strong><small>Fracionar, condensar, separar e bombear</small></button><button data-training-clean="avaliacaoCIC" onclick="selectTrainingModule('avaliacaoCIC', this)"><strong>Avaliação Operador CIC</strong><small>Visão integrada de painel e processo</small></button></nav><div class="training-drawer-content"><section class="training-pane-clean active" id="training-clean-home"><span class="module-chip">CENTRO DE TREINAMENTO</span><h2>Treinamento da E-3901 — Topo</h2><p class="training-intro-clean">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</p><div class="training-kpi">
 <div><b>5 módulos</b><small>teoria + prática</small></div>
@@ -762,6 +884,8 @@ body.training-open{overflow:hidden}
 </div>
 <h3 id="cicScenarioTitle">Carregando cenário...</h3>
 <p class="scenario-context-v2" id="cicScenarioContext"></p>
+<div class="branch-banner" id="cicBranchBannerV7"></div>
+
 <div class="trend-grid-v2" id="cicTrendGrid"></div>
 <div class="progress-bar"><div class="progress-fill" id="cicProgressV2"></div></div>
 <div class="cic-step-label" id="cicStepLabel"></div>
@@ -956,6 +1080,20 @@ body.training-open{overflow:hidden}
 <button class="module-action" onclick="startCICEvaluation()">Reiniciar e embaralhar</button>
 </div>
 <div class="technical-report" id="evalReportV2"></div>
+<div class="competency-panel" id="competencyPanelV7" style="display:none">
+<h3>Desempenho por competência</h3>
+<div class="competency-list" id="competencyListV7"></div>
+</div>
+<div class="review-box" id="smartReviewBoxV7">
+<h3>Revisão inteligente dos erros</h3>
+<p id="smartReviewIntroV7"></p>
+<div class="review-actions">
+<button class="module-action primary" onclick="startSmartReviewV7()">Revisar pontos fracos</button>
+<button class="module-action" onclick="startCICEvaluation()">Nova avaliação completa</button>
+</div>
+<div id="smartReviewEngineV7"></div>
+</div>
+
 </div></div></div></aside><div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
 <div class="modal-card">
 <div class="modal-head">
@@ -1286,7 +1424,6 @@ document.addEventListener('keydown', e=>{
   }
 });
 </script>
-
 <script id="training-engine-v6">
 function fyShuffle(arr){
   const a=[...arr];
@@ -1866,6 +2003,304 @@ window.selectTrainingModule=function(module,btn=null){
   if(module==='quizTreino') startTechnicalQuiz();
   if(module==='simCIC') { restartCICTraining(); setTimeout(()=>{updateVessel(1,30);updateVessel(2,30)},0); }
   if(module==='avaliacaoCIC') startCICEvaluation();
+};
+</script>
+
+<script id="training-v7-stable-js">
+/* ===== V7 ESTÁVEL — competências, revisão inteligente e CIC com consequência da decisão ===== */
+
+const V7_COMPETENCY_LABELS = {
+  trend:"Interpretação de tendências",
+  control:"Controle de processo",
+  fluids:"Mecânica dos Fluidos",
+  unitops:"Operações Unitárias",
+  cic:"Diagnóstico CIC",
+  causality:"Causa → efeito"
+};
+
+/* Mapeia cada questão da avaliação para uma competência.
+   A correspondência é feita por trecho estável do enunciado para sobreviver ao embaralhamento. */
+function competencyForEvalQuestionV7(q){
+  const t=q.q||"";
+  if(t.includes("LIC-39166 sobe")) return "trend";
+  if(t.includes("MV da retirada")) return "control";
+  if(t.includes("F-3915 sobe")) return "causality";
+  if(t.includes("comparar LIC-39163")) return "trend";
+  if(t.includes("controle em cascata")) return "control";
+  if(t.includes("redução de duty")) return "unitops";
+  if(t.includes("I-3905")) return "fluids";
+  if(t.includes("boa tomada de decisão")) return "cic";
+  return "cic";
+}
+
+/* Banco de revisão: não repete a questão original. */
+const V7_REMEDIAL_BANK = {
+  trend:[
+    {
+      q:"LIC-39163 aumenta enquanto LIC-39164 permanece estável. Qual leitura inicial é mais consistente?",
+      correct:"O desvio está concentrado no inventário de hidrocarboneto do F-3906, exigindo correlação com sua retirada e refluxo.",
+      distractors:[
+        "O desvio está concentrado na água ácida, pois qualquer variação de nível superior é causada pela interface.",
+        "A causa mais provável é restrição comum no F-3915, mesmo sem alteração da interface.",
+        "O padrão confirma aumento simultâneo de água e hidrocarboneto na mesma proporção."
+      ],
+      exp:"O uso conjunto das duas medições ajuda a localizar qual fase está alterando inventário."
+    }
+  ],
+  control:[
+    {
+      q:"Em uma cascata LIC → FIC, o FIC não consegue atingir o SP enviado pelo LIC. Qual interpretação é mais adequada?",
+      correct:"A malha secundária está limitando a capacidade de execução da demanda da malha primária; deve-se investigar válvula, hidráulica e medição de vazão.",
+      distractors:[
+        "O LIC deve ser colocado automaticamente em manual porque toda diferença de SP/PV do FIC indica falha do controlador primário.",
+        "O FIC deve aumentar seu SP independentemente do LIC para recuperar o nível mais rapidamente.",
+        "A diferença entre SP e PV do FIC não interfere no nível, pois a cascata isola as duas malhas."
+      ],
+      exp:"Em cascata, a secundária precisa executar a demanda do primário; se não consegue, o nível continuará desviando."
+    }
+  ],
+  fluids:[
+    {
+      q:"Uma válvula abre mais, porém o ΔP disponível através dela cai fortemente. Qual comportamento de vazão pode ocorrer?",
+      correct:"A vazão pode crescer pouco ou até ficar praticamente limitada, porque capacidade de escoamento depende simultaneamente de Cv e ΔP.",
+      distractors:[
+        "A vazão sempre cresce proporcionalmente à abertura, independentemente da queda de pressão.",
+        "A vazão obrigatoriamente dobra se a abertura da válvula dobrar, desde que o fluido seja líquido.",
+        "A queda de pressão só afeta gases; em líquidos a abertura determina sozinha a vazão."
+      ],
+      exp:"Para líquido, Q é proporcional a Cv·√(ΔP/SG), de forma simplificada."
+    }
+  ],
+  unitops:[
+    {
+      q:"Após menor condensação no C-3902, o C-3903 passa a receber maior carga condensável. Que conceito explica melhor essa redistribuição?",
+      correct:"Condensação parcial em estágios, com equilíbrio vapor-líquido dependente da temperatura e pressão em cada etapa.",
+      distractors:[
+        "Sedimentação gravitacional no C-3902, que transfere diretamente a carga líquida ao segundo estágio.",
+        "Bombeamento da J-3904, que determina sozinho qual fração do vapor condensa em cada trocador.",
+        "Absorção física no F-3906, que consome os componentes mais voláteis antes do C-3903."
+      ],
+      exp:"O material que não condensa no primeiro estágio permanece disponível para condensar quando mais calor é removido no segundo."
+    }
+  ],
+  cic:[
+    {
+      q:"Em um desvio ainda não confirmado, qual atitude representa melhor disciplina de painel?",
+      correct:"Priorizar uma hipótese que explique o conjunto de tendências, buscar uma variável de confirmação e só então executar uma ação proporcional e verificável.",
+      distractors:[
+        "Atuar imediatamente na variável que mais se afastou do SP e confirmar a causa depois.",
+        "Modificar duas malhas relacionadas ao mesmo tempo para acelerar a resposta e comparar o resultado.",
+        "Esperar o alarme de maior prioridade antes de correlacionar variáveis que ainda estão dentro da faixa."
+      ],
+      exp:"A disciplina de painel reduz perturbações desnecessárias e preserva a capacidade de identificar causa e efeito."
+    }
+  ],
+  causality:[
+    {
+      q:"F-3915 estabiliza após recuperação da vazão da J-3924, mas uma das interfaces continua subindo. O que essa nova evidência faz com a hipótese de causa comum?",
+      correct:"Enfraquece a hipótese comum e desloca o diagnóstico para a retirada/geração local do vaso cuja interface continua desviando.",
+      distractors:[
+        "Fortalece a hipótese comum, pois a estabilização do F-3915 prova que o problema está a jusante.",
+        "Torna impossível diferenciar causa local de causa comum sem parar a J-3924 novamente.",
+        "Confirma falha de transmissor no vaso restante, pois uma causa real afetaria obrigatoriamente os dois vasos."
+      ],
+      exp:"Uma hipótese deve ser atualizada quando novas evidências deixam de sustentar o mecanismo causal proposto."
+    }
+  ]
+};
+
+let v7EvalConfidence = {};
+let v7LastEvalMistakes = [];
+let v7ReviewSession = [];
+
+/* Sobrescreve seleção da avaliação para coletar confiança depois da resposta. */
+const _v6SelectCICEval = window.selectCICEval;
+window.selectCICEval = function(qi,oi,btn){
+  _v6SelectCICEval(qi,oi,btn);
+  const exp=document.getElementById('evalExp'+qi);
+  if(exp && !exp.querySelector('.confidence-row')){
+    const row=document.createElement('div');
+    row.className='confidence-row';
+    row.innerHTML=`<span>Confiança:</span>
+      <button class="confidence-btn" onclick="setEvalConfidenceV7(${qi},'alta',this)">Alta</button>
+      <button class="confidence-btn" onclick="setEvalConfidenceV7(${qi},'media',this)">Média</button>
+      <button class="confidence-btn" onclick="setEvalConfidenceV7(${qi},'baixa',this)">Baixa / chute</button>`;
+    exp.appendChild(row);
+  }
+};
+function setEvalConfidenceV7(qi,level,btn){
+  v7EvalConfidence[qi]=level;
+  btn.parentElement.querySelectorAll('.confidence-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* Nova finalização: pontuação + competências + confiança + revisão adaptativa. */
+window.finishCICEvaluation = function(){
+  const rep=document.getElementById('evalReportV2');
+  if(!rep)return;
+  const unanswered=cicEvalSession.filter(q=>q.selected===null).length;
+  if(unanswered){
+    rep.innerHTML=`<b>Avaliação incompleta.</b><br>Faltam ${unanswered} questão(ões).`;
+    rep.classList.add('show');return;
+  }
+
+  const score=cicEvalSession.filter(q=>q.selected===q.correctIndex).length;
+  const p=pct(score,cicEvalSession.length);
+
+  const stats={};
+  Object.keys(V7_COMPETENCY_LABELS).forEach(k=>stats[k]={ok:0,total:0});
+  v7LastEvalMistakes=[];
+
+  cicEvalSession.forEach((q,i)=>{
+    const comp=competencyForEvalQuestionV7(q);
+    stats[comp].total++;
+    const ok=q.selected===q.correctIndex;
+    if(ok)stats[comp].ok++;
+    else v7LastEvalMistakes.push({comp,q});
+  });
+
+  const highConfidenceWrong=cicEvalSession.filter((q,i)=>q.selected!==q.correctIndex && v7EvalConfidence[i]==='alta').length;
+  const lowConfidenceCorrect=cicEvalSession.filter((q,i)=>q.selected===q.correctIndex && v7EvalConfidence[i]==='baixa').length;
+
+  let band=p>=85?'Domínio operacional consistente':p>=65?'Domínio intermediário':'Reforço recomendado';
+  let confidenceNote='';
+  if(highConfidenceWrong>0) confidenceNote+=`<br><b>Atenção:</b> ${highConfidenceWrong} erro(s) com confiança alta — priorize revisão desses conceitos.`;
+  if(lowConfidenceCorrect>0) confidenceNote+=`<br>${lowConfidenceCorrect} acerto(s) foram marcados com baixa confiança; trate-os como conhecimento ainda não consolidado.`;
+
+  rep.innerHTML=`<b>${band}</b><br>Resultado geral: ${score}/${cicEvalSession.length} (${p}%).${confidenceNote}
+    <div class="eval-summary-grid">
+      <div><b>${v7LastEvalMistakes.length}</b><small>pontos para revisão</small></div>
+      <div><b>${highConfidenceWrong}</b><small>erros com alta confiança</small></div>
+      <div><b>${lowConfidenceCorrect}</b><small>acertos com baixa confiança</small></div>
+    </div>`;
+  rep.classList.add('show');
+
+  const panel=document.getElementById('competencyPanelV7');
+  const list=document.getElementById('competencyListV7');
+  panel.style.display='block';
+  list.innerHTML=Object.entries(stats).filter(([k,v])=>v.total>0).map(([k,v])=>{
+    const cp=pct(v.ok,v.total);
+    return `<div class="comp-row"><span>${V7_COMPETENCY_LABELS[k]}</span><div class="bar"><span style="width:${cp}%"></span></div><b>${cp}%</b></div>`;
+  }).join('');
+
+  const review=document.getElementById('smartReviewBoxV7');
+  const intro=document.getElementById('smartReviewIntroV7');
+  if(v7LastEvalMistakes.length){
+    review.classList.add('show');
+    const comps=[...new Set(v7LastEvalMistakes.map(x=>V7_COMPETENCY_LABELS[x.comp]))];
+    intro.textContent=`A revisão não repetirá as questões originais. Ela criará novas perguntas focadas em: ${comps.join(', ')}.`;
+  }else{
+    review.classList.remove('show');
+  }
+};
+
+function startSmartReviewV7(){
+  const engine=document.getElementById('smartReviewEngineV7');
+  if(!v7LastEvalMistakes.length){engine.innerHTML='Nenhum erro para revisar.';return;}
+  const comps=[...new Set(v7LastEvalMistakes.map(x=>x.comp))];
+  const qs=[];
+  comps.forEach(c=>{
+    const bank=V7_REMEDIAL_BANK[c]||[];
+    if(bank.length)qs.push({...fyShuffle(bank)[0],comp:c});
+  });
+  const slots=balancedSlots(qs.length);
+  v7ReviewSession=qs.map((q,i)=>({...q,options:buildOptions(q.correct,q.distractors,slots[i]),correctIndex:slots[i],selected:null}));
+  engine.innerHTML=v7ReviewSession.map((q,i)=>`
+    <div class="remedial-card" id="remCard${i}">
+      <h4>${V7_COMPETENCY_LABELS[q.comp]} — ${q.q}</h4>
+      <div class="remedial-options">
+        ${q.options.map((o,j)=>`<button onclick="answerSmartReviewV7(${i},${j},this)">${String.fromCharCode(65+j)}. ${o}</button>`).join('')}
+      </div>
+      <div class="tech-explain" id="remExp${i}"></div>
+    </div>`).join('');
+}
+function answerSmartReviewV7(i,j,btn){
+  const q=v7ReviewSession[i]; if(q.selected!==null)return;
+  q.selected=j;
+  const card=document.getElementById('remCard'+i);
+  card.querySelectorAll('.remedial-options button').forEach((b,k)=>{
+    b.disabled=true;
+    if(k===q.correctIndex)b.classList.add('correct');
+    if(k===j&&j!==q.correctIndex)b.classList.add('wrong');
+  });
+  const exp=document.getElementById('remExp'+i);
+  exp.innerHTML=(j===q.correctIndex?'<b>Correto.</b> ':'<b>Melhor resposta: '+String.fromCharCode(65+q.correctIndex)+'.</b> ')+q.exp;
+  exp.classList.add('show');
+}
+
+/* CIC: consequência da decisão anterior altera o contexto percebido no passo seguinte. */
+let v7CICDecisionHistory=[];
+const _v6RestartCIC=window.restartCICTraining;
+window.restartCICTraining=function(){
+  v7CICDecisionHistory=[];
+  const banner=document.getElementById('cicBranchBannerV7');
+  if(banner){banner.className='branch-banner';banner.innerHTML='';}
+  _v6RestartCIC();
+};
+
+const _v6AnswerCIC=window.answerCICTraining;
+window.answerCICTraining=function(index,btn){
+  if(cicRun.answered)return;
+  const {scenario,step}=currentCICStep();
+  const choice=step._ordered[index];
+  v7CICDecisionHistory.push({
+    scenario:cicRun.scenarioIndex,
+    step:cicRun.stepIndex,
+    score:choice.score,
+    text:choice.text
+  });
+  _v6AnswerCIC(index,btn);
+};
+
+function consequenceForDecisionV7(decision){
+  if(!decision)return null;
+  if(decision.score===3) return {
+    cls:'good',
+    text:'Sua decisão anterior preservou a leitura causal do processo. A nova informação chega sem perturbação adicional introduzida pelo operador.'
+  };
+  if(decision.score===2) return {
+    cls:'partial',
+    text:'Sua decisão anterior era tecnicamente plausível, mas consumiu tempo em uma hipótese secundária. Enquanto a confirmação era feita, a tendência principal continuou evoluindo.'
+  };
+  if(decision.score===1) return {
+    cls:'partial',
+    text:'A decisão anterior teve baixa prioridade diagnóstica. O cenário evoluiu antes que a causa principal fosse confirmada, reduzindo a margem para observação.'
+  };
+  return {
+    cls:'poor',
+    text:'A decisão anterior introduziu uma ação pouco sustentada pelos dados. A próxima etapa deve ser interpretada considerando que o operador adicionou uma nova perturbação ao sistema.'
+  };
+}
+
+const _v6NextCIC=window.nextCICTrainingStep;
+window.nextCICTrainingStep=function(){
+  if(!cicRun.answered)return;
+  const last=v7CICDecisionHistory[v7CICDecisionHistory.length-1];
+  const consequence=consequenceForDecisionV7(last);
+  _v6NextCIC();
+
+  setTimeout(()=>{
+    const banner=document.getElementById('cicBranchBannerV7');
+    if(!banner)return;
+    /* Se o simulado terminou, não poluir o resultado final. */
+    const choices=document.getElementById('cicChoicesV2');
+    if(!choices || choices.children.length===0){
+      banner.className='branch-banner';banner.innerHTML='';return;
+    }
+    banner.className=`branch-banner show ${consequence.cls}`;
+    banner.innerHTML=`<b>Consequência da decisão anterior:</b> ${consequence.text}`;
+  },0);
+};
+
+/* Reinicia confiança/relatórios ao criar uma nova avaliação */
+const _v6StartEval=window.startCICEvaluation;
+window.startCICEvaluation=function(){
+  v7EvalConfidence={};
+  v7LastEvalMistakes=[];
+  const p=document.getElementById('competencyPanelV7'); if(p)p.style.display='none';
+  const r=document.getElementById('smartReviewBoxV7'); if(r)r.classList.remove('show');
+  const e=document.getElementById('smartReviewEngineV7'); if(e)e.innerHTML='';
+  _v6StartEval();
 };
 </script>
 </body>

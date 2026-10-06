@@ -1,7 +1,7 @@
 {
   "name": "E-3901 Fracionadora Topo Concept",
   "short_name": "E-3901 Topo",
-  "description": "Concept interativo da E-3901 com quizzes balanceados, simulados CIC encadeados e módulos técnicos de Mecânica dos Fluidos e Operações Unitárias.",
+  "description": "Concept interativo da E-3901 com treinamento adaptativo, avaliação por competências, revisão inteligente e simulados CIC encadeados.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
