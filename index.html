@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <meta content="#0f172a" name="theme-color"/>
-<title>E-3901 — Fracionadora Topo Concept PWA • Layout Refinado</title>
+<title>E-3901 — Fracionadora Topo Concept PWA • Treinamento Técnico V6</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -317,7 +317,6 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
 @media(max-width:900px){.training-hub{grid-template-columns:1fr}.training-menu{position:static;grid-template-columns:repeat(2,1fr)}.cic-sim{grid-template-columns:1fr}.operator-cycle{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.training-menu,.training-grid{grid-template-columns:1fr}.training-kpi{grid-template-columns:1fr 1fr}}
 </style>
-
 <style id="layout-clean-v5">
 /* V5 — reorganização visual, conteúdo preservado */
 body{background:#07111f}
@@ -458,6 +457,114 @@ body.training-open{overflow:hidden}
   .clean-details .hotspot-grid{grid-template-columns:1fr}
 }
 </style>
+
+<style id="training-technical-v6">
+.module-head-clean{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.module-head-clean h2{margin:0 0 6px}
+.module-head-clean p{margin:0;color:var(--muted);line-height:1.52;max-width:650px}
+.module-action{
+  border:1px solid #31516a;background:#0c1b28;color:#eaf3fa;border-radius:10px;
+  padding:9px 11px;cursor:pointer;white-space:nowrap
+}
+.module-action.primary{border-color:rgba(85,214,190,.38);background:rgba(85,214,190,.1)}
+.quiz-meta-clean{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:10px 0;color:#9fb6c8;font-size:.8rem}
+.technical-quiz-engine{display:grid;gap:10px}
+.tech-q{
+  border:1px solid #29465d;background:#091827;border-radius:14px;padding:14px
+}
+.tech-q .q-index{font-size:.72rem;color:#7fa0b8;margin-bottom:6px;font-weight:800;letter-spacing:.06em}
+.tech-q h4{margin:0 0 11px;font-size:.97rem;line-height:1.48}
+.tech-options{display:grid;gap:7px}
+.tech-option{
+  display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:flex-start;text-align:left;
+  border:1px solid #31516a;background:#0c1b28;color:#eef7ff;border-radius:10px;padding:10px;cursor:pointer
+}
+.tech-option:hover{border-color:#5b86a5;background:#102638}
+.tech-option .letter{
+  width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#07131d;
+  color:#bcd1df;font-weight:900;font-size:.78rem
+}
+.tech-option.selected{border-color:#6b91ac;background:#10283a}
+.tech-option.correct{border-color:rgba(88,214,141,.58);background:rgba(88,214,141,.09)}
+.tech-option.wrong{border-color:rgba(255,107,107,.55);background:rgba(255,107,107,.07)}
+.tech-option:disabled{cursor:default;opacity:1}
+.tech-explain{display:none;margin-top:10px;padding:10px 11px;border-radius:10px;background:#0a1b28;color:#bcd1df;font-size:.84rem;line-height:1.48}
+.tech-explain.show{display:block}
+.quiz-footer-clean{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px}
+.technical-report{
+  display:none;margin-top:12px;padding:13px;border-radius:12px;background:#081827;
+  border:1px solid rgba(95,168,255,.18);line-height:1.55
+}
+.technical-report.show{display:block}
+
+/* CIC V2 */
+.cic-sim-v2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:12px}
+.cic-state-v2,.cic-decision-v2{border:1px solid #29465d;background:#091827;border-radius:14px;padding:14px}
+.cic-scenario-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.cic-state-v2 h3,.cic-decision-v2 h3{margin:8px 0}
+.scenario-context-v2{color:#9fb6c8;line-height:1.48;margin:0 0 10px}
+.trend-grid-v2{display:grid;gap:6px}
+.trend-chip-v2{
+  display:grid;grid-template-columns:1fr auto;gap:10px;padding:8px 10px;border-radius:9px;
+  background:#0c1b28;border:1px solid #243f54;font-size:.83rem
+}
+.trend-chip-v2 span:last-child{font-weight:800}
+.cic-step-label{color:#91a9bd;font-size:.76rem;margin-top:8px}
+.cic-choices-v2{display:grid;gap:7px}
+.cic-choice-v2{
+  display:grid;grid-template-columns:30px 1fr;gap:9px;text-align:left;align-items:flex-start;
+  border:1px solid #31516a;background:#0c1b28;color:#eef7ff;border-radius:10px;padding:10px
+}
+.cic-choice-v2:hover{border-color:#6a91aa}
+.cic-choice-v2 .letter{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#07131d;font-weight:900;font-size:.78rem}
+.cic-choice-v2.best{border-color:rgba(88,214,141,.58);background:rgba(88,214,141,.09)}
+.cic-choice-v2.partial{border-color:rgba(255,193,78,.48);background:rgba(255,193,78,.07)}
+.cic-choice-v2.weak{border-color:rgba(255,180,84,.35)}
+.cic-choice-v2.poor{border-color:rgba(255,107,107,.48);background:rgba(255,107,107,.05)}
+.cic-choice-v2:disabled{cursor:default;opacity:1}
+.cic-feedback-v2{
+  min-height:70px;margin-top:10px;padding:10px 11px;border-radius:10px;background:#081827;
+  border:1px solid #27465e;color:#c3d5e2;line-height:1.5;font-size:.85rem
+}
+.cic-nav-v2{display:flex;justify-content:flex-end;margin-top:10px}
+.training-expand{margin-top:16px;border:1px solid #29465d;border-radius:13px;background:#091827}
+.training-expand summary{padding:12px 13px;cursor:pointer;font-weight:800}
+.training-expand .expand-intro{padding:0 13px;color:#9fb6c8;font-size:.84rem}
+.training-expand .sim-grid{padding:0 13px 13px}
+
+/* Technical modules */
+.technical-intro{color:#9fb6c8;line-height:1.6;margin-top:0}
+.technical-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.technical-card{
+  position:relative;border:1px solid #29465d;background:linear-gradient(180deg,#0d2030,#091722);
+  border-radius:14px;padding:14px;overflow:hidden
+}
+.technical-card h3{margin:0 0 8px;padding-right:34px;font-size:.96rem}
+.technical-card p{margin:7px 0;color:#b1c4d1;font-size:.84rem;line-height:1.52}
+.tech-number{
+  position:absolute;right:12px;top:11px;color:#4e7189;font-size:.75rem;font-weight:900;letter-spacing:.08em
+}
+.equation-box{
+  margin:10px 0;padding:9px 10px;border-radius:9px;background:#06121b;border:1px solid #25445a;
+  color:#d9eefb;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.84rem;text-align:center
+}
+.operator-link{
+  padding-top:8px;border-top:1px solid rgba(255,255,255,.07);color:#c8dae6!important
+}
+.technical-check{
+  margin-top:12px;padding:13px 14px;border-radius:13px;background:rgba(85,214,190,.055);
+  border:1px solid rgba(85,214,190,.18)
+}
+.technical-check h3{margin:0 0 7px}
+.technical-check p{margin:5px 0;color:#bfd5d0;line-height:1.52;font-size:.86rem}
+@media(max-width:760px){
+  .module-head-clean{flex-direction:column}
+  .module-action{white-space:normal}
+  .cic-sim-v2,.technical-grid{grid-template-columns:1fr}
+  .quiz-footer-clean{justify-content:stretch}
+  .quiz-footer-clean .module-action{flex:1}
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -584,9 +691,6 @@ body.training-open{overflow:hidden}
 <div class="hotspot-card"><button onclick="openEquip('F3915')">💡</button><h3>F-3915</h3><p>Tambor de água ácida, desacoplando geração e transferência.</p></div>
 <div class="hotspot-card"><button onclick="openEquip('J3924')">💡</button><h3>J-3924</h3><p>Bomba de água ácida com sucção normal do F-3915 e envio para U-80.</p></div>
 </div></details>
-
-
-
 <section class="section section-compact" id="cic">
 <div class="section-title">
 <div>
@@ -607,12 +711,10 @@ body.training-open{overflow:hidden}
 </div>
 </div>
 </section>
-
-
 <div class="section">
 <div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
 </div>
-<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V5 • layout refinado</div>
+<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V6 • treinamento técnico refinado</div>
 </div>
 <div class="training-backdrop-clean" id="trainingBackdropClean" onclick="closeTrainingDrawer()"></div><aside aria-hidden="true" class="training-drawer-clean" id="trainingDrawerClean"><div class="training-drawer-head"><div><strong>Treinamentos</strong><small id="trainingBreadcrumbClean">Visão geral</small></div><button aria-label="Fechar treinamentos" class="drawer-close" onclick="closeTrainingDrawer()">✕</button></div><div class="training-drawer-body"><nav class="training-drawer-nav"><button class="active" data-training-clean="home" onclick="selectTrainingModule('home', this)"><strong>Visão geral</strong><small>Resumo do método e módulos</small></button><button data-training-clean="quizTreino" onclick="selectTrainingModule('quizTreino', this)"><strong>Quizzes</strong><small>Fixação de equipamentos, fases e malhas</small></button><button data-training-clean="simCIC" onclick="selectTrainingModule('simCIC', this)"><strong>Cenários + Simulações CIC</strong><small>Tendências, diagnóstico e prioridade</small></button><button data-training-clean="mecanica" onclick="selectTrainingModule('mecanica', this)"><strong>Mecânica dos Fluidos</strong><small>Pressão, vazão, ejetor e separação</small></button><button data-training-clean="unitarias" onclick="selectTrainingModule('unitarias', this)"><strong>Operações Unitárias</strong><small>Fracionar, condensar, separar e bombear</small></button><button data-training-clean="avaliacaoCIC" onclick="selectTrainingModule('avaliacaoCIC', this)"><strong>Avaliação Operador CIC</strong><small>Visão integrada de painel e processo</small></button></nav><div class="training-drawer-content"><section class="training-pane-clean active" id="training-clean-home"><span class="module-chip">CENTRO DE TREINAMENTO</span><h2>Treinamento da E-3901 — Topo</h2><p class="training-intro-clean">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</p><div class="training-kpi">
 <div><b>5 módulos</b><small>teoria + prática</small></div>
@@ -626,101 +728,57 @@ body.training-open{overflow:hidden}
 <div><b>4. CONFIRMAÇÃO</b><small>o processo respondeu?</small></div>
 </div><div class="training-home-grid"><button class="training-home-card" onclick="selectTrainingModule('quizTreino')"><strong>Quizzes</strong><span>Fixação ativa dos equipamentos, fases e malhas.</span></button><button class="training-home-card" onclick="selectTrainingModule('simCIC')"><strong>Cenários + Simulações CIC</strong><span>Treino de tendência, causa provável e primeira decisão.</span></button><button class="training-home-card" onclick="selectTrainingModule('unitarias')"><strong>Operações Unitárias</strong><span>Integração entre fracionamento, condensação, separação e bombeamento.</span></button><button class="training-home-card" onclick="selectTrainingModule('mecanica')"><strong>Mecânica dos Fluidos</strong><span>Relação entre pressão, vazão, perda de carga, interface e ejetor.</span></button><button class="training-home-card" onclick="selectTrainingModule('avaliacaoCIC')"><strong>Avaliação Operador CIC</strong><span>Diagnóstico, prioridade, ação e confirmação.</span></button></div></section><div class="training-pane-clean" id="training-clean-quizTreino">
 <span class="module-chip">MÓDULO 1 • QUIZZES</span>
-<h3>Quiz de processo</h3>
-<p>As alternativas foram aproximadas para exigir leitura do processo e não simples eliminação.</p>
-<div class="practice-q">
-<strong>1. LIC-39164 sobe enquanto LIC-39163 permanece praticamente estável. Qual interpretação inicial é mais consistente?</strong>
-<div class="practice-options">
-<button onclick="trainingAnswer(this,false)">A) A fase hidrocarboneto aumentou prioritariamente.</button>
-<button onclick="trainingAnswer(this,true)">B) A fase aquosa/interface aumentou ou sua retirada perdeu capacidade.</button>
-<button onclick="trainingAnswer(this,false)">C) A mudança indica primeiro perda de rotação da J-3904.</button>
-<button onclick="trainingAnswer(this,false)">D) A mudança prova perda de eficiência do C-3903.</button>
+<div class="module-head-clean">
+<div>
+<h2>Quiz técnico de processo</h2>
+<p>As alternativas são propositalmente próximas entre si. A cada reinicialização, as questões e as alternativas são reorganizadas, e as respostas corretas são distribuídas entre A/B/C/D sem posição predominante.</p>
 </div>
-<div class="practice-feedback">LIC-39164 representa a interface do F-3906; a estabilidade do nível de HC ajuda a deslocar a hipótese para a fase aquosa.</div>
+<button class="module-action" onclick="startTechnicalQuiz()">↻ Novo quiz</button>
 </div>
-<div class="practice-q">
-<strong>2. Qual é a melhor explicação para a existência do F-3907 depois do F-3906?</strong>
-<div class="practice-options">
-<button onclick="trainingAnswer(this,false)">A) Funcionar como reserva hidráulica do F-3906.</button>
-<button onclick="trainingAnswer(this,true)">B) Separar nova parcela condensada após resfriamento adicional da corrente.</button>
-<button onclick="trainingAnswer(this,false)">C) Controlar diretamente a pressão da E-3901.</button>
-<button onclick="trainingAnswer(this,false)">D) Armazenar apenas a água que não entrou no F-3906.</button>
+<div class="quiz-meta-clean">
+<span id="techQuizCounter">0 / 0 respondidas</span>
+<span id="techQuizScore">Pontuação será exibida ao finalizar</span>
 </div>
-<div class="practice-feedback">O segundo estágio melhora a recuperação líquida antes de o gás seguir para compressão.</div>
+<div class="technical-quiz-engine" id="technicalQuizEngine"></div>
+<div class="quiz-footer-clean">
+<button class="module-action primary" onclick="finishTechnicalQuiz()">Finalizar quiz</button>
+<button class="module-action" onclick="startTechnicalQuiz()">Reiniciar e embaralhar</button>
 </div>
-<div class="practice-q">
-<strong>3. F-3915 sobe, J-3924 está parada e depois as duas interfaces começam a subir. Qual hipótese merece prioridade?</strong>
-<div class="practice-options">
-<button onclick="trainingAnswer(this,true)">A) Perda de capacidade de retirada comum a jusante do sistema de água ácida.</button>
-<button onclick="trainingAnswer(this,false)">B) Falha simultânea dos dois transmissores de interface.</button>
-<button onclick="trainingAnswer(this,false)">C) Aumento isolado de hidrocarboneto nos dois vasos.</button>
-<button onclick="trainingAnswer(this,false)">D) Alteração exclusiva no I-3905.</button>
+<div class="technical-report" id="technicalQuizReport"></div>
+</div><div class="training-pane-clean" id="training-clean-simCIC">
+<span class="module-chip">MÓDULO 2 • CENÁRIOS + SIMULAÇÕES CIC</span>
+<div class="module-head-clean">
+<div>
+<h2>Simulado de raciocínio operacional CIC</h2>
+<p>Cada cenário é encadeado em etapas. Todas as alternativas são plausíveis, mas possuem prioridades diferentes. O objetivo é reconhecer a <b>melhor linha de raciocínio</b>, não apenas eliminar respostas absurdas.</p>
 </div>
-<div class="practice-feedback">A tendência comum em equipamentos diferentes é um forte indício para procurar uma causa compartilhada antes de supor falhas independentes.</div>
+<button class="module-action" onclick="restartCICTraining()">↻ Novo simulado</button>
 </div>
-<div class="practice-q">
-<strong>4. O controlador abre mais a retirada de água, mas a interface continua subindo. O que deve ser verificado antes de concluir falha de indicação?</strong>
-<div class="practice-options">
-<button onclick="trainingAnswer(this,false)">A) Apenas o valor do setpoint.</button>
-<button onclick="trainingAnswer(this,true)">B) Resposta da válvula, condição hidráulica, restrições e capacidade do caminho até o F-3915.</button>
-<button onclick="trainingAnswer(this,false)">C) Apenas a temperatura da E-3901.</button>
-<button onclick="trainingAnswer(this,false)">D) Somente a pressão do gás externo.</button>
+<div class="cic-sim-v2">
+<div class="cic-state-v2">
+<div class="cic-scenario-top">
+<span class="module-chip" id="cicScenarioBadge">CENÁRIO</span>
+<span id="cicOverallProgress">0%</span>
 </div>
-<div class="practice-feedback">No CIC, comando não é sinônimo de efeito. É preciso confirmar a resposta real do elemento final e do processo.</div>
+<h3 id="cicScenarioTitle">Carregando cenário...</h3>
+<p class="scenario-context-v2" id="cicScenarioContext"></p>
+<div class="trend-grid-v2" id="cicTrendGrid"></div>
+<div class="progress-bar"><div class="progress-fill" id="cicProgressV2"></div></div>
+<div class="cic-step-label" id="cicStepLabel"></div>
 </div>
-<div class="training-divider">Quiz rápido — revisão</div><div class="quiz">
-<div class="q">
-<div class="q-title">1. Se o LIC-39164 sobe e o LIC-39163 permanece praticamente estável, qual fase está aumentando prioritariamente no F-3906?</div>
-<div class="options">
-<button onclick="answer(this,false)">A) Hidrocarboneto</button>
-<button onclick="answer(this,true)">B) Água / interface aquosa</button>
-<button onclick="answer(this,false)">C) Apenas gás</button>
-<button onclick="answer(this,false)">D) Não há alteração de inventário</button>
-</div>
-<div class="feedback">O LIC-39164 representa a interface água/HC do F-3906. Subida isolada dessa variável aponta para aumento da fase aquosa ou redução da sua retirada.</div>
-</div>
-<div class="q">
-<div class="q-title">2. Qual interpretação melhor representa a função do F-3907?</div>
-<div class="options">
-<button onclick="answer(this,false)">A) Apenas armazenar gás antes do compressor</button>
-<button onclick="answer(this,true)">B) Realizar uma segunda separação após condensação adicional</button>
-<button onclick="answer(this,false)">C) Aquecer a corrente de topo</button>
-<button onclick="answer(this,false)">D) Substituir a função do F-3906</button>
-</div>
-<div class="feedback">O F-3907 recebe a corrente após resfriamento/condensação adicional, separando novamente gás, hidrocarboneto e água.</div>
-</div>
-<div class="q">
-<div class="q-title">3. Se F-3915 ↑ e J-3924 está parada, qual consequência tende a surgir posteriormente?</div>
-<div class="options">
-<button onclick="answer(this,false)">A) Interfaces dos F-3906/F-3907 necessariamente caem</button>
-<button onclick="answer(this,true)">B) A capacidade de retirar água dos vasos de topo pode ser prejudicada</button>
-<button onclick="answer(this,false)">C) O I-3905 deixa de funcionar por definição</button>
-<button onclick="answer(this,false)">D) A E-3901 deixa imediatamente de fracionar</button>
-</div>
-<div class="feedback">O acúmulo no F-3915 reduz a capacidade do sistema de receber a água drenada dos vasos de topo, podendo repercutir nos níveis de interface.</div>
-</div>
-</div></div><div class="training-pane-clean" id="training-clean-simCIC">
-<span class="module-chip">MÓDULO 2 • CENÁRIOS + SIMULAÇÃO CIC</span>
-<h3>Tomada de decisão por tendência</h3>
-<p>O cenário apresenta uma “fotografia dinâmica” do painel. Escolha a primeira linha de diagnóstico e depois avance.</p>
-<div class="cic-sim">
-<div class="cic-console">
-<h4 id="simTitle">Cenário A</h4>
-<div class="cic-line"><b>LIC-39164</b><span id="sim64"></span></div>
-<div class="cic-line"><b>LIC-39166</b><span id="sim66"></span></div>
-<div class="cic-line"><b>F-3915</b><span id="sim15"></span></div>
-<div class="cic-line"><b>J-3924</b><span id="simPump"></span></div>
-<div class="cic-line"><b>FIC-39190</b><span id="sim190"></span></div>
-<div class="progress-bar"><div class="progress-fill" id="simProgress"></div></div>
-</div>
-<div class="cic-console">
-<h4>Primeira linha de raciocínio</h4>
-<div class="cic-actions" id="simActions"></div>
-<div class="sim-result" id="simResult">Selecione uma decisão para ver a análise.</div>
-<button class="reveal" onclick="nextCICScenario()" style="margin-top:10px">Próximo cenário</button>
+<div class="cic-decision-v2">
+<h3 id="cicPromptV2">Qual é a melhor interpretação?</h3>
+<div class="cic-choices-v2" id="cicChoicesV2"></div>
+<div class="cic-feedback-v2" id="cicFeedbackV2">Escolha a alternativa que melhor prioriza diagnóstico, segurança e confirmação.</div>
+<div class="cic-nav-v2">
+<button class="module-action primary" disabled="" id="cicNextBtnV2" onclick="nextCICTrainingStep()">Próxima etapa</button>
 </div>
 </div>
-<div class="training-divider">Simulação da interface água / hidrocarboneto</div><div class="sim-grid">
+</div>
+<details class="training-expand">
+<summary>Simulação física da interface água / hidrocarboneto</summary>
+<p class="expand-intro">Use o controle deslizante para visualizar como o inventário relativo de água altera a posição da interface nos tambores.</p>
+<div class="sim-grid">
 <div class="sim-card">
 <h3>F-3906 • LIC-39164</h3>
 <div class="vessel">
@@ -729,7 +787,7 @@ body.training-open{overflow:hidden}
 <div class="layer water" id="water1"></div>
 </div>
 <input class="slider" id="s1" max="70" min="5" oninput="updateVessel(1,this.value)" type="range" value="30"/>
-<div class="level-label"><span>menos água</span><span>mais água</span></div>
+<div class="level-label"><span>menor interface</span><span>maior interface</span></div>
 <div class="warning" id="warn1"></div>
 </div>
 <div class="sim-card">
@@ -740,79 +798,164 @@ body.training-open{overflow:hidden}
 <div class="layer water" id="water2"></div>
 </div>
 <input class="slider" id="s2" max="70" min="5" oninput="updateVessel(2,this.value)" type="range" value="30"/>
-<div class="level-label"><span>menos água</span><span>mais água</span></div>
+<div class="level-label"><span>menor interface</span><span>maior interface</span></div>
 <div class="warning" id="warn2"></div>
 </div>
-</div><div class="insight"><b>Regra mental:</b> interface muito baixa aumenta o risco de hidrocarboneto seguir pela retirada de água; interface muito alta reduz o volume útil para separação e aumenta o risco de água alcançar a região de retirada de hidrocarboneto.</div><div class="training-divider">Cenários operacionais encadeados</div><div class="scenarios">
-<div class="scenario">
-<h4>Cenário 1 — Interface subindo sem resposta</h4>
-<p>LIC-39164 sobe continuamente. A saída do controlador aumenta, mas a interface não estabiliza.</p>
-<button class="reveal" onclick="reveal(this)">Revelar análise</button>
-<div class="answer">Investigar aumento real da carga de água, restrição/obstrução na retirada, falha de válvula, perda de capacidade do caminho até o F-3915 ou indicação incorreta.</div>
 </div>
-<div class="scenario">
-<h4>Cenário 2 — Ambos os vasos sobem</h4>
-<p>LIC-39164 ↑, LIC-39166 ↑ e o nível do F-3915 também ↑.</p>
-<button class="reveal" onclick="reveal(this)">Revelar análise</button>
-<div class="answer">Como os dois vasos apresentam a mesma tendência, aumenta a suspeita de causa comum a jusante: acúmulo no F-3915, redução da transferência pela J-3924 ou restrição comum no sistema de água ácida.</div>
-</div>
-<div class="scenario">
-<h4>Cenário 3 — Só o F-3907 muda</h4>
-<p>LIC-39166 ↑ enquanto LIC-39164 permanece estável.</p>
-<button class="reveal" onclick="reveal(this)">Revelar análise</button>
-<div class="answer">Direcionar a investigação para o segundo estágio: condições de condensação no C-3903, retirada de água do F-3907, funcionamento da válvula associada ou alteração específica da corrente que chega ao F-3907.</div>
-</div>
-<div class="scenario">
-<h4>Cenário 4 — J-3924 indisponível</h4>
-<p>A J-3924 para e a geração de água ácida permanece.</p>
-<button class="reveal" onclick="reveal(this)">Revelar análise</button>
-<div class="answer">O primeiro efeito esperado é aumento do nível do F-3915. Mantida a condição, a capacidade de receber água dos F-3906/F-3907 diminui e as interfaces podem começar a subir.</div>
-</div>
-</div></div><div class="training-pane-clean" id="training-clean-mecanica">
+</details>
+</div><div class="training-pane-clean" id="training-clean-mecanica">
 <span class="module-chip">MÓDULO 3 • MECÂNICA DOS FLUIDOS</span>
-<h3>Mecânica dos Fluidos aplicada ao topo</h3>
-<p>O objetivo não é estudar fórmulas isoladas, mas reconhecer a física por trás das tendências observadas no CIC.</p>
-<div class="training-grid">
-<div class="training-card"><h4>I-3905 — ejetor</h4><p>O fluido motriz acelera e cria uma região de menor pressão capaz de succionar outra corrente. A capacidade depende de pressão motriz, contrapressão e geometria.</p></div>
-<div class="training-card"><h4>Separação por densidade</h4><p>F-3906 e F-3907 precisam de diferença de densidade e tempo de residência para formar uma interface estável entre água e hidrocarboneto.</p></div>
-<div class="training-card"><h4>Perda de carga</h4><p>Uma válvula mais aberta não garante maior vazão se houver restrição, contrapressão elevada ou pouca força motriz disponível.</p></div>
-<div class="training-card"><h4>Sucção de bombas</h4><p>Inventário baixo e condições desfavoráveis de sucção reduzem margem hidráulica e podem comprometer a transferência pela bomba.</p></div>
+<h2>Mecânica dos Fluidos aplicada ao topo da E-3901</h2>
+<p class="technical-intro">O foco é ligar os princípios de conservação de massa, energia e quantidade de movimento às tendências observadas no CIC. As equações abaixo são relações de engenharia para interpretação — não substituem dados de projeto ou curvas dos equipamentos.</p>
+<div class="technical-grid">
+<article class="technical-card">
+<div class="tech-number">01</div>
+<h3>I-3905 — ejetor: quantidade de movimento</h3>
+<p>O gás motriz entra com pressão elevada, acelera no bocal e transfere quantidade de movimento à corrente succionada. A região de mistura opera com pressão suficientemente baixa para promover a sucção, e o difusor converte parte da energia cinética novamente em pressão.</p>
+<div class="equation-box">ṁ<sub>m</sub>·V<sub>m</sub> + ṁ<sub>s</sub>·V<sub>s</sub> → (ṁ<sub>m</sub>+ṁ<sub>s</sub>)·V<sub>mistura</sub></div>
+<p class="operator-link"><b>No CIC:</b> redução da pressão/energia do gás motriz ou aumento de contrapressão pode reduzir a capacidade de arraste do ejetor, sem existir motor ou elemento rotativo a diagnosticar.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">02</div>
+<h3>Perda de carga no caminho da água ácida</h3>
+<p>A vazão retirada do F-3906/F-3907 não depende apenas da abertura da válvula. Linha, acessórios, válvulas, diferença de cotas e contrapressão formam uma resistência hidráulica.</p>
+<div class="equation-box">ΔP ≈ [ f·L/D + ΣK ] · ρV²/2</div>
+<p class="operator-link"><b>No CIC:</b> saída do controlador ↑ com interface ainda ↑ pode significar que o elemento final está abrindo, mas a curva hidráulica não permite a vazão necessária.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">03</div>
+<h3>Válvula de controle — Cv e ΔP disponível</h3>
+<p>Para líquido incompressível, de forma simplificada, a capacidade de uma válvula cresce com seu Cv e com a raiz da queda de pressão disponível. Por isso, 70% de abertura não significa 70% da vazão máxima.</p>
+<div class="equation-box">Q ∝ Cv · √(ΔP / SG)</div>
+<p class="operator-link"><b>No CIC:</b> comparar MV, posição real da válvula, ΔP disponível e resposta da PV evita concluir incorretamente que “válvula abriu, logo a vazão aumentou”.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">04</div>
+<h3>Separação água × hidrocarboneto</h3>
+<p>Nos tambores, gotas da fase dispersa precisam se deslocar através da fase contínua. A velocidade de separação depende de diferença de densidade, diâmetro de gota, viscosidade e regime de escoamento. Em regime de Stokes, a tendência é:</p>
+<div class="equation-box">v<sub>t</sub> ∝ (Δρ · g · d²) / μ</div>
+<p class="operator-link"><b>No CIC:</b> maior viscosidade, gotas menores ou agitação podem piorar a separação mesmo sem mudança relevante na vazão total.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">05</div>
+<h3>Tempo de residência e estabilidade da interface</h3>
+<p>O vaso precisa oferecer volume suficiente para desacelerar a corrente e permitir separação. A relação básica entre volume útil e vazão define uma escala de tempo do processo.</p>
+<div class="equation-box">t<sub>R</sub> ≈ V<sub>útil</sub> / Q</div>
+<p class="operator-link"><b>No CIC:</b> aumento de carga líquida reduz o tempo de residência e pode tornar a interface mais sensível, mesmo com a malha de nível corretamente sintonizada.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">06</div>
+<h3>J-3924 — curva da bomba × curva do sistema</h3>
+<p>O ponto de operação de uma bomba centrífuga é definido pela interseção entre a curva da bomba e a curva do sistema. Aumento de resistência na descarga desloca o ponto para menor vazão.</p>
+<div class="equation-box">H<sub>sistema</sub> = H<sub>estático</sub> + K·Q²</div>
+<p class="operator-link"><b>No CIC:</b> bomba em operação não garante vazão adequada. Nível do F-3915 subindo com bomba ligada exige confirmar vazão/pressão e condições do sistema.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">07</div>
+<h3>NPSH e condição de sucção</h3>
+<p>A pressão absoluta na sucção deve permanecer suficientemente acima da pressão de vapor do líquido para evitar formação de vapor na entrada da bomba. A margem é avaliada por NPSH disponível versus requerido.</p>
+<div class="equation-box">NPSH<sub>a</sub> &gt; NPSH<sub>r</sub> + margem</div>
+<p class="operator-link"><b>No CIC:</b> nível baixo no vaso, perda de pressão na sucção ou temperatura mais alta reduzem a margem de NPSH e podem comprometer o desempenho hidráulico.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">08</div>
+<h3>Pressão do gás e acoplamento com a compressão</h3>
+<p>O gás separado no F-3907 segue para o F-3908 e depois para a sucção do J-3902. Em um sistema gasoso conectado, a condição de sucção do compressor influencia as pressões a montante e, portanto, o comportamento dos vasos do topo.</p>
+<p class="operator-link"><b>No CIC:</b> alterações de pressão não devem ser interpretadas como fenômeno isolado do F-3907; é necessário correlacionar com F-3908/J-3902 e com as correntes externas.</p>
+</article>
 </div>
-<div class="practice-q">
-<strong>Aplicação: a MV da válvula aumenta, mas a interface continua subindo. Qual raciocínio hidráulico é adequado?</strong>
-<div class="practice-options">
-<button onclick="trainingAnswer(this,true)">A) A vazão depende da curva hidráulica completa; pode existir restrição ou contrapressão.</button>
-<button onclick="trainingAnswer(this,false)">B) A vazão necessariamente aumentou na mesma proporção que a abertura.</button>
-<button onclick="trainingAnswer(this,false)">C) A pressão a jusante não influencia o escoamento.</button>
-<button onclick="trainingAnswer(this,false)">D) O comportamento prova que a densidade da água diminuiu.</button>
-</div>
-<div class="practice-feedback">O operador deve distinguir “comando enviado” de “vazão efetivamente produzida”.</div>
+<div class="technical-check">
+<h3>Aplicação de engenharia</h3>
+<p><b>Situação:</b> LIC-39164 sobe; a saída do controlador aumenta e a válvula confirma maior abertura, mas a interface mantém tendência de alta.</p>
+<p><b>Leitura técnica:</b> a próxima verificação deve buscar se o ΔP disponível e a resistência hidráulica permitem aumento real da vazão. O problema pode estar na capacidade do caminho, não necessariamente no controlador.</p>
 </div>
 </div><div class="training-pane-clean" id="training-clean-unitarias">
 <span class="module-chip">MÓDULO 4 • OPERAÇÕES UNITÁRIAS</span>
-<h3>Operações Unitárias integradas</h3>
-<p>O sistema de topo conecta operações diferentes; o diagnóstico melhora quando o operador entende como uma perturbação se propaga entre elas.</p>
-<div class="training-grid">
-<div class="training-card"><h4>Fracionamento — E-3901</h4><p>Separação de faixas de hidrocarbonetos por diferença de volatilidade e contato vapor-líquido.</p></div>
-<div class="training-card"><h4>Transferência de calor — C-3902/C-3903</h4><p>Retirada de calor e condensação progressiva da corrente do topo.</p></div>
-<div class="training-card"><h4>Separação de fases — F-3906/F-3907</h4><p>Separação gás-líquido e líquido-líquido para recuperar HC e retirar água ácida.</p></div>
-<div class="training-card"><h4>Bombeamento — J-3904/J-3905/J-3924</h4><p>Fornecimento de energia para refluxo, transferência de líquido de topo e envio de água ácida.</p></div>
+<h2>Operações Unitárias no sistema de topo</h2>
+<p class="technical-intro">O topo da E-3901 é uma sequência integrada de equilíbrio vapor-líquido, transferência de calor, separação de fases e transporte de fluidos. O operador de CIC deve reconhecer como uma perturbação em uma etapa aparece nas etapas seguintes.</p>
+<div class="technical-grid">
+<article class="technical-card">
+<div class="tech-number">01</div>
+<h3>Fracionamento — equilíbrio vapor-líquido</h3>
+<p>A E-3901 promove separação por diferença de volatilidade. O contato contracorrente vapor-líquido aproxima cada estágio de um equilíbrio local: componentes menos voláteis tendem à fase líquida e os mais voláteis à fase vapor.</p>
+<div class="equation-box">y<sub>i</sub> = K<sub>i</sub> · x<sub>i</sub></div>
+<p class="operator-link"><b>Implicação:</b> temperatura, pressão e refluxo alteram o equilíbrio e o tráfego interno; a temperatura de topo é uma variável de inferência, não uma análise direta de composição.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">02</div>
+<h3>Refluxo e controle térmico do topo</h3>
+<p>O hidrocarboneto separado no F-3906 retorna pela J-3904 como refluxo. A estratégia documentada relaciona TIC-39249 à vazão de refluxo FIC-39179. O refluxo aumenta a fase líquida descendente e promove contato com o vapor ascendente.</p>
+<p class="operator-link"><b>Implicação:</b> variar refluxo afeta temperatura, carga térmica dos condensadores e quantidade/composição aproximada do material que alcança o topo.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">03</div>
+<h3>Condensação parcial — C-3902</h3>
+<p>A corrente de topo contém hidrocarbonetos, vapor d’água e gases não condensáveis. A retirada de calor no C-3902 provoca condensação parcial; a corrente bifásica/trifásica segue ao F-3906 para separação.</p>
+<div class="equation-box">Q̇ = ṁ·C<sub>p</sub>·ΔT + ṁ<sub>cond</sub>·λ</div>
+<p class="operator-link"><b>Implicação:</b> menor duty de resfriamento desloca material condensável para o estágio seguinte; maior duty tende a antecipar a condensação.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">04</div>
+<h3>F-3906 — separador de três fases</h3>
+<p>O F-3906 separa gás, hidrocarboneto líquido e água. O LIC-39164 controla a interface aquosa; o LIC-39163 controla o inventário superior de hidrocarboneto. O vaso também fornece líquido para refluxo e para o segundo estágio de condensação.</p>
+<p class="operator-link"><b>Implicação:</b> analisar LIC-39163 e LIC-39164 em conjunto permite diferenciar alteração no inventário de HC de alteração na fase aquosa.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">05</div>
+<h3>Segundo estágio — C-3903 + F-3907</h3>
+<p>Após o F-3906, a corrente ainda contém componentes condensáveis. O C-3903 promove resfriamento adicional e o F-3907 remove a nova parcela de HC e água antes que o gás siga para o F-3908/J-3902.</p>
+<p class="operator-link"><b>Implicação:</b> desvio concentrado no LIC-39166, com F-3906 estável, direciona o diagnóstico ao segundo estágio e não automaticamente ao sistema comum de água ácida.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">06</div>
+<h3>Cascata de nível e vazão</h3>
+<p>O manual descreve o LIC-39163 trabalhando em cascata com FIC-39180 na retirada associada ao F-3906. Em cascata, o controlador primário de nível ajusta a referência do controlador secundário de vazão.</p>
+<div class="equation-box">LIC (primário) → SP do FIC (secundário) → válvula</div>
+<p class="operator-link"><b>Implicação:</b> a resposta deve ser interpretada em duas camadas: necessidade de inventário e capacidade efetiva da malha de vazão.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">07</div>
+<h3>Integração com absorção — J-3905 / E-3904</h3>
+<p>O hidrocarboneto líquido do F-3907 é enviado pela J-3905 para utilização como óleo pobre na absorção primária. Portanto, a qualidade e a disponibilidade dessa corrente conectam o sistema de topo ao desempenho da recuperação de C3/C4.</p>
+<p class="operator-link"><b>Implicação:</b> problemas de inventário/retirada no F-3907 não ficam restritos ao vaso; podem alterar a alimentação de óleo pobre à etapa seguinte.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">08</div>
+<h3>Água ácida — acumulação e bombeamento</h3>
+<p>As águas retiradas dos vasos convergem para o F-3915. A J-3924 succiona normalmente desse vaso e transfere a corrente para a U-80. O F-3915 funciona como capacidade de amortecimento entre geração e retirada.</p>
+<div class="equation-box">dV/dt = Q<sub>entrada</sub> − Q<sub>saída</sub></div>
+<p class="operator-link"><b>Implicação:</b> F-3915 subindo indica balanço positivo de inventário; se a condição persistir, pode reduzir a capacidade de drenagem dos vasos a montante.</p>
+</article>
+<article class="technical-card">
+<div class="tech-number">09</div>
+<h3>Integração com compressão</h3>
+<p>O gás remanescente do F-3907 segue ao F-3908 e à sucção do J-3902. A compressão a jusante estabelece uma condição de pressão que se propaga pelo sistema conectado e influencia a operação a montante.</p>
+<p class="operator-link"><b>Implicação:</b> pressão, condensação e separação não devem ser analisadas como operações independentes; o topo e a compressão formam um sistema acoplado.</p>
+</article>
 </div>
-<div class="insight"><b>Visão integrada:</b> fracionamento → condensação → separação → bombeamento → absorção/compressão. Um desvio a montante pode alterar simultaneamente várias variáveis a jusante.</div>
+<div class="technical-check">
+<h3>Mapa de integração</h3>
+<p><b>Fracionar → condensar → separar → recircular/transferir → absorver/comprimir.</b> Esse encadeamento explica por que uma mudança térmica no topo pode aparecer depois como mudança de nível, vazão, interface ou carga no sistema de recuperação de gases.</p>
+</div>
 </div><div class="training-pane-clean" id="training-clean-avaliacaoCIC">
-<span class="module-chip">MÓDULO 5 • AVALIAÇÃO OPERADOR CIC</span>
-<div class="eval-head">
-<div><h3>Avaliação integrada</h3><p style="margin:4px 0 0;color:var(--muted)">Diagnóstico, prioridade, causa comum, efeito e confirmação.</p></div>
-<div class="eval-score" id="evalScore">0 / 6</div>
+<span class="module-chip">MÓDULO 5 • AVALIAÇÃO</span>
+<div class="module-head-clean">
+<div>
+<h2>Avaliação — visão de operador de painel CIC</h2>
+<p>Questões integradas de diagnóstico, prioridade e confirmação. Alternativas embaralhadas e posições corretas balanceadas a cada nova avaliação.</p>
 </div>
-<div class="eval-item"><p><b>1.</b> LIC-39166 ↑, LIC-39164 estável e F-3915 estável. Onde investigar primeiro?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">J-3924 como causa comum</option><option value="b">Segundo estágio: C-3903/F-3907 e retiradas locais</option><option value="c">Fundo da E-3901</option><option value="d">Regenerador</option></select></div>
-<div class="eval-item"><p><b>2.</b> A saída do LIC-39164 aumenta, mas a PV segue subindo. Qual atitude mostra melhor visão de painel?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Aumentar a saída continuamente</option><option value="b">Declarar indicação falsa</option><option value="c">Confirmar válvula, restrições e resposta hidráulica da retirada</option><option value="d">Reduzir carga antes de verificar a cadeia</option></select></div>
-<div class="eval-item"><p><b>3.</b> F-3915 ↑ com J-3924 parada. Qual efeito deve ser antecipado?</p><select class="eval-select" data-correct="a"><option value="">Selecione...</option><option value="a">Possível repercussão a montante nas interfaces</option><option value="b">Queda obrigatória das interfaces</option><option value="c">Aumento automático da capacidade de drenagem</option><option value="d">Nenhum efeito nos vasos</option></select></div>
-<div class="eval-item"><p><b>4.</b> Por que comparar LIC-39163 e LIC-39164?</p><select class="eval-select" data-correct="d"><option value="">Selecione...</option><option value="a">Os dois medem a mesma variável</option><option value="b">Para inferir rotação da J-3904</option><option value="c">Para medir a pressão da sucção do compressor</option><option value="d">Para separar o comportamento do nível HC do comportamento da interface aquosa</option></select></div>
-<div class="eval-item"><p><b>5.</b> Qual sequência representa melhor o raciocínio CIC?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">Agir → procurar causa → não confirmar</option><option value="b">Identificar tendência → interpretar → agir com segurança → confirmar resposta</option><option value="c">Esperar alarme alto → atuar na variável alarmada</option><option value="d">Alterar várias malhas simultaneamente</option></select></div>
-<div class="eval-item"><p><b>6.</b> LIC-39164 ↑ + LIC-39166 ↑ + F-3915 ↑. Qual princípio de diagnóstico é mais importante?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Tratar cada variável como uma falha independente</option><option value="b">Atuar primeiro no refluxo</option><option value="c">Procurar causa comum capaz de explicar a tendência simultânea</option><option value="d">Ignorar F-3915 e focar somente nos vasos</option></select></div>
-<button class="reveal" onclick="gradeCICEvaluation()">Finalizar avaliação</button>
-<div class="eval-report" id="evalReport"></div>
+<button class="module-action" onclick="startCICEvaluation()">↻ Nova avaliação</button>
+</div>
+<div class="quiz-meta-clean">
+<span id="evalProgressV2">0 / 0 respondidas</span>
+<span id="evalScoreV2">Resultado ao finalizar</span>
+</div>
+<div id="cicEvaluationEngine"></div>
+<div class="quiz-footer-clean">
+<button class="module-action primary" onclick="finishCICEvaluation()">Finalizar avaliação</button>
+<button class="module-action" onclick="startCICEvaluation()">Reiniciar e embaralhar</button>
+</div>
+<div class="technical-report" id="evalReportV2"></div>
 </div></div></div></aside><div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
 <div class="modal-card">
 <div class="modal-head">
@@ -1095,7 +1238,6 @@ function nextCICScenario(){cicScenarioIndex=(cicScenarioIndex+1)%cicTrainingScen
 function gradeCICEvaluation(){const items=[...document.querySelectorAll('.eval-select')];let correct=0,answered=0;items.forEach(s=>{if(s.value)answered++;if(s.value===s.dataset.correct)correct++});evalScore.textContent=correct+' / '+items.length;const pct=Math.round(correct/items.length*100);let band,advice;if(answered<items.length){band='Avaliação incompleta';advice='Responda todos os itens para fechar o diagnóstico de desempenho.'}else if(pct>=85){band='Domínio operacional consistente';advice='Boa leitura de tendência, causa comum e confirmação. Próximo nível: cenários com decisões encadeadas e mais variáveis simultâneas.'}else if(pct>=65){band='Domínio intermediário';advice='Reforce prioridade de diagnóstico e confirmação da resposta do processo.'}else{band='Reforço recomendado';advice='Revise Cenários CIC, Mecânica dos Fluidos e Operações Unitárias antes de repetir a avaliação.'}evalReport.style.display='block';evalReport.innerHTML=`<b>${band}</b><br>Resultado: ${correct}/${items.length} (${pct}%).<br>${advice}`}
 window.addEventListener('load',renderCICScenario);
 </script>
-
 <script id="layout-clean-v5-js">
 const TRAINING_LABELS_CLEAN = {
   home:'Visão geral',
@@ -1143,6 +1285,588 @@ document.addEventListener('keydown', e=>{
     closeTrainingDrawer();
   }
 });
+</script>
+
+<script id="training-engine-v6">
+function fyShuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+function balancedSlots(n){
+  const base=[];
+  for(let i=0;i<n;i++) base.push(i%4);
+  return fyShuffle(base);
+}
+function buildOptions(correct, distractors, correctSlot){
+  const ds=fyShuffle(distractors).slice(0,3);
+  const opts=[...ds];
+  opts.splice(correctSlot,0,correct);
+  return opts;
+}
+function pct(n,d){return d?Math.round(n/d*100):0}
+
+const TECH_QUIZ_BANK = [
+  {
+    q:"LIC-39164 apresenta tendência de alta enquanto LIC-39163 permanece controlado próximo ao seu valor anterior. Qual interpretação inicial é mais consistente com esse padrão?",
+    correct:"Há aumento do inventário aquoso ou redução da capacidade de retirada de água, enquanto o inventário de hidrocarboneto permanece compensado pela sua própria malha.",
+    distractors:[
+      "Há aumento predominante de hidrocarboneto no F-3906, enquanto a água permanece praticamente inalterada.",
+      "Há redução da condensação de água no primeiro estágio, exigindo maior retirada pela malha de interface.",
+      "Há aumento de hidrocarboneto e água na mesma proporção, mas apenas a interface consegue indicar a mudança."
+    ],
+    exp:"A leitura conjunta LIC-39163 × LIC-39164 diferencia a fase superior de HC da interface aquosa. Uma interface subindo com nível de HC controlado desloca a prioridade para geração/retirada de água."
+  },
+  {
+    q:"O C-3902 perde parte da capacidade de resfriamento, sem mudança relevante de carga. Qual efeito é mais coerente como primeira tendência do sistema?",
+    correct:"Menor condensação antes do F-3906, com maior fração condensável permanecendo na corrente que segue para o segundo estágio.",
+    distractors:[
+      "Maior condensação no F-3906, porque a temperatura mais alta aumenta a diferença de densidade entre água e hidrocarboneto.",
+      "Menor carga condensável no C-3903, porque o primeiro estágio transfere menos calor e reduz a vazão total do topo.",
+      "Aumento direto da retirada de água pelo LIC-39164, mesmo que a interface não apresente alteração."
+    ],
+    exp:"Perda de duty no primeiro estágio tende a deslocar condensação para jusante, e não a eliminá-la instantaneamente do sistema."
+  },
+  {
+    q:"LIC-39166 sobe, LIC-39165 permanece controlado, F-3915 está estável e J-3924 opera normalmente. Qual foco inicial tem maior prioridade?",
+    correct:"Condições do segundo estágio — condensação no C-3903, retirada de água do F-3907, válvula associada e resposta da malha local.",
+    distractors:[
+      "Sistema comum F-3915/J-3924, porque qualquer aumento de interface nos vasos deve ser tratado primeiro como restrição comum.",
+      "Retirada de hidrocarboneto pela J-3905, porque toda elevação da interface deve ser explicada primeiro por redução da fase HC.",
+      "Refluxo da E-3901, porque a estabilidade do F-3915 indica necessariamente excesso de refluxo no topo."
+    ],
+    exp:"Com F-3906 e F-3915 estáveis, a assinatura é localizada. A investigação deve começar no segundo estágio antes de ampliar o diagnóstico."
+  },
+  {
+    q:"A saída do LIC-39164 aumenta, a posição da válvula confirma maior abertura, mas a interface continua subindo. Qual verificação é tecnicamente mais completa?",
+    correct:"Confirmar ΔP disponível, restrições/contrapressão e vazão real no caminho de retirada, além da coerência da medição de interface.",
+    distractors:[
+      "Aumentar novamente a saída do controlador e só verificar a hidráulica se a válvula atingir 100% de abertura.",
+      "Considerar primeiro erro do transmissor, pois válvula mais aberta deveria garantir aumento proporcional de vazão.",
+      "Atuar no refluxo de topo para reduzir a interface, pois refluxo e retirada de água respondem à mesma variável manipulada."
+    ],
+    exp:"Abertura de válvula não garante vazão. A resposta depende da curva hidráulica, ΔP disponível, restrições e contrapressão."
+  },
+  {
+    q:"Na estratégia de topo, qual descrição representa melhor a relação entre TIC-39249 e FIC-39179?",
+    correct:"A temperatura do topo atua como variável primária e ajusta a referência de vazão de refluxo, usando a vazão como malha secundária mais rápida.",
+    distractors:[
+      "A vazão de refluxo atua como variável primária e altera diretamente o setpoint de temperatura para acompanhar o nível do F-3906.",
+      "As duas malhas atuam de forma independente: uma controla temperatura e a outra apenas registra a vazão enviada pela J-3904.",
+      "O TIC-39249 ajusta a retirada de água do F-3906, enquanto FIC-39179 compensa a variação de hidrocarboneto."
+    ],
+    exp:"A lógica descrita é uma relação de controle em que a temperatura do topo manipula a vazão de refluxo por meio do FIC-39179."
+  },
+  {
+    q:"O F-3915 apresenta nível crescente com a J-3924 em operação. Qual conclusão é mais adequada antes de assumir que a bomba está 'normal'?",
+    correct:"A entrada de água ácida está superando a retirada; é necessário confirmar a vazão efetiva da J-3924 e a resistência/contrapressão do sistema de descarga.",
+    distractors:[
+      "A bomba está necessariamente operando acima da vazão requerida, porque o nível do vaso está aumentando.",
+      "O aumento de nível comprova que as válvulas de interface dos F-3906/F-3907 estão excessivamente fechadas.",
+      "O nível crescente indica apenas maior geração de água e torna desnecessária a verificação da descarga da bomba."
+    ],
+    exp:"Estado 'ligada' não equivale a vazão suficiente. O balanço de inventário é Qentrada − Qsaída."
+  },
+  {
+    q:"Se a pressão/energia disponível do gás motriz do I-3905 diminuir, mantendo as demais condições aproximadamente constantes, qual efeito é mais consistente?",
+    correct:"Redução da capacidade de sucção/arraste do ejetor, porque diminui a quantidade de movimento disponível para aspirar a corrente secundária.",
+    distractors:[
+      "Aumento da capacidade de sucção, porque menor pressão do gás motriz amplia automaticamente a diferença de pressão na garganta.",
+      "Nenhuma mudança de sucção, porque ejetores dependem apenas da pressão da corrente aspirada e não da corrente motriz.",
+      "Aumento da pressão de descarga do ejetor, porque menor energia motriz é convertida em maior recuperação de pressão no difusor."
+    ],
+    exp:"O ejetor depende da energia da corrente motriz para criar sucção e transferir quantidade de movimento."
+  },
+  {
+    q:"Qual descrição explica melhor a função conjunta F-3906 → C-3903 → F-3907?",
+    correct:"Realizar separação em estágios: retirar a primeira parcela condensada, resfriar novamente a corrente remanescente e separar uma nova parcela líquida antes da compressão.",
+    distractors:[
+      "Dividir a mesma separação em dois vasos apenas para aumentar o volume de armazenamento, sem mudança termodinâmica entre eles.",
+      "Separar primeiro apenas água no F-3906 e depois apenas hidrocarboneto no F-3907, mantendo o gás sem nova condensação.",
+      "Usar o F-3906 como vaso de pressão e o F-3907 como vaso de nível, enquanto a condensação ocorre somente no C-3902."
+    ],
+    exp:"O C-3903 entre os vasos é justamente o elemento que permite nova condensação e uma segunda separação."
+  },
+  {
+    q:"A interface de água no F-3907 cai muito, mas o nível total de hidrocarboneto permanece controlado. Qual risco de separação deve ser lembrado?",
+    correct:"A retirada de água pode começar a levar hidrocarboneto se a interface descer até a região do bocal de drenagem.",
+    distractors:[
+      "A fase aquosa pode alcançar a saída de hidrocarboneto porque a interface baixa aumenta automaticamente o nível de água no vaso.",
+      "A corrente de gás pode arrastar mais água apenas porque a interface está baixa, independentemente do nível total e da velocidade superficial.",
+      "A J-3905 pode perder NPSH exclusivamente porque a interface aquosa está baixa, mesmo com inventário de HC normal."
+    ],
+    exp:"Interface muito baixa reduz a coluna de água sobre o bocal de drenagem e aumenta o risco de HC acompanhar a linha aquosa."
+  },
+  {
+    q:"Em uma malha em cascata LIC-39163 → FIC-39180, qual leitura é mais adequada para diagnóstico?",
+    correct:"O controlador de nível define a necessidade de retirada e o controlador de vazão executa essa demanda; ambos devem ser avaliados para separar problema de inventário de problema de vazão.",
+    distractors:[
+      "O FIC determina o nível desejado e o LIC apenas limita a abertura máxima da válvula de vazão.",
+      "LIC e FIC medem variáveis diferentes, mas atuam independentemente e não existe relação de referência entre eles.",
+      "O LIC controla diretamente a válvula e o FIC é usado apenas como indicação de confirmação sem ação sobre o elemento final."
+    ],
+    exp:"Na cascata, a malha primária gera a referência para a secundária; falhas/limitações podem existir em qualquer uma das duas camadas."
+  },
+  {
+    q:"A pressão do sistema de topo começa a variar e o gás do F-3907 segue normalmente para F-3908/J-3902. Qual abordagem é mais completa?",
+    correct:"Correlacionar o topo com a condição de sucção do compressor e com as correntes externas, porque a pressão é acoplada ao sistema gasoso a jusante.",
+    distractors:[
+      "Analisar apenas o F-3907, porque vasos separadores isolam hidraulicamente a pressão dos equipamentos de compressão.",
+      "Atribuir primeiro a variação ao LIC-39166, porque a interface é a principal variável que determina a pressão do gás no vaso.",
+      "Atuar na J-3924, porque a retirada de água ácida é a variável primária do balanço de pressão do sistema de gás."
+    ],
+    exp:"O manual ressalta a influência da condição de sucção do J-3902 sobre as pressões a montante."
+  },
+  {
+    q:"Por que a temperatura de topo não deve ser tratada como medida direta da composição da corrente?",
+    correct:"Porque é uma variável de inferência dependente de pressão, equilíbrio vapor-líquido e composição; mudanças nessas condições podem produzir a mesma temperatura com composições diferentes.",
+    distractors:[
+      "Porque a temperatura depende apenas da vazão de refluxo e não responde às propriedades dos componentes presentes.",
+      "Porque composição e temperatura são independentes em qualquer mistura multicomponente que esteja em equilíbrio.",
+      "Porque a temperatura só informa a quantidade de água condensada e não possui relação com os hidrocarbonetos."
+    ],
+    exp:"Em misturas multicomponentes, temperatura, pressão e composição estão acopladas pelo equilíbrio de fases."
+  }
+];
+
+let techQuizSession=[];
+
+function renderTechnicalQuiz(){
+  const root=document.getElementById('technicalQuizEngine');
+  if(!root) return;
+  root.innerHTML=techQuizSession.map((item,qi)=>`
+    <div class="tech-q" data-q="${qi}">
+      <div class="q-index">QUESTÃO ${qi+1}</div>
+      <h4>${item.q}</h4>
+      <div class="tech-options">
+        ${item.options.map((opt,oi)=>`
+          <button class="tech-option" data-oi="${oi}" onclick="selectTechnicalAnswer(${qi},${oi},this)">
+            <span class="letter">${String.fromCharCode(65+oi)}</span><span>${opt}</span>
+          </button>`).join('')}
+      </div>
+      <div class="tech-explain" id="techExp${qi}"></div>
+    </div>`).join('');
+  updateTechnicalQuizMeta();
+}
+function startTechnicalQuiz(){
+  const bank=fyShuffle(TECH_QUIZ_BANK);
+  const slots=balancedSlots(bank.length);
+  techQuizSession=bank.map((q,i)=>{
+    const options=buildOptions(q.correct,q.distractors,slots[i]);
+    return {...q,options,correctIndex:slots[i],selected:null};
+  });
+  const report=document.getElementById('technicalQuizReport');
+  if(report){report.classList.remove('show');report.innerHTML='';}
+  renderTechnicalQuiz();
+}
+function selectTechnicalAnswer(qi,oi,btn){
+  const item=techQuizSession[qi];
+  if(item.selected!==null) return;
+  item.selected=oi;
+  const box=btn.closest('.tech-q');
+  box.querySelectorAll('.tech-option').forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===item.correctIndex)b.classList.add('correct');
+    if(idx===oi && oi!==item.correctIndex)b.classList.add('wrong');
+  });
+  const exp=document.getElementById('techExp'+qi);
+  exp.innerHTML=(oi===item.correctIndex?'<b>Correto.</b> ':'<b>Melhor resposta: '+String.fromCharCode(65+item.correctIndex)+'.</b> ')+item.exp;
+  exp.classList.add('show');
+  updateTechnicalQuizMeta();
+}
+function updateTechnicalQuizMeta(){
+  const answered=techQuizSession.filter(q=>q.selected!==null).length;
+  const score=techQuizSession.filter(q=>q.selected===q.correctIndex).length;
+  const a=document.getElementById('techQuizCounter');
+  const s=document.getElementById('techQuizScore');
+  if(a)a.textContent=`${answered} / ${techQuizSession.length} respondidas`;
+  if(s)s.textContent=answered===techQuizSession.length?`${score} acertos até agora`:'Pontuação será exibida ao finalizar';
+}
+function finishTechnicalQuiz(){
+  if(!techQuizSession.length)return;
+  const unanswered=techQuizSession.filter(q=>q.selected===null).length;
+  const report=document.getElementById('technicalQuizReport');
+  if(unanswered){
+    report.innerHTML=`<b>Quiz incompleto.</b><br>Faltam ${unanswered} questão(ões). As respostas só entram no resultado depois de selecionadas.`;
+    report.classList.add('show');return;
+  }
+  const score=techQuizSession.filter(q=>q.selected===q.correctIndex).length;
+  const p=pct(score,techQuizSession.length);
+  let msg=p>=85?'Domínio consistente do sistema de topo.':p>=65?'Boa base, com pontos para reforçar na correlação entre malhas e fenômenos físicos.':'Reforce os módulos técnicos e repita o quiz com nova ordem.';
+  report.innerHTML=`<b>Resultado: ${score}/${techQuizSession.length} (${p}%).</b><br>${msg}<br><small>As posições corretas foram balanceadas entre A/B/C/D nesta sessão.</small>`;
+  report.classList.add('show');
+}
+
+/* CIC multi-etapas */
+const CIC_SCENARIO_BANK=[
+  {
+    title:"Acúmulo comum de água ácida",
+    context:"As duas interfaces passam a subir. O F-3915 também apresenta tendência de alta e a J-3924 está indisponível.",
+    trends:[["LIC-39164","↑ tendência de alta"],["LIC-39166","↑ tendência de alta"],["F-3915","↑ tendência de alta"],["J-3924","indisponível"],["Níveis de HC","sem mudança relevante"]],
+    steps:[
+      {
+        prompt:"Qual hipótese deve receber maior prioridade inicial?",
+        choices:[
+          {score:3,text:"Perda da capacidade comum de retirada no sistema de água ácida, permitindo propagação do acúmulo para os vasos a montante.",fb:"É a hipótese que melhor explica simultaneamente F-3915 e as duas interfaces."},
+          {score:2,text:"Aumento simultâneo da geração de água nos dois estágios de condensação, que também poderia elevar as interfaces.",fb:"É fisicamente possível, mas a indisponibilidade da J-3924 e o F-3915 subindo tornam a limitação comum a jusante mais prioritária."},
+          {score:1,text:"Duas restrições locais independentes nas linhas de drenagem dos F-3906 e F-3907.",fb:"Poderia ocorrer, mas exige duas falhas independentes e explica pior a subida simultânea do F-3915."},
+          {score:0,text:"Deriva simultânea dos dois transmissores de interface, sem alteração real de inventário.",fb:"Não deve ser a primeira hipótese quando existe uma variável física comum — F-3915 — mostrando a mesma tendência."}
+        ]
+      },
+      {
+        prompt:"Qual confirmação de painel/campo diferencia melhor as hipóteses?",
+        choices:[
+          {score:3,text:"Confirmar condição real da J-3924, vazão/pressão de descarga e se o F-3915 está efetivamente conseguindo retirar inventário.",fb:"Verifica diretamente a capacidade comum de saída que conecta os três níveis."},
+          {score:2,text:"Comparar saída dos LIC-39164/39166 com posição real das válvulas e comportamento das linhas de drenagem.",fb:"É uma ótima confirmação complementar, mas começa pelas duas retiradas locais em vez do gargalo comum sugerido."},
+          {score:1,text:"Comparar temperaturas após C-3902 e C-3903 para estimar se houve aumento global de condensação.",fb:"Ajuda a testar aumento de geração de água, mas não é a confirmação mais direta do padrão observado."},
+          {score:0,text:"Alterar o refluxo de topo e observar se os três níveis respondem antes de verificar a retirada de água.",fb:"Introduz uma nova perturbação sem antes confirmar o gargalo mais provável."}
+        ]
+      },
+      {
+        prompt:"A J-3924 volta a transferir e o F-3915 estabiliza, mas LIC-39164 continua subindo. Qual é o próximo refinamento do diagnóstico?",
+        choices:[
+          {score:3,text:"Migrar o foco para a retirada local do F-3906: válvula, ΔP disponível, restrição e coerência do LIC-39164.",fb:"A causa comum perdeu força; agora o desvio remanescente está localizado no F-3906."},
+          {score:2,text:"Manter observação por curto período e comparar a velocidade de recuperação do F-3915 com a resposta da interface.",fb:"Pode ser útil para separar atraso dinâmico de falha local, mas exige limite de tempo e confirmação."},
+          {score:1,text:"Investigar simultaneamente C-3902 e C-3903 como causa térmica comum, apesar de apenas um vaso continuar desviando.",fb:"A hipótese térmica comum fica menos consistente quando só o F-3906 mantém o desvio."},
+          {score:0,text:"Concluir que o LIC-39164 está falso apenas porque o F-3915 estabilizou.",fb:"A estabilização do F-3915 não comprova erro de instrumento no F-3906."}
+        ]
+      }
+    ]
+  },
+  {
+    title:"Desvio concentrado no segundo estágio",
+    context:"LIC-39166 sobe. LIC-39164 e F-3915 permanecem estáveis. J-3924 está disponível. FIC-39190 começa a reduzir.",
+    trends:[["LIC-39164","→ estável"],["LIC-39166","↑ tendência de alta"],["F-3915","→ estável"],["FIC-39190","↓ tendência de queda"],["J-3924","disponível"]],
+    steps:[
+      {
+        prompt:"Qual recorte de diagnóstico é mais coerente?",
+        choices:[
+          {score:3,text:"Concentrar no F-3907 e nas condições do segundo estágio, sem descartar interação entre retirada de HC e água.",fb:"A assinatura é localizada e envolve variáveis do segundo estágio."},
+          {score:2,text:"Verificar primeiro a retirada de HC pela J-3905/FIC-39190, pois a queda de vazão pode alterar o inventário e a hidráulica local.",fb:"É uma hipótese específica e plausível, mas ainda deve ser integrada à interface e ao C-3903."},
+          {score:1,text:"Priorizar o F-3915/J-3924, pois qualquer alta de interface pode se propagar de jusante para montante.",fb:"Possível em outros padrões, porém o F-3915 está estável e o F-3906 não acompanha o desvio."},
+          {score:0,text:"Assumir aumento de geração de água em toda a unidade e tratar os dois vasos como equivalentes.",fb:"Os dados não mostram comportamento comum dos dois vasos."}
+        ]
+      },
+      {
+        prompt:"Qual conjunto de variáveis oferece melhor discriminação entre maior condensação e menor retirada no F-3907?",
+        choices:[
+          {score:3,text:"Temperaturas/condição do C-3903 + LIC-39165/LIC-39166 + FIC-39190/J-3905 + saída/posição da retirada de água.",fb:"Integra geração de líquido com as duas rotas de retirada e permite separar causa térmica de causa hidráulica."},
+          {score:2,text:"LIC-39165/LIC-39166 e FIC-39190, deixando a condição do C-3903 para uma segunda checagem.",fb:"Boa abordagem de inventário, mas a condensação adicional é uma causa importante do estágio e deve ser correlacionada cedo."},
+          {score:1,text:"Somente LIC-39166 e posição da válvula de água, porque o nível de HC pertence a outra malha.",fb:"Pode identificar problema da drenagem, mas perde a interação entre as fases e o balanço global do vaso."},
+          {score:0,text:"Somente a condição da J-3924, pois a bomba define a retirada de água de todos os vasos.",fb:"A estabilidade do F-3915 e do F-3906 torna essa leitura insuficiente."}
+        ]
+      },
+      {
+        prompt:"FIC-39190 recupera vazão e LIC-39165 estabiliza, mas LIC-39166 continua subindo. Qual interpretação ganha força?",
+        choices:[
+          {score:3,text:"O desvio remanescente está mais associado à fase aquosa/retirada de água ou à sua medição no F-3907.",fb:"A recuperação da rota de HC reduz a probabilidade de ela ser a causa principal da interface."},
+          {score:2,text:"A condensação no C-3903 ainda pode estar gerando água acima da capacidade de drenagem, mesmo com HC estabilizado.",fb:"Continua plausível; precisa ser confrontada com temperatura e carga de água."},
+          {score:1,text:"A J-3905 continua sendo a causa principal, pois qualquer variação de vazão anterior pode manter efeito residual indefinidamente.",fb:"Pode haver atraso, mas a persistência da interface exige olhar para a fase aquosa."},
+          {score:0,text:"O LIC-39164 deve ser alterado para compensar o comportamento do F-3907.",fb:"São vasos/malhas diferentes; não se corrige um desvio local atuando em outra interface sem fundamento."}
+        ]
+      }
+    ]
+  },
+  {
+    title:"Controlador atua, processo não responde",
+    context:"LIC-39164 sobe lentamente. A saída do controlador aumenta e a válvula indica abertura crescente, porém a PV continua com a mesma inclinação.",
+    trends:[["LIC-39164","↑ alta lenta"],["MV LIC-39164","↑ aumentando"],["Posição válvula","↑ acompanha comando"],["F-3915","→ estável"],["LIC-39163","→ controlado"]],
+    steps:[
+      {
+        prompt:"Qual hipótese técnica deve ser considerada antes de declarar falha de instrumentação?",
+        choices:[
+          {score:3,text:"Limitação hidráulica da retirada: perda de ΔP disponível, restrição, contrapressão ou capacidade insuficiente da linha.",fb:"Com comando e posição respondendo, é fundamental verificar se existe vazão real suficiente."},
+          {score:2,text:"Aumento real da carga de água acima da capacidade normal de retirada, mesmo com a válvula respondendo.",fb:"Também é plausível; deve ser diferenciada pela vazão/condições de condensação."},
+          {score:1,text:"Erro de medição do LIC-39164, porque a PV não responde ao aumento da MV.",fb:"É hipótese válida, mas não deve preceder a confirmação de efeito hidráulico e balanço de água."},
+          {score:0,text:"Falha do FIC-39190, porque a retirada de HC e a retirada de água usam o mesmo elemento final.",fb:"As malhas possuem funções distintas; essa conexão causal não é suportada."}
+        ]
+      },
+      {
+        prompt:"Qual evidência fortalece mais a hipótese de restrição hidráulica?",
+        choices:[
+          {score:3,text:"Válvula abre, mas a vazão/efeito de retirada não aumenta e há ΔP/contrapressão incompatível com o escoamento esperado.",fb:"Essa combinação liga diretamente comando, elemento final e incapacidade hidráulica."},
+          {score:2,text:"A interface sobe com velocidade aproximadamente constante apesar de pequenas mudanças de abertura.",fb:"Sugere capacidade limitada, mas sem vazão/ΔP ainda não discrimina completamente a causa."},
+          {score:1,text:"A temperatura do topo permanece estável enquanto a interface sobe.",fb:"Ajuda a reduzir a probabilidade de grande mudança térmica, mas não prova restrição."},
+          {score:0,text:"O F-3907 permanece estável.",fb:"Mostra que o desvio é local, porém não demonstra por si só a natureza hidráulica."}
+        ]
+      },
+      {
+        prompt:"Após remover a restrição, qual confirmação encerra melhor o diagnóstico?",
+        choices:[
+          {score:3,text:"A retirada aumenta e a tendência da interface muda de alta para estabilização/queda coerente, sem perturbação indevida das demais variáveis.",fb:"Confirma relação causa → efeito → recuperação do processo."},
+          {score:2,text:"A posição da válvula diminui porque o controlador precisa de menor esforço para manter a interface.",fb:"É uma confirmação consistente, mas deve ser acompanhada da resposta da PV/vazão."},
+          {score:1,text:"O operador de campo informa que a linha aparenta estar livre, mesmo sem mudança de tendência no CIC.",fb:"Confirmação visual é útil, mas a resposta do processo precisa fechar o diagnóstico."},
+          {score:0,text:"O alarme desaparece momentaneamente, mesmo que a tendência da interface permaneça crescente.",fb:"Eliminar alarme sem recuperar a tendência não confirma resolução."}
+        ]
+      }
+    ]
+  },
+  {
+    title:"Mudança térmica no topo e redistribuição da condensação",
+    context:"A temperatura após o primeiro estágio de resfriamento sobe. O F-3906 recebe menos líquido, enquanto o F-3907 começa a aumentar seus inventários.",
+    trends:[["T após C-3902","↑ aumentando"],["LIC-39163","↓ leve"],["LIC-39164","↓/estável"],["LIC-39165","↑"],["LIC-39166","↑"]],
+    steps:[
+      {
+        prompt:"Qual fenômeno integra melhor essas tendências?",
+        choices:[
+          {score:3,text:"Parte da condensação foi deslocada do primeiro para o segundo estágio devido à menor remoção de calor no C-3902.",fb:"Explica simultaneamente menos líquido no F-3906 e mais carga condensável chegando ao C-3903/F-3907."},
+          {score:2,text:"Aumento geral da carga de topo combinado com pequena perda de resfriamento no primeiro estágio.",fb:"Também poderia produzir o padrão, mas exigiria evidência adicional de aumento global de carga."},
+          {score:1,text:"Redução da retirada de líquido do F-3907, causando retroativamente menor condensação no F-3906.",fb:"Pode elevar inventário no segundo vaso, mas explica mal a queda de líquido no primeiro estágio."},
+          {score:0,text:"Falha simultânea dos quatro instrumentos de nível, pois os sentidos das tendências são diferentes entre os vasos.",fb:"O padrão é termodinamicamente coerente e deve ser tratado primeiro como processo real."}
+        ]
+      },
+      {
+        prompt:"Qual correlação confirma melhor a redistribuição de condensação?",
+        choices:[
+          {score:3,text:"Temperaturas de entrada/saída dos estágios de resfriamento, carga de gás e evolução dos inventários em ambos os vasos.",fb:"Combina duty térmico, carga e resultado de separação."},
+          {score:2,text:"TIC-39249/FIC-39179 e níveis dos dois vasos, para verificar contribuição do refluxo na carga térmica do topo.",fb:"É uma correlação importante, mas ainda faltam dados diretos do resfriamento entre os estágios."},
+          {score:1,text:"Somente o nível do F-3907 e a corrente da J-3905.",fb:"Mostra efeito a jusante, mas não demonstra a origem térmica."},
+          {score:0,text:"Somente a pressão de descarga da J-3924.",fb:"A bomba de água ácida não explica a redistribuição térmica entre condensadores."}
+        ]
+      },
+      {
+        prompt:"Qual princípio de operação unitária está por trás desse diagnóstico?",
+        choices:[
+          {score:3,text:"Condensação parcial em estágios: o material não condensado no primeiro estágio pode condensar no segundo quando nova quantidade de calor é removida.",fb:"É a base termodinâmica da redistribuição observada."},
+          {score:2,text:"Equilíbrio vapor-líquido dependente de temperatura e pressão, que altera a fração condensada em cada etapa.",fb:"Correto e complementar; descreve o fundamento do particionamento de fases."},
+          {score:1,text:"Separação gravitacional, que por si só transfere calor da corrente e aumenta a condensação no segundo vaso.",fb:"A gravidade separa fases já formadas; não é a principal causa da condensação."},
+          {score:0,text:"Bombeamento centrífugo, porque a J-3905 determina a temperatura de condensação do gás.",fb:"A bomba movimenta líquido; não define diretamente o equilíbrio de condensação do gás."}
+        ]
+      }
+    ]
+  }
+];
+
+let cicRun={scenarios:[],scenarioIndex:0,stepIndex:0,totalSteps:0,answered:false,score:0,maxScore:0,slotPlan:[],slotCursor:0};
+function totalCICSteps(arr){return arr.reduce((n,s)=>n+s.steps.length,0)}
+function restartCICTraining(){
+  const scenarios=fyShuffle(CIC_SCENARIO_BANK);
+  const total=totalCICSteps(scenarios);
+  cicRun={scenarios,scenarioIndex:0,stepIndex:0,totalSteps:total,answered:false,score:0,maxScore:total*3,slotPlan:balancedSlots(total),slotCursor:0};
+  renderCICTrainingStep();
+}
+function currentCICStep(){
+  const s=cicRun.scenarios[cicRun.scenarioIndex];
+  return {scenario:s,step:s.steps[cicRun.stepIndex]};
+}
+function renderCICTrainingStep(){
+  const {scenario,step}=currentCICStep();
+  const completedBefore=cicRun.scenarios.slice(0,cicRun.scenarioIndex).reduce((n,s)=>n+s.steps.length,0)+cicRun.stepIndex;
+  const overall=pct(completedBefore,cicRun.totalSteps);
+  document.getElementById('cicScenarioBadge').textContent=`CENÁRIO ${cicRun.scenarioIndex+1}/${cicRun.scenarios.length}`;
+  document.getElementById('cicOverallProgress').textContent=`${overall}%`;
+  document.getElementById('cicProgressV2').style.width=overall+'%';
+  document.getElementById('cicScenarioTitle').textContent=scenario.title;
+  document.getElementById('cicScenarioContext').textContent=scenario.context;
+  document.getElementById('cicTrendGrid').innerHTML=scenario.trends.map(([k,v])=>`<div class="trend-chip-v2"><span>${k}</span><span>${v}</span></div>`).join('');
+  document.getElementById('cicStepLabel').textContent=`Etapa ${cicRun.stepIndex+1} de ${scenario.steps.length} • Pontuação acumulada ${cicRun.score}/${cicRun.maxScore}`;
+  document.getElementById('cicPromptV2').textContent=step.prompt;
+
+  // Put the best option in a balanced target slot; shuffle the other three.
+  const best=step.choices.find(c=>c.score===3);
+  const rest=fyShuffle(step.choices.filter(c=>c!==best));
+  const slot=cicRun.slotPlan[cicRun.slotCursor] ?? Math.floor(Math.random()*4);
+  const ordered=[...rest];
+  ordered.splice(slot,0,best);
+  step._ordered=ordered;
+  cicRun.answered=false;
+  document.getElementById('cicChoicesV2').innerHTML=ordered.map((c,i)=>`
+    <button class="cic-choice-v2" onclick="answerCICTraining(${i},this)">
+      <span class="letter">${String.fromCharCode(65+i)}</span><span>${c.text}</span>
+    </button>`).join('');
+  document.getElementById('cicFeedbackV2').innerHTML='Escolha a alternativa que melhor prioriza diagnóstico, segurança e confirmação.';
+  const nb=document.getElementById('cicNextBtnV2'); nb.disabled=true; nb.textContent='Próxima etapa';
+}
+function answerCICTraining(index,btn){
+  if(cicRun.answered)return;
+  cicRun.answered=true;
+  const {step}=currentCICStep();
+  const choice=step._ordered[index];
+  cicRun.score+=choice.score;
+  document.querySelectorAll('#cicChoicesV2 .cic-choice-v2').forEach((b,i)=>{
+    b.disabled=true;
+    const c=step._ordered[i];
+    if(c.score===3)b.classList.add('best');
+    else if(c.score===2)b.classList.add('partial');
+    else if(c.score===1)b.classList.add('weak');
+    else b.classList.add('poor');
+  });
+  const label=choice.score===3?'Melhor prioridade':choice.score===2?'Boa hipótese, mas não a primeira prioridade':choice.score===1?'Hipótese possível, porém fraca para os dados':'Baixa consistência com o padrão';
+  const best=step.choices.find(c=>c.score===3);
+  document.getElementById('cicFeedbackV2').innerHTML=`<b>${label}.</b> ${choice.fb}<br><br><b>Linha de maior prioridade:</b> ${best.text}`;
+  const nb=document.getElementById('cicNextBtnV2'); nb.disabled=false;
+  const isLastStep=cicRun.stepIndex===currentCICStep().scenario.steps.length-1;
+  const isLastScenario=cicRun.scenarioIndex===cicRun.scenarios.length-1;
+  nb.textContent=isLastStep&&isLastScenario?'Ver resultado':'Próxima etapa';
+}
+function nextCICTrainingStep(){
+  if(!cicRun.answered)return;
+  cicRun.slotCursor++;
+  const scenario=cicRun.scenarios[cicRun.scenarioIndex];
+  if(cicRun.stepIndex<scenario.steps.length-1){
+    cicRun.stepIndex++;
+    renderCICTrainingStep();return;
+  }
+  if(cicRun.scenarioIndex<cicRun.scenarios.length-1){
+    cicRun.scenarioIndex++;cicRun.stepIndex=0;renderCICTrainingStep();return;
+  }
+  const p=pct(cicRun.score,cicRun.maxScore);
+  document.getElementById('cicProgressV2').style.width='100%';
+  document.getElementById('cicOverallProgress').textContent='100%';
+  document.getElementById('cicPromptV2').textContent='Simulado concluído';
+  document.getElementById('cicChoicesV2').innerHTML='';
+  let band=p>=85?'Raciocínio CIC consistente':p>=65?'Raciocínio intermediário':'Reforço de priorização recomendado';
+  document.getElementById('cicFeedbackV2').innerHTML=`<b>${band}</b><br>Resultado: ${cicRun.score}/${cicRun.maxScore} (${p}%).<br>O simulado pontua prioridade: alternativas podem ser plausíveis, mas a melhor resposta é a que explica mais variáveis com menos suposições e confirma a causa antes de intervir.`;
+  const nb=document.getElementById('cicNextBtnV2'); nb.disabled=false; nb.textContent='Reiniciar simulado'; nb.onclick=restartCICTraining;
+}
+
+/* Avaliação final */
+const CIC_EVAL_BANK=[
+  {
+    q:"LIC-39166 sobe; LIC-39164 e F-3915 permanecem estáveis. Qual priorização é mais consistente?",
+    correct:"Tratar inicialmente como desvio do segundo estágio e correlacionar C-3903, F-3907, retiradas de água/HC e suas malhas.",
+    distractors:[
+      "Tratar inicialmente como limitação comum da J-3924, porque todas as interfaces dependem do mesmo destino de água ácida.",
+      "Tratar inicialmente como perda de refluxo no F-3906, porque o segundo estágio responde diretamente ao inventário do primeiro vaso.",
+      "Tratar inicialmente como erro de LIC-39166, pois uma causa real deveria alterar também o F-3915."
+    ],
+    exp:"O padrão localizado reduz a prioridade de causas comuns a jusante."
+  },
+  {
+    q:"MV da retirada de água sobe e a válvula confirma abertura, mas a interface não reage. Qual sequência de diagnóstico representa melhor a visão CIC?",
+    correct:"Confirmar vazão/ΔP/contrapressão e restrições → verificar balanço de geração de água → validar coerência da medição.",
+    distractors:[
+      "Validar o transmissor → aumentar a saída do controlador → verificar a hidráulica somente se a válvula saturar.",
+      "Aumentar refluxo → observar a interface → verificar a linha de drenagem caso não haja resposta.",
+      "Alterar o setpoint de interface → aguardar estabilização → conferir posição da válvula."
+    ],
+    exp:"A sequência confirma a cadeia causa–efeito antes de introduzir nova perturbação."
+  },
+  {
+    q:"F-3915 sobe com J-3924 ligada. Qual leitura é tecnicamente mais completa?",
+    correct:"O balanço de inventário é positivo; a bomba pode estar operando, mas com vazão insuficiente devido a condição da bomba ou do sistema.",
+    distractors:[
+      "A bomba está normal porque está ligada; logo o aumento de nível só pode vir de maior geração de água.",
+      "A bomba está obrigatoriamente cavitando, pois todo aumento de nível no vaso de sucção reduz o NPSH disponível.",
+      "As válvulas de interface estão necessariamente excessivamente abertas, pois são a única fonte possível de aumento do F-3915."
+    ],
+    exp:"Status de equipamento não substitui confirmação de vazão e balanço de massa."
+  },
+  {
+    q:"Qual relação explica melhor o valor de comparar LIC-39163 com LIC-39164 no F-3906?",
+    correct:"Permite distinguir tendências da fase hidrocarboneto das tendências da interface aquosa e refinar a hipótese de balanço de cada fase.",
+    distractors:[
+      "Permite calcular diretamente a pressão do gás do vaso pela diferença entre os dois níveis.",
+      "Permite inferir a vazão da J-3904 sem utilizar informação de vazão ou condição da bomba.",
+      "Permite determinar diretamente a composição de topo, porque cada nível representa a concentração de uma fase."
+    ],
+    exp:"São inventários diferentes dentro do mesmo separador."
+  },
+  {
+    q:"Qual interpretação de controle em cascata LIC-39163 → FIC-39180 é correta?",
+    correct:"O nível define a demanda de retirada; a malha de vazão executa essa demanda e pode limitar a resposta caso não consiga atingir sua referência.",
+    distractors:[
+      "A vazão define o nível desejado e o LIC funciona apenas como indicação independente.",
+      "As duas malhas comandam a mesma válvula em paralelo e vence a que possuir maior saída.",
+      "O LIC atua na interface aquosa enquanto o FIC controla apenas a pressão do gás que deixa o vaso."
+    ],
+    exp:"Em cascata, a malha primária fornece referência para a secundária."
+  },
+  {
+    q:"Uma redução de duty no C-3902 tende a produzir qual efeito termodinâmico mais coerente?",
+    correct:"Menor fração condensada no primeiro estágio e maior carga condensável disponível para o segundo estágio.",
+    distractors:[
+      "Maior fração condensada no F-3906, porque a corrente chega mais quente e aumenta o gradiente de densidade.",
+      "Menor carga no segundo estágio, porque todo material que não condensa no C-3902 deixa o sistema como gás seco.",
+      "Nenhuma redistribuição de líquido, porque condensação total ocorre somente no C-3903."
+    ],
+    exp:"Os dois estágios compartilham a remoção total de calor e podem redistribuir onde a condensação ocorre."
+  },
+  {
+    q:"Na análise do I-3905, qual variável física é central para a capacidade de sucção?",
+    correct:"A energia/quantidade de movimento da corrente motriz em relação à pressão da corrente aspirada e à contrapressão de descarga.",
+    distractors:[
+      "A rotação do ejetor, que determina diretamente a velocidade na garganta.",
+      "O nível do F-3915, que define a pressão motriz do gás do segundo estágio.",
+      "A abertura do FIC-39190, que determina a energia cinética disponível no bocal do ejetor."
+    ],
+    exp:"O ejetor não possui rotor; ele usa expansão e mistura da corrente motriz."
+  },
+  {
+    q:"Qual princípio resume melhor uma boa tomada de decisão no CIC para este sistema?",
+    correct:"Reconhecer a tendência → formular hipóteses que expliquem o maior número de variáveis → confirmar a cadeia física → agir → verificar a resposta.",
+    distractors:[
+      "Agir na primeira variável alarmada → observar as demais → formular a causa depois que o processo responder.",
+      "Escolher a hipótese mais provável pela experiência → atuar rapidamente → usar as tendências apenas para confirmar a decisão tomada.",
+      "Esperar que duas variáveis atinjam alarme alto → atuar simultaneamente em várias malhas → comparar qual alteração teve efeito."
+    ],
+    exp:"A metodologia privilegia evidência, causalidade e confirmação da resposta."
+  }
+];
+let cicEvalSession=[];
+function startCICEvaluation(){
+  const bank=fyShuffle(CIC_EVAL_BANK);
+  const slots=balancedSlots(bank.length);
+  cicEvalSession=bank.map((q,i)=>({...q,options:buildOptions(q.correct,q.distractors,slots[i]),correctIndex:slots[i],selected:null}));
+  const root=document.getElementById('cicEvaluationEngine');
+  const rep=document.getElementById('evalReportV2'); if(rep){rep.classList.remove('show');rep.innerHTML='';}
+  root.innerHTML=cicEvalSession.map((item,qi)=>`
+    <div class="tech-q" data-eval="${qi}">
+      <div class="q-index">AVALIAÇÃO ${qi+1}</div>
+      <h4>${item.q}</h4>
+      <div class="tech-options">
+        ${item.options.map((opt,oi)=>`
+          <button class="tech-option" onclick="selectCICEval(${qi},${oi},this)">
+            <span class="letter">${String.fromCharCode(65+oi)}</span><span>${opt}</span>
+          </button>`).join('')}
+      </div>
+      <div class="tech-explain" id="evalExp${qi}"></div>
+    </div>`).join('');
+  updateEvalMetaV2();
+}
+function selectCICEval(qi,oi,btn){
+  const item=cicEvalSession[qi]; if(item.selected!==null)return;
+  item.selected=oi;
+  const box=btn.closest('.tech-q');
+  box.querySelectorAll('.tech-option').forEach((b,idx)=>{
+    b.disabled=true;
+    if(idx===item.correctIndex)b.classList.add('correct');
+    if(idx===oi&&oi!==item.correctIndex)b.classList.add('wrong');
+  });
+  const exp=document.getElementById('evalExp'+qi);
+  exp.innerHTML=(oi===item.correctIndex?'<b>Correto.</b> ':'<b>Melhor resposta: '+String.fromCharCode(65+item.correctIndex)+'.</b> ')+item.exp;
+  exp.classList.add('show');updateEvalMetaV2();
+}
+function updateEvalMetaV2(){
+  const answered=cicEvalSession.filter(q=>q.selected!==null).length;
+  const score=cicEvalSession.filter(q=>q.selected===q.correctIndex).length;
+  const p=document.getElementById('evalProgressV2');const s=document.getElementById('evalScoreV2');
+  if(p)p.textContent=`${answered} / ${cicEvalSession.length} respondidas`;
+  if(s)s.textContent=answered===cicEvalSession.length?`${score} acertos até agora`:'Resultado ao finalizar';
+}
+function finishCICEvaluation(){
+  const rep=document.getElementById('evalReportV2'); if(!rep)return;
+  const unanswered=cicEvalSession.filter(q=>q.selected===null).length;
+  if(unanswered){rep.innerHTML=`<b>Avaliação incompleta.</b><br>Faltam ${unanswered} questão(ões).`;rep.classList.add('show');return;}
+  const score=cicEvalSession.filter(q=>q.selected===q.correctIndex).length;
+  const p=pct(score,cicEvalSession.length);
+  const band=p>=85?'Domínio operacional consistente':p>=65?'Domínio intermediário':'Reforço recomendado';
+  const advice=p>=85?'Boa leitura de processo, causalidade e prioridade.':p>=65?'Reforce as relações entre fenômeno físico, malha de controle e confirmação de resposta.':'Revise Simulações CIC, Mecânica dos Fluidos e Operações Unitárias antes de repetir.';
+  rep.innerHTML=`<b>${band}</b><br>Resultado: ${score}/${cicEvalSession.length} (${p}%).<br>${advice}<br><small>As respostas corretas foram distribuídas de forma balanceada entre A/B/C/D nesta sessão.</small>`;
+  rep.classList.add('show');
+}
+
+/* Start/restart engines whenever their module is selected */
+const selectTrainingModuleV5=window.selectTrainingModule;
+window.selectTrainingModule=function(module,btn=null){
+  selectTrainingModuleV5(module,btn);
+  if(module==='quizTreino') startTechnicalQuiz();
+  if(module==='simCIC') { restartCICTraining(); setTimeout(()=>{updateVessel(1,30);updateVessel(2,30)},0); }
+  if(module==='avaliacaoCIC') startCICEvaluation();
+};
 </script>
 </body>
 </html>
