@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#0f172a" />
-<title>E-3901 — Fracionadora Topo Concept PWA</title>
+<title>E-3901 — Fracionadora Topo Concept PWA • Treinamentos</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -287,6 +287,41 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
 .pwa-toast.show{display:block}
 </style>
 
+
+<style>
+/* ===== TREINAMENTOS V2 ===== */
+.training-hub{display:grid;grid-template-columns:280px 1fr;gap:16px;align-items:start}
+.training-menu{display:grid;gap:9px;position:sticky;top:78px}
+.training-menu button{text-align:left;border:1px solid rgba(255,255,255,.08);background:#0a1829;color:var(--text);padding:12px 13px;border-radius:12px;transition:.2s}
+.training-menu button:hover,.training-menu button.active{border-color:rgba(85,214,190,.4);background:rgba(85,214,190,.09)}
+.training-menu button small{display:block;margin-top:4px;color:var(--muted);line-height:1.35}
+.training-pane{display:none;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:#0b192a;padding:18px}
+.training-pane.active{display:block}.training-pane h3{margin:0 0 6px}.training-pane>p{color:var(--muted);line-height:1.55;margin-top:0}
+.training-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.training-card{background:#0d1c2e;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:14px}
+.training-card h4{margin:0 0 7px}.training-card p{color:var(--muted);font-size:.9rem;line-height:1.5}
+.module-chip{display:inline-flex;padding:5px 8px;border-radius:999px;border:1px solid rgba(95,168,255,.2);background:rgba(95,168,255,.08);color:#c8dcff;font-size:.76rem;margin-bottom:10px}
+.practice-q{border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:13px;background:#091827;margin-top:10px}
+.practice-q strong{display:block;margin-bottom:8px}.practice-options{display:grid;gap:7px}
+.practice-options button{text-align:left;border:1px solid rgba(255,255,255,.08);background:#0d1c2e;color:var(--text);padding:9px 11px;border-radius:10px}
+.practice-options button.correct{border-color:rgba(88,214,141,.55);background:rgba(88,214,141,.09)}
+.practice-options button.wrong{border-color:rgba(255,107,107,.55);background:rgba(255,107,107,.08)}
+.practice-feedback{display:none;margin-top:8px;color:#c4d4e7;font-size:.86rem;line-height:1.45}
+.cic-sim{display:grid;grid-template-columns:1fr 1fr;gap:14px}.cic-console{border:1px solid rgba(255,255,255,.07);background:#081725;border-radius:14px;padding:14px}
+.cic-console h4{margin:0 0 10px}.cic-line{display:grid;grid-template-columns:1fr .8fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cic-line:last-child{border-bottom:0}.cic-line span{color:var(--muted)}.cic-actions{display:grid;gap:8px}
+.cic-actions button{border:1px solid rgba(255,255,255,.08);background:#0d1c2e;color:var(--text);border-radius:10px;padding:10px;text-align:left}
+.cic-actions button:hover{border-color:rgba(95,168,255,.4)}.sim-result{margin-top:10px;min-height:72px;border-radius:12px;padding:11px 12px;border:1px solid rgba(85,214,190,.18);background:rgba(85,214,190,.06);color:#d6fff8;line-height:1.5}
+.eval-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}.eval-score{padding:8px 11px;border-radius:999px;border:1px solid rgba(85,214,190,.25);background:rgba(85,214,190,.07);color:#cafff5;font-weight:800}
+.eval-item{border:1px solid rgba(255,255,255,.07);background:#0d1c2e;border-radius:14px;padding:14px;margin-bottom:10px}.eval-item p{margin:0 0 9px;line-height:1.5}.eval-item select{width:100%}
+.eval-report{display:none;margin-top:14px;padding:14px;border-radius:14px;background:#081827;border:1px solid rgba(95,168,255,.18);line-height:1.55}
+.progress-bar{height:10px;border-radius:999px;background:#07111f;overflow:hidden;margin-top:8px;border:1px solid rgba(255,255,255,.06)}.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .35s}
+.training-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0 16px}.training-kpi div{border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:10px;background:#091827}.training-kpi b{display:block;font-size:1.15rem}.training-kpi small{color:var(--muted)}
+.operator-cycle{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.operator-cycle div{padding:10px;border-radius:12px;background:#091827;border:1px solid rgba(255,255,255,.07);text-align:center}.operator-cycle b{display:block;color:#cafff5}.operator-cycle small{color:var(--muted)}
+@media(max-width:900px){.training-hub{grid-template-columns:1fr}.training-menu{position:static;grid-template-columns:repeat(2,1fr)}.cic-sim{grid-template-columns:1fr}.operator-cycle{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.training-menu,.training-grid{grid-template-columns:1fr}.training-kpi{grid-template-columns:1fr 1fr}}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -319,11 +354,10 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
   <div class="topbar">
     <button id="installAppBtn" type="button" onclick="installPWA()">⬇ Instalar App</button>
     <button onclick="go('tela')">Tela interativa</button>
+    <button onclick="go('treinamentos')">Treinamentos</button>
     <button onclick="go('hotspots')">Hotspots</button>
     <button onclick="go('interfaces')">Interfaces</button>
     <button onclick="go('cic')">Painel CIC</button>
-    <button onclick="go('cenarios')">Cenários</button>
-    <button onclick="go('quiz')">Quiz</button>
   </div>
 
 
@@ -455,6 +489,170 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
       <button class="focus-btn" onclick="focusPoint(915,655)"><b>J-3924</b><small>Transferência para U-80</small></button>
     </div>
   </section>
+
+
+  <section class="section" id="treinamentos">
+    <div class="section-title">
+      <div>
+        <h2>Treinamentos</h2>
+        <div class="section-sub">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</div>
+      </div>
+      <span class="tag">Foco: operador de painel CIC</span>
+    </div>
+
+    <div class="training-kpi">
+      <div><b>5 módulos</b><small>teoria + prática</small></div>
+      <div><b>CIC</b><small>tendência antes do alarme</small></div>
+      <div><b>Processo</b><small>física aplicada ao sistema</small></div>
+      <div><b>Avaliação</b><small>diagnóstico e decisão</small></div>
+    </div>
+
+    <div class="operator-cycle">
+      <div><b>1. ESTADO</b><small>o que está mudando?</small></div>
+      <div><b>2. INTERPRETAÇÃO</b><small>qual relação faz sentido?</small></div>
+      <div><b>3. DECISÃO</b><small>qual ação é prioritária?</small></div>
+      <div><b>4. CONFIRMAÇÃO</b><small>o processo respondeu?</small></div>
+    </div>
+
+    <div class="training-hub">
+      <div class="training-menu">
+        <button class="active" data-training="quizTreino" onclick="openTraining(this)">🧠 Quizzes<small>Fixação de equipamentos, fases e malhas.</small></button>
+        <button data-training="simCIC" onclick="openTraining(this)">🖥️ Cenários + Simulações CIC<small>Tendências, causa provável e prioridade.</small></button>
+        <button data-training="mecanica" onclick="openTraining(this)">🌊 Mecânica dos Fluidos<small>Pressão, vazão, ejetor e separação.</small></button>
+        <button data-training="unitarias" onclick="openTraining(this)">⚙️ Operações Unitárias<small>Fracionar, condensar, separar e bombear.</small></button>
+        <button data-training="avaliacaoCIC" onclick="openTraining(this)">🎯 Avaliação Operador CIC<small>Visão integrada de painel e processo.</small></button>
+      </div>
+
+      <div>
+        <div class="training-pane active" id="quizTreino">
+          <span class="module-chip">MÓDULO 1 • QUIZZES</span>
+          <h3>Quiz de processo</h3>
+          <p>As alternativas foram aproximadas para exigir leitura do processo e não simples eliminação.</p>
+
+          <div class="practice-q">
+            <strong>1. LIC-39164 sobe enquanto LIC-39163 permanece praticamente estável. Qual interpretação inicial é mais consistente?</strong>
+            <div class="practice-options">
+              <button onclick="trainingAnswer(this,false)">A) A fase hidrocarboneto aumentou prioritariamente.</button>
+              <button onclick="trainingAnswer(this,true)">B) A fase aquosa/interface aumentou ou sua retirada perdeu capacidade.</button>
+              <button onclick="trainingAnswer(this,false)">C) A mudança indica primeiro perda de rotação da J-3904.</button>
+              <button onclick="trainingAnswer(this,false)">D) A mudança prova perda de eficiência do C-3903.</button>
+            </div>
+            <div class="practice-feedback">LIC-39164 representa a interface do F-3906; a estabilidade do nível de HC ajuda a deslocar a hipótese para a fase aquosa.</div>
+          </div>
+
+          <div class="practice-q">
+            <strong>2. Qual é a melhor explicação para a existência do F-3907 depois do F-3906?</strong>
+            <div class="practice-options">
+              <button onclick="trainingAnswer(this,false)">A) Funcionar como reserva hidráulica do F-3906.</button>
+              <button onclick="trainingAnswer(this,true)">B) Separar nova parcela condensada após resfriamento adicional da corrente.</button>
+              <button onclick="trainingAnswer(this,false)">C) Controlar diretamente a pressão da E-3901.</button>
+              <button onclick="trainingAnswer(this,false)">D) Armazenar apenas a água que não entrou no F-3906.</button>
+            </div>
+            <div class="practice-feedback">O segundo estágio melhora a recuperação líquida antes de o gás seguir para compressão.</div>
+          </div>
+
+          <div class="practice-q">
+            <strong>3. F-3915 sobe, J-3924 está parada e depois as duas interfaces começam a subir. Qual hipótese merece prioridade?</strong>
+            <div class="practice-options">
+              <button onclick="trainingAnswer(this,true)">A) Perda de capacidade de retirada comum a jusante do sistema de água ácida.</button>
+              <button onclick="trainingAnswer(this,false)">B) Falha simultânea dos dois transmissores de interface.</button>
+              <button onclick="trainingAnswer(this,false)">C) Aumento isolado de hidrocarboneto nos dois vasos.</button>
+              <button onclick="trainingAnswer(this,false)">D) Alteração exclusiva no I-3905.</button>
+            </div>
+            <div class="practice-feedback">A tendência comum em equipamentos diferentes é um forte indício para procurar uma causa compartilhada antes de supor falhas independentes.</div>
+          </div>
+
+          <div class="practice-q">
+            <strong>4. O controlador abre mais a retirada de água, mas a interface continua subindo. O que deve ser verificado antes de concluir falha de indicação?</strong>
+            <div class="practice-options">
+              <button onclick="trainingAnswer(this,false)">A) Apenas o valor do setpoint.</button>
+              <button onclick="trainingAnswer(this,true)">B) Resposta da válvula, condição hidráulica, restrições e capacidade do caminho até o F-3915.</button>
+              <button onclick="trainingAnswer(this,false)">C) Apenas a temperatura da E-3901.</button>
+              <button onclick="trainingAnswer(this,false)">D) Somente a pressão do gás externo.</button>
+            </div>
+            <div class="practice-feedback">No CIC, comando não é sinônimo de efeito. É preciso confirmar a resposta real do elemento final e do processo.</div>
+          </div>
+        </div>
+
+        <div class="training-pane" id="simCIC">
+          <span class="module-chip">MÓDULO 2 • CENÁRIOS + SIMULAÇÃO CIC</span>
+          <h3>Tomada de decisão por tendência</h3>
+          <p>O cenário apresenta uma “fotografia dinâmica” do painel. Escolha a primeira linha de diagnóstico e depois avance.</p>
+          <div class="cic-sim">
+            <div class="cic-console">
+              <h4 id="simTitle">Cenário A</h4>
+              <div class="cic-line"><b>LIC-39164</b><span id="sim64"></span></div>
+              <div class="cic-line"><b>LIC-39166</b><span id="sim66"></span></div>
+              <div class="cic-line"><b>F-3915</b><span id="sim15"></span></div>
+              <div class="cic-line"><b>J-3924</b><span id="simPump"></span></div>
+              <div class="cic-line"><b>FIC-39190</b><span id="sim190"></span></div>
+              <div class="progress-bar"><div class="progress-fill" id="simProgress"></div></div>
+            </div>
+            <div class="cic-console">
+              <h4>Primeira linha de raciocínio</h4>
+              <div class="cic-actions" id="simActions"></div>
+              <div class="sim-result" id="simResult">Selecione uma decisão para ver a análise.</div>
+              <button class="reveal" onclick="nextCICScenario()" style="margin-top:10px">Próximo cenário</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="training-pane" id="mecanica">
+          <span class="module-chip">MÓDULO 3 • MECÂNICA DOS FLUIDOS</span>
+          <h3>Mecânica dos Fluidos aplicada ao topo</h3>
+          <p>O objetivo não é estudar fórmulas isoladas, mas reconhecer a física por trás das tendências observadas no CIC.</p>
+          <div class="training-grid">
+            <div class="training-card"><h4>I-3905 — ejetor</h4><p>O fluido motriz acelera e cria uma região de menor pressão capaz de succionar outra corrente. A capacidade depende de pressão motriz, contrapressão e geometria.</p></div>
+            <div class="training-card"><h4>Separação por densidade</h4><p>F-3906 e F-3907 precisam de diferença de densidade e tempo de residência para formar uma interface estável entre água e hidrocarboneto.</p></div>
+            <div class="training-card"><h4>Perda de carga</h4><p>Uma válvula mais aberta não garante maior vazão se houver restrição, contrapressão elevada ou pouca força motriz disponível.</p></div>
+            <div class="training-card"><h4>Sucção de bombas</h4><p>Inventário baixo e condições desfavoráveis de sucção reduzem margem hidráulica e podem comprometer a transferência pela bomba.</p></div>
+          </div>
+          <div class="practice-q">
+            <strong>Aplicação: a MV da válvula aumenta, mas a interface continua subindo. Qual raciocínio hidráulico é adequado?</strong>
+            <div class="practice-options">
+              <button onclick="trainingAnswer(this,true)">A) A vazão depende da curva hidráulica completa; pode existir restrição ou contrapressão.</button>
+              <button onclick="trainingAnswer(this,false)">B) A vazão necessariamente aumentou na mesma proporção que a abertura.</button>
+              <button onclick="trainingAnswer(this,false)">C) A pressão a jusante não influencia o escoamento.</button>
+              <button onclick="trainingAnswer(this,false)">D) O comportamento prova que a densidade da água diminuiu.</button>
+            </div>
+            <div class="practice-feedback">O operador deve distinguir “comando enviado” de “vazão efetivamente produzida”.</div>
+          </div>
+        </div>
+
+        <div class="training-pane" id="unitarias">
+          <span class="module-chip">MÓDULO 4 • OPERAÇÕES UNITÁRIAS</span>
+          <h3>Operações Unitárias integradas</h3>
+          <p>O sistema de topo conecta operações diferentes; o diagnóstico melhora quando o operador entende como uma perturbação se propaga entre elas.</p>
+          <div class="training-grid">
+            <div class="training-card"><h4>Fracionamento — E-3901</h4><p>Separação de faixas de hidrocarbonetos por diferença de volatilidade e contato vapor-líquido.</p></div>
+            <div class="training-card"><h4>Transferência de calor — C-3902/C-3903</h4><p>Retirada de calor e condensação progressiva da corrente do topo.</p></div>
+            <div class="training-card"><h4>Separação de fases — F-3906/F-3907</h4><p>Separação gás-líquido e líquido-líquido para recuperar HC e retirar água ácida.</p></div>
+            <div class="training-card"><h4>Bombeamento — J-3904/J-3905/J-3924</h4><p>Fornecimento de energia para refluxo, transferência de líquido de topo e envio de água ácida.</p></div>
+          </div>
+          <div class="insight"><b>Visão integrada:</b> fracionamento → condensação → separação → bombeamento → absorção/compressão. Um desvio a montante pode alterar simultaneamente várias variáveis a jusante.</div>
+        </div>
+
+        <div class="training-pane" id="avaliacaoCIC">
+          <span class="module-chip">MÓDULO 5 • AVALIAÇÃO OPERADOR CIC</span>
+          <div class="eval-head">
+            <div><h3>Avaliação integrada</h3><p style="margin:4px 0 0;color:var(--muted)">Diagnóstico, prioridade, causa comum, efeito e confirmação.</p></div>
+            <div class="eval-score" id="evalScore">0 / 6</div>
+          </div>
+
+          <div class="eval-item"><p><b>1.</b> LIC-39166 ↑, LIC-39164 estável e F-3915 estável. Onde investigar primeiro?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">J-3924 como causa comum</option><option value="b">Segundo estágio: C-3903/F-3907 e retiradas locais</option><option value="c">Fundo da E-3901</option><option value="d">Regenerador</option></select></div>
+          <div class="eval-item"><p><b>2.</b> A saída do LIC-39164 aumenta, mas a PV segue subindo. Qual atitude mostra melhor visão de painel?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Aumentar a saída continuamente</option><option value="b">Declarar indicação falsa</option><option value="c">Confirmar válvula, restrições e resposta hidráulica da retirada</option><option value="d">Reduzir carga antes de verificar a cadeia</option></select></div>
+          <div class="eval-item"><p><b>3.</b> F-3915 ↑ com J-3924 parada. Qual efeito deve ser antecipado?</p><select class="eval-select" data-correct="a"><option value="">Selecione...</option><option value="a">Possível repercussão a montante nas interfaces</option><option value="b">Queda obrigatória das interfaces</option><option value="c">Aumento automático da capacidade de drenagem</option><option value="d">Nenhum efeito nos vasos</option></select></div>
+          <div class="eval-item"><p><b>4.</b> Por que comparar LIC-39163 e LIC-39164?</p><select class="eval-select" data-correct="d"><option value="">Selecione...</option><option value="a">Os dois medem a mesma variável</option><option value="b">Para inferir rotação da J-3904</option><option value="c">Para medir a pressão da sucção do compressor</option><option value="d">Para separar o comportamento do nível HC do comportamento da interface aquosa</option></select></div>
+          <div class="eval-item"><p><b>5.</b> Qual sequência representa melhor o raciocínio CIC?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">Agir → procurar causa → não confirmar</option><option value="b">Identificar tendência → interpretar → agir com segurança → confirmar resposta</option><option value="c">Esperar alarme alto → atuar na variável alarmada</option><option value="d">Alterar várias malhas simultaneamente</option></select></div>
+          <div class="eval-item"><p><b>6.</b> LIC-39164 ↑ + LIC-39166 ↑ + F-3915 ↑. Qual princípio de diagnóstico é mais importante?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Tratar cada variável como uma falha independente</option><option value="b">Atuar primeiro no refluxo</option><option value="c">Procurar causa comum capaz de explicar a tendência simultânea</option><option value="d">Ignorar F-3915 e focar somente nos vasos</option></select></div>
+
+          <button class="reveal" onclick="gradeCICEvaluation()">Finalizar avaliação</button>
+          <div class="eval-report" id="evalReport"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section class="section" id="hotspots">
     <div class="section-title">
@@ -880,6 +1078,22 @@ window.addEventListener('load', () => {
     }
   }
 });
+</script>
+
+
+<script>
+function openTraining(btn){const id=btn.dataset.training;document.querySelectorAll('.training-menu button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.training-pane').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active')}
+function trainingAnswer(btn,correct){const box=btn.closest('.practice-q');const buttons=box.querySelectorAll('.practice-options button');buttons.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct){[...buttons].forEach(b=>{const oc=b.getAttribute('onclick')||'';if(oc.includes(',true)'))b.classList.add('correct')})}const fb=box.querySelector('.practice-feedback');if(fb)fb.style.display='block'}
+const cicTrainingScenarios=[
+{title:'Cenário A — água ácida acumulando',v64:'↑ subindo',v66:'↑ subindo',v15:'↑ subindo',pump:'PARADA',v190:'→ estável',correct:'common',good:'Boa prioridade. Os dois vasos e o F-3915 se deslocam juntos; confirme a capacidade de retirada pela J-3924 e o caminho comum de água ácida.',bad:'Essa ação não explica bem a tendência simultânea. Procure primeiro uma causa comum a jusante.'},
+{title:'Cenário B — desvio localizado no F-3907',v64:'→ estável',v66:'↑ subindo',v15:'→ estável',pump:'OPERANDO',v190:'↓ reduzindo',correct:'local3907',good:'Boa leitura. O desvio está concentrado no segundo estágio; verifique F-3907, condições do C-3903, retirada local e J-3905/FIC-39190.',bad:'Uma causa comum a jusante perde força porque F-3906 e F-3915 permanecem estáveis.'},
+{title:'Cenário C — controlador atua sem resposta',v64:'↑ subindo',v66:'→ estável',v15:'→ estável',pump:'OPERANDO',v190:'→ estável',correct:'response',good:'Correto. Confirme se o comando produz efeito real: válvula, restrições, contrapressão e capacidade hidráulica da linha de retirada.',bad:'Antes de mudar outra malha ou condenar o instrumento, confirme a cadeia de atuação e a resposta do processo.'}
+];let cicScenarioIndex=0;
+function renderCICScenario(){const s=cicTrainingScenarios[cicScenarioIndex];simTitle.textContent=s.title;sim64.textContent=s.v64;sim66.textContent=s.v66;sim15.textContent=s.v15;simPump.textContent=s.pump;sim190.textContent=s.v190;simProgress.style.width=((cicScenarioIndex+1)/cicTrainingScenarios.length*100)+'%';simResult.textContent='Selecione uma decisão para ver a análise.';if(cicScenarioIndex===0)simActions.innerHTML=`<button onclick="simDecision('common')">Verificar capacidade de retirada do F-3915/J-3924 e causa comum a jusante.</button><button onclick="simDecision('sensor')">Assumir falha simultânea dos transmissores.</button><button onclick="simDecision('reflux')">Aumentar o refluxo de topo.</button><button onclick="simDecision('ignore')">Aguardar sem investigar.</button>`;else if(cicScenarioIndex===1)simActions.innerHTML=`<button onclick="simDecision('common')">Parar a J-3924.</button><button onclick="simDecision('local3907')">Investigar C-3903/F-3907/J-3905/FIC-39190 e retiradas locais.</button><button onclick="simDecision('reflux')">Atuar no refluxo antes de confirmar a causa.</button><button onclick="simDecision('sensor')">Assumir falha do LIC-39164.</button>`;else simActions.innerHTML=`<button onclick="simDecision('sensor')">Declarar o LT defeituoso.</button><button onclick="simDecision('response')">Confirmar válvula, restrições, contrapressão e resposta hidráulica.</button><button onclick="simDecision('reflux')">Mudar FIC-39179.</button><button onclick="simDecision('ignore')">Ignorar porque o F-3907 está estável.</button>`}
+function simDecision(choice){const s=cicTrainingScenarios[cicScenarioIndex];simResult.innerHTML=choice===s.correct?'✓ '+s.good:'⚠ '+s.bad}
+function nextCICScenario(){cicScenarioIndex=(cicScenarioIndex+1)%cicTrainingScenarios.length;renderCICScenario()}
+function gradeCICEvaluation(){const items=[...document.querySelectorAll('.eval-select')];let correct=0,answered=0;items.forEach(s=>{if(s.value)answered++;if(s.value===s.dataset.correct)correct++});evalScore.textContent=correct+' / '+items.length;const pct=Math.round(correct/items.length*100);let band,advice;if(answered<items.length){band='Avaliação incompleta';advice='Responda todos os itens para fechar o diagnóstico de desempenho.'}else if(pct>=85){band='Domínio operacional consistente';advice='Boa leitura de tendência, causa comum e confirmação. Próximo nível: cenários com decisões encadeadas e mais variáveis simultâneas.'}else if(pct>=65){band='Domínio intermediário';advice='Reforce prioridade de diagnóstico e confirmação da resposta do processo.'}else{band='Reforço recomendado';advice='Revise Cenários CIC, Mecânica dos Fluidos e Operações Unitárias antes de repetir a avaliação.'}evalReport.style.display='block';evalReport.innerHTML=`<b>${band}</b><br>Resultado: ${correct}/${items.length} (${pct}%).<br>${advice}`}
+window.addEventListener('load',renderCICScenario);
 </script>
 
 </body>

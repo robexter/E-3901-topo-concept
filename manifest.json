@@ -1,7 +1,7 @@
 {
   "name": "E-3901 Fracionadora Topo Concept",
   "short_name": "E-3901 Topo",
-  "description": "Concept interativo do sistema de topo da fracionadora E-3901 da U-39.",
+  "description": "Concept interativo da E-3901 com tela operacional, quizzes, cenários e simulações CIC, mecânica dos fluidos, operações unitárias e avaliação de operador de painel.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
