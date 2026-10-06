@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0f172a" />
-<title>E-3901 — Fracionadora Topo Concept PWA • Treinamentos</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="#0f172a" name="theme-color"/>
+<title>E-3901 — Fracionadora Topo Concept PWA • Layout Refinado</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -250,16 +251,13 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
 }
 
 </style>
-
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
-<meta name="application-name" content="E-3901 Topo Concept">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="E-3901 Topo">
-
-
+<link href="manifest.json" rel="manifest"/>
+<link href="icon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="icon-192.png" rel="apple-touch-icon"/>
+<meta content="E-3901 Topo Concept" name="application-name"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="E-3901 Topo" name="apple-mobile-web-app-title"/>
 <style>
 #installAppBtn{
   border:1px solid rgba(85,214,190,.42);
@@ -286,8 +284,6 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
 }
 .pwa-toast.show{display:block}
 </style>
-
-
 <style>
 /* ===== TREINAMENTOS V2 ===== */
 .training-hub{display:grid;grid-template-columns:280px 1fr;gap:16px;align-items:start}
@@ -322,515 +318,522 @@ select{width:100%; background:#091827; color:var(--text); border:1px solid rgba(
 @media(max-width:700px){.training-menu,.training-grid{grid-template-columns:1fr}.training-kpi{grid-template-columns:1fr 1fr}}
 </style>
 
+<style id="layout-clean-v5">
+/* V5 — reorganização visual, conteúdo preservado */
+body{background:#07111f}
+.app{width:min(1440px,100%);padding:14px}
+.hero-clean{grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:12px;margin-bottom:12px}
+.hero-clean .hero-card{padding:20px 22px}
+.hero-clean .hero-card h1{font-size:clamp(1.9rem,3vw,3.2rem);line-height:1;margin:12px 0 8px}
+.hero-clean .hero-card p{font-size:.94rem;line-height:1.5}
+.hero-clean .summary-card{padding:16px 18px}
+.hero-clean .flow-mini{gap:6px}
+.hero-clean .flow-mini div{padding:8px 10px;font-size:.84rem}
+.topbar{top:8px;padding:8px;margin-bottom:12px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.topbar button{padding:9px 12px}
+.topbar .training-entry{border-color:rgba(85,214,190,.35);background:rgba(85,214,190,.08)}
+.topbar .install-clean{margin-right:auto;border-color:rgba(95,168,255,.25)}
+.section{padding:18px;margin-bottom:12px}
+.section-compact{padding:16px}
+.section-title{margin-bottom:12px}
+.section-title h2{font-size:clamp(1.25rem,2vw,1.75rem)}
+.screen-toolbar{margin-bottom:10px}
+.toolbar-group{gap:6px}
+.tool-btn,.track-btn{padding:8px 10px;min-height:36px;font-size:.84rem}
+.zoom-readout{font-size:.76rem;min-width:44px}
+.screen-notes{margin-top:10px}
+.focus-strip{margin-top:10px}
+.clean-details{
+  margin:0 0 12px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:15px;
+  background:linear-gradient(180deg,rgba(16,36,58,.92),rgba(10,24,41,.92));
+  overflow:hidden;
+}
+.clean-details summary{
+  cursor:pointer;
+  list-style:none;
+  padding:13px 16px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.clean-details summary::-webkit-details-marker{display:none}
+.clean-details summary::after{content:"＋";color:var(--accent)}
+.clean-details[open] summary::after{content:"−"}
+.clean-details .details-sub{margin:0;padding:0 16px 12px;color:var(--muted);font-size:.86rem}
+.clean-details .hotspot-grid{padding:0 16px 16px}
+.hotspot-card{min-height:118px;padding:13px}
+.hotspot-card p{font-size:.86rem}
+
+/* Treinamentos no mesmo padrão de drawer lateral da Fracionadora Concept */
+.training-backdrop-clean{
+  position:fixed;inset:0;z-index:180;background:rgba(3,8,15,.58);backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;transition:.22s ease;
+}
+.training-backdrop-clean.open{opacity:1;pointer-events:auto}
+.training-drawer-clean{
+  position:fixed;inset:0 0 0 auto;width:min(940px,100%);z-index:190;
+  background:#07111b;border-left:1px solid #284458;box-shadow:-24px 0 70px rgba(0,0,0,.58);
+  transform:translateX(102%);transition:.24s ease;display:flex;flex-direction:column;overflow:hidden;
+}
+.training-drawer-clean.open{transform:translateX(0)}
+.training-drawer-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;
+  border-bottom:1px solid #20384c;background:#091722;min-height:64px
+}
+.training-drawer-head>div{display:flex;flex-direction:column;gap:3px}
+.training-drawer-head strong{font-size:1rem}
+.training-drawer-head small{color:#91a9bd;font-size:.77rem}
+.drawer-close{
+  width:38px;height:38px;border-radius:10px;border:1px solid #29465d;background:#0c1b28;color:#eaf3fa
+}
+.training-drawer-body{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:0;flex:1}
+.training-drawer-nav{
+  padding:10px;background:#081520;border-right:1px solid #20384c;overflow:auto
+}
+.training-drawer-nav button{
+  width:100%;text-align:left;border:1px solid transparent;background:transparent;color:#dcecf8;
+  padding:11px;border-radius:11px;margin-bottom:5px;cursor:pointer
+}
+.training-drawer-nav button strong{display:block;font-size:.82rem}
+.training-drawer-nav button small{display:block;color:#8299ac;font-size:.7rem;line-height:1.35;margin-top:3px}
+.training-drawer-nav button:hover,.training-drawer-nav button.active{
+  border-color:#426376;background:#102331
+}
+.training-drawer-nav button.active{border-color:#5f9748;background:#15331a}
+.training-drawer-content{padding:18px;overflow:auto;min-width:0}
+.training-pane-clean{display:none;max-width:780px;margin:0 auto}
+.training-pane-clean.active{display:block}
+.training-pane-clean>h3,.training-pane-clean>h2{margin-top:0}
+.training-intro-clean{color:var(--muted);margin-top:4px}
+.training-home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}
+.training-home-card{
+  text-align:left;border:1px solid #29465d;background:linear-gradient(180deg,#102436,#0b1824);
+  color:var(--text);border-radius:14px;padding:13px
+}
+.training-home-card:hover{border-color:#5b86a5;transform:translateY(-1px)}
+.training-home-card strong{display:block;margin-bottom:5px}
+.training-home-card span{color:#9fb6c8;font-size:.78rem;line-height:1.4}
+.training-kpi{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}
+.operator-cycle{margin:12px 0}
+.training-divider{
+  margin:24px 0 12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);
+  color:#ddecf7;font-weight:850;font-size:1rem
+}
+.training-pane-clean .sim-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.training-pane-clean .scenarios{grid-template-columns:1fr}
+.training-pane-clean .quiz{gap:10px}
+.training-pane-clean .q,.training-pane-clean .scenario{background:#091827}
+.training-pane-clean .cic-sim{grid-template-columns:1fr 1fr}
+body.training-open{overflow:hidden}
+
+/* Limpa leitura da tela principal */
+#cic .cic-grid{gap:12px}
+#cic .trend-panel,#cic .scenario-panel{padding:14px}
+#cic .trend-row{padding:8px 0}
+@media(max-width:1000px){
+  .hero-clean{grid-template-columns:1fr}
+  .hero-clean .summary-card{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+  .hero-clean .flow-mini{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .app{padding:8px}
+  .hero-clean .hero-card{padding:16px}
+  .hero-clean .summary-card{display:block;padding:14px}
+  .hero-clean .flow-mini{grid-template-columns:1fr}
+  .topbar{overflow:auto;flex-wrap:nowrap;top:4px}
+  .topbar .install-clean{margin-right:0}
+  .training-drawer-clean{width:100%;border-left:0}
+  .training-drawer-body{grid-template-columns:1fr}
+  .training-drawer-nav{
+    display:flex;gap:7px;overflow:auto;border-right:0;border-bottom:1px solid #20384c;padding:8px
+  }
+  .training-drawer-nav button{min-width:170px;margin:0}
+  .training-drawer-content{padding:13px}
+  .training-home-grid{grid-template-columns:1fr}
+  .training-kpi{grid-template-columns:1fr 1fr}
+  .training-pane-clean .sim-grid,.training-pane-clean .cic-sim{grid-template-columns:1fr}
+  .clean-details .hotspot-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 <div class="app">
-  <div class="hero">
-    <div class="hero-card">
-      <span class="kicker">CONCEPT TEMPLATE • U-39 • V4</span>
-      <h1>E-3901<br>Fracionadora — Topo</h1>
-      <p>
+<div class="hero hero-clean">
+<div class="hero-card">
+<span class="kicker">CONCEPT TEMPLATE • U-39 • V4</span>
+<h1>E-3901<br/>Fracionadora — Topo</h1>
+<p>
         One page interativa baseada na própria tela do processo. A proposta é aprender diretamente sobre o diagrama operacional:
         condensação em dois estágios, separação gás / hidrocarboneto / água ácida, interfaces nos F-3906 e F-3907, coleta no F-3915 e envio pela J-3924 para a U-80.
       </p>
-    </div>
-    <div class="summary-card">
-      <div>
-        <h3>Como usar</h3>
-        <div class="flow-mini">
-          <div><b>1.</b> Clique nas lâmpadas sobre a tela para abrir os conceitos.</div>
-          <div><b>2.</b> Use <b>Gás / HC / Água ácida</b> para destacar rotas principais.</div>
-          <div><b>3.</b> Desça para treinar tendências, cenários e quiz.</div>
-        </div>
-      </div>
-      <div class="legend">
-        <span><i class="dot gas"></i>Gás</span>
-        <span><i class="dot hc"></i>Hidrocarboneto</span>
-        <span><i class="dot water"></i>Água ácida</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="topbar">
-    <button id="installAppBtn" type="button" onclick="installPWA()">⬇ Instalar App</button>
-    <button onclick="go('tela')">Tela interativa</button>
-    <button onclick="go('treinamentos')">Treinamentos</button>
-    <button onclick="go('hotspots')">Hotspots</button>
-    <button onclick="go('interfaces')">Interfaces</button>
-    <button onclick="go('cic')">Painel CIC</button>
-  </div>
-
-
-  <section class="section" id="tela">
-    <div class="section-title">
-      <div>
-        <h2>Tela operacional interativa</h2>
-        <div class="section-sub">A tela real passa a ser o centro do Concept. Hotspots principais aparecem por padrão; os complementares ficam sob demanda.</div>
-      </div>
-      <span class="tag">V4 • exploração progressiva</span>
-    </div>
-
-    <div class="screen-toolbar">
-      <div class="toolbar-group">
-        <button class="track-btn active" data-track="gas" onclick="setTrack('gas',this)">GÁS</button>
-        <button class="track-btn" data-track="hc" onclick="setTrack('hc',this)">HIDROCARBONETO</button>
-        <button class="track-btn" data-track="water" onclick="setTrack('water',this)">ÁGUA ÁCIDA</button>
-      </div>
-      <div class="toolbar-group">
-        <button class="tool-btn" id="contextBtn" onclick="toggleContext(this)">+ CONTEXTO</button>
-        <button class="tool-btn" id="labelsBtn" onclick="toggleLabels(this)">NOMES</button>
-        <button class="tool-btn" id="hotspotsBtn" onclick="toggleHotspots(this)">HOTSPOTS</button>
-        <button class="tool-btn" onclick="changeZoom(-0.1)">−</button>
-        <span class="zoom-readout" id="zoomReadout">100%</span>
-        <button class="tool-btn" onclick="changeZoom(0.1)">+</button>
-        <button class="tool-btn" onclick="resetView()">CENTRAR</button>
-        <button class="tool-btn" onclick="toggleFullscreen()">⛶ TELA CHEIA</button>
-      </div>
-    </div>
-
-    <div class="screen-scroller" id="screenScroller">
-      <div class="screen-stage show-gas" id="screenStage">
-        <img src="e3901-screen.png" alt="Tela operacional do sistema de topo da E-3901">
-
-        <svg class="overlay-svg" viewBox="0 0 1280 768" preserveAspectRatio="none" aria-hidden="true">
-          <!-- Rotas DIDÁTICAS: destacam caminho funcional, sem substituir o traçado de engenharia da tela -->
-          <path class="route gas" d="M68 360 L68 88 L332 88 L438 88 L438 150 L535 150 L590 98 L642 98 L642 48 L938 48 L938 98 L1012 98 L1012 225 L814 225 L814 274" />
-          <path class="route gas" d="M814 274 L814 225 L1028 225 L1028 202 L1260 202" />
-          <path class="route gas" d="M1083 151 L1083 225 L1015 225" />
-
-          <path class="route hc" d="M478 220 L478 292 L449 292 L449 389 L207 389 L136 389" />
-          <path class="route hc" d="M820 356 L820 432 L1180 432" />
-
-          <path class="route water" d="M530 220 L530 558 L691 558 L691 556 L1188 556 L1188 595 L1188 653 L948 653" />
-          <path class="route water" d="M870 357 L870 519 L1188 519" />
-
-          <circle class="route-end gas" cx="1255" cy="202" r="7" fill="var(--gas)"/>
-          <circle class="route-end hc" cx="1180" cy="432" r="7" fill="var(--hc)"/>
-          <circle class="route-end water" cx="948" cy="653" r="7" fill="var(--water)"/>
-        </svg>
-
-        <div class="phase-chip gas" style="left:73%;top:25%">GÁS → COMPRESSÃO</div>
-        <div class="phase-chip hc" style="left:72%;top:52%">HC → J-3905 / ABSORÇÃO</div>
-        <div class="phase-chip water" style="left:71%;top:69%">ÁGUA ÁCIDA → F-3915 / J-3924</div>
-
-        <!-- HOTSPOTS PRINCIPAIS -->
-        <button class="hotspot main-hotspot" style="left:4.7%;top:73.7%" onclick="openEquip('E3901')" aria-label="E-3901">💡</button>
-        <div class="hotspot-name" style="left:7.0%;top:74.0%">E-3901</div>
-
-        <button class="hotspot main-hotspot" style="left:36.4%;top:23.5%" onclick="openEquip('F3906')" aria-label="F-3906">💡</button>
-        <div class="hotspot-name" style="left:38.7%;top:23.8%">F-3906</div>
-
-        <button class="hotspot main-hotspot" style="left:52.7%;top:57.4%" onclick="openEquip('LIC39164')" aria-label="LIC-39164">💡</button>
-        <div class="hotspot-name" style="left:55.0%;top:57.7%">LIC-39164</div>
-
-        <button class="hotspot main-hotspot" style="left:62.8%;top:40.3%" onclick="openEquip('F3907')" aria-label="F-3907">💡</button>
-        <div class="hotspot-name" style="left:65.1%;top:40.6%">F-3907</div>
-
-        <button class="hotspot main-hotspot" style="left:74.0%;top:61.6%" onclick="openEquip('LIC39166')" aria-label="LIC-39166">💡</button>
-        <div class="hotspot-name" style="left:76.3%;top:61.9%">LIC-39166</div>
-
-        <button class="hotspot main-hotspot" style="left:83.5%;top:18.1%" onclick="openEquip('I3905')" aria-label="I-3905">💡</button>
-        <div class="hotspot-name" style="left:85.8%;top:18.4%">I-3905</div>
-
-        <button class="hotspot main-hotspot" style="left:91.4%;top:60.0%" onclick="openEquip('F3915')" aria-label="F-3915">💡</button>
-        <div class="hotspot-name" style="left:88.4%;top:64.2%">F-3915</div>
-
-        <button class="hotspot main-hotspot" style="left:70.5%;top:83.0%" onclick="openEquip('J3924')" aria-label="J-3924">💡</button>
-        <div class="hotspot-name" style="left:72.8%;top:83.3%">J-3924</div>
-
-        <!-- HOTSPOTS DE CONTEXTO (ocultos por padrão) -->
-        <button class="hotspot context-hotspot" style="left:27.2%;top:9.2%" onclick="openEquip('C3902')" aria-label="C-3902">💡</button>
-        <div class="hotspot-name context-label" style="left:29.5%;top:9.5%">C-3902</div>
-
-        <button class="hotspot context-hotspot" style="left:8.0%;top:22.5%" onclick="openEquip('TIC39249')" aria-label="TIC-39249">💡</button>
-        <div class="hotspot-name context-label" style="left:10.3%;top:22.8%">TIC-39249</div>
-
-        <button class="hotspot context-hotspot" style="left:23.2%;top:26.1%" onclick="openEquip('LIC39163')" aria-label="LIC-39163">💡</button>
-        <div class="hotspot-name context-label" style="left:25.5%;top:26.4%">LIC-39163</div>
-
-        <button class="hotspot context-hotspot" style="left:7.5%;top:34.0%" onclick="openEquip('FIC39179')" aria-label="FIC-39179">💡</button>
-        <div class="hotspot-name context-label" style="left:9.8%;top:34.3%">FIC-39179</div>
-
-        <button class="hotspot context-hotspot" style="left:33.9%;top:37.0%" onclick="openEquip('J3904')" aria-label="J-3904">💡</button>
-        <div class="hotspot-name context-label" style="left:36.2%;top:37.3%">J-3904</div>
-
-        <button class="hotspot context-hotspot" style="left:59.8%;top:16.6%" onclick="openEquip('C3903')" aria-label="C-3903">💡</button>
-        <div class="hotspot-name context-label" style="left:62.1%;top:16.9%">C-3903</div>
-
-        <button class="hotspot context-hotspot" style="left:81.5%;top:38.4%" onclick="openEquip('LIC39165')" aria-label="LIC-39165">💡</button>
-        <div class="hotspot-name context-label" style="left:83.8%;top:38.7%">LIC-39165</div>
-
-        <button class="hotspot context-hotspot" style="left:81.4%;top:47.0%" onclick="openEquip('FIC39190')" aria-label="FIC-39190">💡</button>
-        <div class="hotspot-name context-label" style="left:83.7%;top:47.3%">FIC-39190</div>
-
-        <button class="hotspot context-hotspot" style="left:63.5%;top:55.0%" onclick="openEquip('J3905')" aria-label="J-3905">💡</button>
-        <div class="hotspot-name context-label" style="left:65.8%;top:55.3%">J-3905</div>
-
-        <button class="hotspot context-hotspot" style="left:80.3%;top:75.2%" onclick="openEquip('LIC39195')" aria-label="LIC-39195">💡</button>
-        <div class="hotspot-name context-label" style="left:82.6%;top:75.5%">LIC-39195</div>
-
-        <button class="hotspot context-hotspot" style="left:31.7%;top:67.2%" onclick="openEquip('FIC39180')" aria-label="FIC-39180">💡</button>
-        <div class="hotspot-name context-label" style="left:34.0%;top:67.5%">FIC-39180</div>
-      </div>
-    </div>
-
-    <div class="snapshot-note">
-      <b>Importante:</b> os valores numéricos presentes na imagem são uma fotografia de uma condição operacional específica.
+</div>
+<div class="summary-card">
+<div>
+<h3>Como usar</h3>
+<div class="flow-mini">
+<div><b>1.</b> Clique nas lâmpadas sobre a tela para abrir os conceitos.</div>
+<div><b>2.</b> Use <b>Gás / HC / Água ácida</b> para destacar rotas principais.</div>
+<div><b>3.</b> Desça para treinar tendências, cenários e quiz.</div>
+</div>
+</div>
+<div class="legend">
+<span><i class="dot gas"></i>Gás</span>
+<span><i class="dot hc"></i>Hidrocarboneto</span>
+<span><i class="dot water"></i>Água ácida</span>
+</div>
+</div>
+</div>
+<div class="topbar"><button class="install-clean" id="installAppBtn" onclick="installPWA()">⬇ Instalar App</button><button onclick="go('tela')">Tela operacional</button><button onclick="go('cic')">Leitura CIC</button><button class="training-entry" onclick="openTrainingDrawer('home')">🎓 Treinamentos</button></div>
+<section class="section" id="tela">
+<div class="section-title">
+<div>
+<h2>Tela operacional interativa</h2>
+<div class="section-sub">A tela real passa a ser o centro do Concept. Hotspots principais aparecem por padrão; os complementares ficam sob demanda.</div>
+</div>
+<span class="tag">V4 • exploração progressiva</span>
+</div>
+<div class="screen-toolbar">
+<div class="toolbar-group">
+<button class="track-btn active" data-track="gas" onclick="setTrack('gas',this)">GÁS</button>
+<button class="track-btn" data-track="hc" onclick="setTrack('hc',this)">HIDROCARBONETO</button>
+<button class="track-btn" data-track="water" onclick="setTrack('water',this)">ÁGUA ÁCIDA</button>
+</div>
+<div class="toolbar-group"><button class="tool-btn" id="contextBtn" onclick="toggleContext(this)">+ Pontos</button><button class="tool-btn" id="labelsBtn" onclick="toggleLabels(this)">Nomes</button><button class="tool-btn" onclick="changeZoom(-0.1)">−</button><span class="zoom-readout" id="zoomReadout">100%</span><button class="tool-btn" onclick="changeZoom(0.1)">+</button><button class="tool-btn" onclick="resetView()">Centralizar</button><button class="tool-btn" onclick="toggleFullscreen()">⛶</button></div>
+</div>
+<div class="screen-scroller" id="screenScroller">
+<div class="screen-stage show-gas" id="screenStage">
+<img alt="Tela operacional do sistema de topo da E-3901" src="e3901-screen.png"/>
+<svg aria-hidden="true" class="overlay-svg" preserveaspectratio="none" viewbox="0 0 1280 768">
+<!-- Rotas DIDÁTICAS: destacam caminho funcional, sem substituir o traçado de engenharia da tela -->
+<path class="route gas" d="M68 360 L68 88 L332 88 L438 88 L438 150 L535 150 L590 98 L642 98 L642 48 L938 48 L938 98 L1012 98 L1012 225 L814 225 L814 274"></path>
+<path class="route gas" d="M814 274 L814 225 L1028 225 L1028 202 L1260 202"></path>
+<path class="route gas" d="M1083 151 L1083 225 L1015 225"></path>
+<path class="route hc" d="M478 220 L478 292 L449 292 L449 389 L207 389 L136 389"></path>
+<path class="route hc" d="M820 356 L820 432 L1180 432"></path>
+<path class="route water" d="M530 220 L530 558 L691 558 L691 556 L1188 556 L1188 595 L1188 653 L948 653"></path>
+<path class="route water" d="M870 357 L870 519 L1188 519"></path>
+<circle class="route-end gas" cx="1255" cy="202" fill="var(--gas)" r="7"></circle>
+<circle class="route-end hc" cx="1180" cy="432" fill="var(--hc)" r="7"></circle>
+<circle class="route-end water" cx="948" cy="653" fill="var(--water)" r="7"></circle>
+</svg>
+<div class="phase-chip gas" style="left:73%;top:25%">GÁS → COMPRESSÃO</div>
+<div class="phase-chip hc" style="left:72%;top:52%">HC → J-3905 / ABSORÇÃO</div>
+<div class="phase-chip water" style="left:71%;top:69%">ÁGUA ÁCIDA → F-3915 / J-3924</div>
+<!-- HOTSPOTS PRINCIPAIS -->
+<button aria-label="E-3901" class="hotspot main-hotspot" onclick="openEquip('E3901')" style="left:4.7%;top:73.7%">💡</button>
+<div class="hotspot-name" style="left:7.0%;top:74.0%">E-3901</div>
+<button aria-label="F-3906" class="hotspot main-hotspot" onclick="openEquip('F3906')" style="left:36.4%;top:23.5%">💡</button>
+<div class="hotspot-name" style="left:38.7%;top:23.8%">F-3906</div>
+<button aria-label="LIC-39164" class="hotspot main-hotspot" onclick="openEquip('LIC39164')" style="left:52.7%;top:57.4%">💡</button>
+<div class="hotspot-name" style="left:55.0%;top:57.7%">LIC-39164</div>
+<button aria-label="F-3907" class="hotspot main-hotspot" onclick="openEquip('F3907')" style="left:62.8%;top:40.3%">💡</button>
+<div class="hotspot-name" style="left:65.1%;top:40.6%">F-3907</div>
+<button aria-label="LIC-39166" class="hotspot main-hotspot" onclick="openEquip('LIC39166')" style="left:74.0%;top:61.6%">💡</button>
+<div class="hotspot-name" style="left:76.3%;top:61.9%">LIC-39166</div>
+<button aria-label="I-3905" class="hotspot main-hotspot" onclick="openEquip('I3905')" style="left:83.5%;top:18.1%">💡</button>
+<div class="hotspot-name" style="left:85.8%;top:18.4%">I-3905</div>
+<button aria-label="F-3915" class="hotspot main-hotspot" onclick="openEquip('F3915')" style="left:91.4%;top:60.0%">💡</button>
+<div class="hotspot-name" style="left:88.4%;top:64.2%">F-3915</div>
+<button aria-label="J-3924" class="hotspot main-hotspot" onclick="openEquip('J3924')" style="left:70.5%;top:83.0%">💡</button>
+<div class="hotspot-name" style="left:72.8%;top:83.3%">J-3924</div>
+<!-- HOTSPOTS DE CONTEXTO (ocultos por padrão) -->
+<button aria-label="C-3902" class="hotspot context-hotspot" onclick="openEquip('C3902')" style="left:27.2%;top:9.2%">💡</button>
+<div class="hotspot-name context-label" style="left:29.5%;top:9.5%">C-3902</div>
+<button aria-label="TIC-39249" class="hotspot context-hotspot" onclick="openEquip('TIC39249')" style="left:8.0%;top:22.5%">💡</button>
+<div class="hotspot-name context-label" style="left:10.3%;top:22.8%">TIC-39249</div>
+<button aria-label="LIC-39163" class="hotspot context-hotspot" onclick="openEquip('LIC39163')" style="left:23.2%;top:26.1%">💡</button>
+<div class="hotspot-name context-label" style="left:25.5%;top:26.4%">LIC-39163</div>
+<button aria-label="FIC-39179" class="hotspot context-hotspot" onclick="openEquip('FIC39179')" style="left:7.5%;top:34.0%">💡</button>
+<div class="hotspot-name context-label" style="left:9.8%;top:34.3%">FIC-39179</div>
+<button aria-label="J-3904" class="hotspot context-hotspot" onclick="openEquip('J3904')" style="left:33.9%;top:37.0%">💡</button>
+<div class="hotspot-name context-label" style="left:36.2%;top:37.3%">J-3904</div>
+<button aria-label="C-3903" class="hotspot context-hotspot" onclick="openEquip('C3903')" style="left:59.8%;top:16.6%">💡</button>
+<div class="hotspot-name context-label" style="left:62.1%;top:16.9%">C-3903</div>
+<button aria-label="LIC-39165" class="hotspot context-hotspot" onclick="openEquip('LIC39165')" style="left:81.5%;top:38.4%">💡</button>
+<div class="hotspot-name context-label" style="left:83.8%;top:38.7%">LIC-39165</div>
+<button aria-label="FIC-39190" class="hotspot context-hotspot" onclick="openEquip('FIC39190')" style="left:81.4%;top:47.0%">💡</button>
+<div class="hotspot-name context-label" style="left:83.7%;top:47.3%">FIC-39190</div>
+<button aria-label="J-3905" class="hotspot context-hotspot" onclick="openEquip('J3905')" style="left:63.5%;top:55.0%">💡</button>
+<div class="hotspot-name context-label" style="left:65.8%;top:55.3%">J-3905</div>
+<button aria-label="LIC-39195" class="hotspot context-hotspot" onclick="openEquip('LIC39195')" style="left:80.3%;top:75.2%">💡</button>
+<div class="hotspot-name context-label" style="left:82.6%;top:75.5%">LIC-39195</div>
+<button aria-label="FIC-39180" class="hotspot context-hotspot" onclick="openEquip('FIC39180')" style="left:31.7%;top:67.2%">💡</button>
+<div class="hotspot-name context-label" style="left:34.0%;top:67.5%">FIC-39180</div>
+</div>
+</div>
+<div class="snapshot-note">
+<b>Importante:</b> os valores numéricos presentes na imagem são uma fotografia de uma condição operacional específica.
       Eles não são apresentados no Concept como limites, metas ou setpoints universais.
       As rotas coloridas são um recurso didático para leitura do processo; o traçado original da tela continua sendo a referência visual.
     </div>
-
-    <div class="track-info" id="trackInfo"></div>
-
-    <div class="focus-strip">
-      <button class="focus-btn" onclick="focusPoint(470,195)"><b>F-3906</b><small>1ª separação + refluxo</small></button>
-      <button class="focus-btn" onclick="focusPoint(815,330)"><b>F-3907</b><small>2ª separação</small></button>
-      <button class="focus-btn" onclick="focusPoint(1180,505)"><b>F-3915</b><small>Coleta da água ácida</small></button>
-      <button class="focus-btn" onclick="focusPoint(915,655)"><b>J-3924</b><small>Transferência para U-80</small></button>
-    </div>
-  </section>
-
-
-  <section class="section" id="treinamentos">
-    <div class="section-title">
-      <div>
-        <h2>Treinamentos</h2>
-        <div class="section-sub">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</div>
-      </div>
-      <span class="tag">Foco: operador de painel CIC</span>
-    </div>
-
-    <div class="training-kpi">
-      <div><b>5 módulos</b><small>teoria + prática</small></div>
-      <div><b>CIC</b><small>tendência antes do alarme</small></div>
-      <div><b>Processo</b><small>física aplicada ao sistema</small></div>
-      <div><b>Avaliação</b><small>diagnóstico e decisão</small></div>
-    </div>
-
-    <div class="operator-cycle">
-      <div><b>1. ESTADO</b><small>o que está mudando?</small></div>
-      <div><b>2. INTERPRETAÇÃO</b><small>qual relação faz sentido?</small></div>
-      <div><b>3. DECISÃO</b><small>qual ação é prioritária?</small></div>
-      <div><b>4. CONFIRMAÇÃO</b><small>o processo respondeu?</small></div>
-    </div>
-
-    <div class="training-hub">
-      <div class="training-menu">
-        <button class="active" data-training="quizTreino" onclick="openTraining(this)">🧠 Quizzes<small>Fixação de equipamentos, fases e malhas.</small></button>
-        <button data-training="simCIC" onclick="openTraining(this)">🖥️ Cenários + Simulações CIC<small>Tendências, causa provável e prioridade.</small></button>
-        <button data-training="mecanica" onclick="openTraining(this)">🌊 Mecânica dos Fluidos<small>Pressão, vazão, ejetor e separação.</small></button>
-        <button data-training="unitarias" onclick="openTraining(this)">⚙️ Operações Unitárias<small>Fracionar, condensar, separar e bombear.</small></button>
-        <button data-training="avaliacaoCIC" onclick="openTraining(this)">🎯 Avaliação Operador CIC<small>Visão integrada de painel e processo.</small></button>
-      </div>
-
-      <div>
-        <div class="training-pane active" id="quizTreino">
-          <span class="module-chip">MÓDULO 1 • QUIZZES</span>
-          <h3>Quiz de processo</h3>
-          <p>As alternativas foram aproximadas para exigir leitura do processo e não simples eliminação.</p>
-
-          <div class="practice-q">
-            <strong>1. LIC-39164 sobe enquanto LIC-39163 permanece praticamente estável. Qual interpretação inicial é mais consistente?</strong>
-            <div class="practice-options">
-              <button onclick="trainingAnswer(this,false)">A) A fase hidrocarboneto aumentou prioritariamente.</button>
-              <button onclick="trainingAnswer(this,true)">B) A fase aquosa/interface aumentou ou sua retirada perdeu capacidade.</button>
-              <button onclick="trainingAnswer(this,false)">C) A mudança indica primeiro perda de rotação da J-3904.</button>
-              <button onclick="trainingAnswer(this,false)">D) A mudança prova perda de eficiência do C-3903.</button>
-            </div>
-            <div class="practice-feedback">LIC-39164 representa a interface do F-3906; a estabilidade do nível de HC ajuda a deslocar a hipótese para a fase aquosa.</div>
-          </div>
-
-          <div class="practice-q">
-            <strong>2. Qual é a melhor explicação para a existência do F-3907 depois do F-3906?</strong>
-            <div class="practice-options">
-              <button onclick="trainingAnswer(this,false)">A) Funcionar como reserva hidráulica do F-3906.</button>
-              <button onclick="trainingAnswer(this,true)">B) Separar nova parcela condensada após resfriamento adicional da corrente.</button>
-              <button onclick="trainingAnswer(this,false)">C) Controlar diretamente a pressão da E-3901.</button>
-              <button onclick="trainingAnswer(this,false)">D) Armazenar apenas a água que não entrou no F-3906.</button>
-            </div>
-            <div class="practice-feedback">O segundo estágio melhora a recuperação líquida antes de o gás seguir para compressão.</div>
-          </div>
-
-          <div class="practice-q">
-            <strong>3. F-3915 sobe, J-3924 está parada e depois as duas interfaces começam a subir. Qual hipótese merece prioridade?</strong>
-            <div class="practice-options">
-              <button onclick="trainingAnswer(this,true)">A) Perda de capacidade de retirada comum a jusante do sistema de água ácida.</button>
-              <button onclick="trainingAnswer(this,false)">B) Falha simultânea dos dois transmissores de interface.</button>
-              <button onclick="trainingAnswer(this,false)">C) Aumento isolado de hidrocarboneto nos dois vasos.</button>
-              <button onclick="trainingAnswer(this,false)">D) Alteração exclusiva no I-3905.</button>
-            </div>
-            <div class="practice-feedback">A tendência comum em equipamentos diferentes é um forte indício para procurar uma causa compartilhada antes de supor falhas independentes.</div>
-          </div>
-
-          <div class="practice-q">
-            <strong>4. O controlador abre mais a retirada de água, mas a interface continua subindo. O que deve ser verificado antes de concluir falha de indicação?</strong>
-            <div class="practice-options">
-              <button onclick="trainingAnswer(this,false)">A) Apenas o valor do setpoint.</button>
-              <button onclick="trainingAnswer(this,true)">B) Resposta da válvula, condição hidráulica, restrições e capacidade do caminho até o F-3915.</button>
-              <button onclick="trainingAnswer(this,false)">C) Apenas a temperatura da E-3901.</button>
-              <button onclick="trainingAnswer(this,false)">D) Somente a pressão do gás externo.</button>
-            </div>
-            <div class="practice-feedback">No CIC, comando não é sinônimo de efeito. É preciso confirmar a resposta real do elemento final e do processo.</div>
-          </div>
-        </div>
-
-        <div class="training-pane" id="simCIC">
-          <span class="module-chip">MÓDULO 2 • CENÁRIOS + SIMULAÇÃO CIC</span>
-          <h3>Tomada de decisão por tendência</h3>
-          <p>O cenário apresenta uma “fotografia dinâmica” do painel. Escolha a primeira linha de diagnóstico e depois avance.</p>
-          <div class="cic-sim">
-            <div class="cic-console">
-              <h4 id="simTitle">Cenário A</h4>
-              <div class="cic-line"><b>LIC-39164</b><span id="sim64"></span></div>
-              <div class="cic-line"><b>LIC-39166</b><span id="sim66"></span></div>
-              <div class="cic-line"><b>F-3915</b><span id="sim15"></span></div>
-              <div class="cic-line"><b>J-3924</b><span id="simPump"></span></div>
-              <div class="cic-line"><b>FIC-39190</b><span id="sim190"></span></div>
-              <div class="progress-bar"><div class="progress-fill" id="simProgress"></div></div>
-            </div>
-            <div class="cic-console">
-              <h4>Primeira linha de raciocínio</h4>
-              <div class="cic-actions" id="simActions"></div>
-              <div class="sim-result" id="simResult">Selecione uma decisão para ver a análise.</div>
-              <button class="reveal" onclick="nextCICScenario()" style="margin-top:10px">Próximo cenário</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="training-pane" id="mecanica">
-          <span class="module-chip">MÓDULO 3 • MECÂNICA DOS FLUIDOS</span>
-          <h3>Mecânica dos Fluidos aplicada ao topo</h3>
-          <p>O objetivo não é estudar fórmulas isoladas, mas reconhecer a física por trás das tendências observadas no CIC.</p>
-          <div class="training-grid">
-            <div class="training-card"><h4>I-3905 — ejetor</h4><p>O fluido motriz acelera e cria uma região de menor pressão capaz de succionar outra corrente. A capacidade depende de pressão motriz, contrapressão e geometria.</p></div>
-            <div class="training-card"><h4>Separação por densidade</h4><p>F-3906 e F-3907 precisam de diferença de densidade e tempo de residência para formar uma interface estável entre água e hidrocarboneto.</p></div>
-            <div class="training-card"><h4>Perda de carga</h4><p>Uma válvula mais aberta não garante maior vazão se houver restrição, contrapressão elevada ou pouca força motriz disponível.</p></div>
-            <div class="training-card"><h4>Sucção de bombas</h4><p>Inventário baixo e condições desfavoráveis de sucção reduzem margem hidráulica e podem comprometer a transferência pela bomba.</p></div>
-          </div>
-          <div class="practice-q">
-            <strong>Aplicação: a MV da válvula aumenta, mas a interface continua subindo. Qual raciocínio hidráulico é adequado?</strong>
-            <div class="practice-options">
-              <button onclick="trainingAnswer(this,true)">A) A vazão depende da curva hidráulica completa; pode existir restrição ou contrapressão.</button>
-              <button onclick="trainingAnswer(this,false)">B) A vazão necessariamente aumentou na mesma proporção que a abertura.</button>
-              <button onclick="trainingAnswer(this,false)">C) A pressão a jusante não influencia o escoamento.</button>
-              <button onclick="trainingAnswer(this,false)">D) O comportamento prova que a densidade da água diminuiu.</button>
-            </div>
-            <div class="practice-feedback">O operador deve distinguir “comando enviado” de “vazão efetivamente produzida”.</div>
-          </div>
-        </div>
-
-        <div class="training-pane" id="unitarias">
-          <span class="module-chip">MÓDULO 4 • OPERAÇÕES UNITÁRIAS</span>
-          <h3>Operações Unitárias integradas</h3>
-          <p>O sistema de topo conecta operações diferentes; o diagnóstico melhora quando o operador entende como uma perturbação se propaga entre elas.</p>
-          <div class="training-grid">
-            <div class="training-card"><h4>Fracionamento — E-3901</h4><p>Separação de faixas de hidrocarbonetos por diferença de volatilidade e contato vapor-líquido.</p></div>
-            <div class="training-card"><h4>Transferência de calor — C-3902/C-3903</h4><p>Retirada de calor e condensação progressiva da corrente do topo.</p></div>
-            <div class="training-card"><h4>Separação de fases — F-3906/F-3907</h4><p>Separação gás-líquido e líquido-líquido para recuperar HC e retirar água ácida.</p></div>
-            <div class="training-card"><h4>Bombeamento — J-3904/J-3905/J-3924</h4><p>Fornecimento de energia para refluxo, transferência de líquido de topo e envio de água ácida.</p></div>
-          </div>
-          <div class="insight"><b>Visão integrada:</b> fracionamento → condensação → separação → bombeamento → absorção/compressão. Um desvio a montante pode alterar simultaneamente várias variáveis a jusante.</div>
-        </div>
-
-        <div class="training-pane" id="avaliacaoCIC">
-          <span class="module-chip">MÓDULO 5 • AVALIAÇÃO OPERADOR CIC</span>
-          <div class="eval-head">
-            <div><h3>Avaliação integrada</h3><p style="margin:4px 0 0;color:var(--muted)">Diagnóstico, prioridade, causa comum, efeito e confirmação.</p></div>
-            <div class="eval-score" id="evalScore">0 / 6</div>
-          </div>
-
-          <div class="eval-item"><p><b>1.</b> LIC-39166 ↑, LIC-39164 estável e F-3915 estável. Onde investigar primeiro?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">J-3924 como causa comum</option><option value="b">Segundo estágio: C-3903/F-3907 e retiradas locais</option><option value="c">Fundo da E-3901</option><option value="d">Regenerador</option></select></div>
-          <div class="eval-item"><p><b>2.</b> A saída do LIC-39164 aumenta, mas a PV segue subindo. Qual atitude mostra melhor visão de painel?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Aumentar a saída continuamente</option><option value="b">Declarar indicação falsa</option><option value="c">Confirmar válvula, restrições e resposta hidráulica da retirada</option><option value="d">Reduzir carga antes de verificar a cadeia</option></select></div>
-          <div class="eval-item"><p><b>3.</b> F-3915 ↑ com J-3924 parada. Qual efeito deve ser antecipado?</p><select class="eval-select" data-correct="a"><option value="">Selecione...</option><option value="a">Possível repercussão a montante nas interfaces</option><option value="b">Queda obrigatória das interfaces</option><option value="c">Aumento automático da capacidade de drenagem</option><option value="d">Nenhum efeito nos vasos</option></select></div>
-          <div class="eval-item"><p><b>4.</b> Por que comparar LIC-39163 e LIC-39164?</p><select class="eval-select" data-correct="d"><option value="">Selecione...</option><option value="a">Os dois medem a mesma variável</option><option value="b">Para inferir rotação da J-3904</option><option value="c">Para medir a pressão da sucção do compressor</option><option value="d">Para separar o comportamento do nível HC do comportamento da interface aquosa</option></select></div>
-          <div class="eval-item"><p><b>5.</b> Qual sequência representa melhor o raciocínio CIC?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">Agir → procurar causa → não confirmar</option><option value="b">Identificar tendência → interpretar → agir com segurança → confirmar resposta</option><option value="c">Esperar alarme alto → atuar na variável alarmada</option><option value="d">Alterar várias malhas simultaneamente</option></select></div>
-          <div class="eval-item"><p><b>6.</b> LIC-39164 ↑ + LIC-39166 ↑ + F-3915 ↑. Qual princípio de diagnóstico é mais importante?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Tratar cada variável como uma falha independente</option><option value="b">Atuar primeiro no refluxo</option><option value="c">Procurar causa comum capaz de explicar a tendência simultânea</option><option value="d">Ignorar F-3915 e focar somente nos vasos</option></select></div>
-
-          <button class="reveal" onclick="gradeCICEvaluation()">Finalizar avaliação</button>
-          <div class="eval-report" id="evalReport"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section" id="hotspots">
-    <div class="section-title">
-      <div>
-        <h2>Resumo dos hotspots principais</h2>
-        <div class="section-sub">Além dos hotspots na tela, os itens críticos continuam listados abaixo.</div>
-      </div>
-    </div>
-    <div class="hotspot-grid">
-      <div class="hotspot-card"><button onclick="openEquip('F3906')">💡</button><h3>F-3906</h3><p>Primeiro separador do topo: gás, hidrocarboneto líquido e água condensada.</p></div>
-      <div class="hotspot-card"><button onclick="openEquip('LIC39164')">💡</button><h3>LIC-39164</h3><p>Controle da interface água/HC do F-3906.</p></div>
-      <div class="hotspot-card"><button onclick="openEquip('F3907')">💡</button><h3>F-3907</h3><p>Segunda etapa de separação após a condensação adicional.</p></div>
-      <div class="hotspot-card"><button onclick="openEquip('LIC39166')">💡</button><h3>LIC-39166</h3><p>Controle da interface água/HC do F-3907.</p></div>
-      <div class="hotspot-card"><button onclick="openEquip('F3915')">💡</button><h3>F-3915</h3><p>Tambor de água ácida, desacoplando geração e transferência.</p></div>
-      <div class="hotspot-card"><button onclick="openEquip('J3924')">💡</button><h3>J-3924</h3><p>Bomba de água ácida com sucção normal do F-3915 e envio para U-80.</p></div>
-    </div>
-  </section>
-
-  <section class="section" id="interfaces">
-    <div class="section-title">
-      <div>
-        <h2>Veja a interface trabalhando</h2>
-        <div class="section-sub">Simulação didática da interface água/hidrocarboneto.</div>
-      </div>
-    </div>
-    <div class="sim-grid">
-      <div class="sim-card">
-        <h3>F-3906 • LIC-39164</h3>
-        <div class="vessel">
-          <div class="layer gas"></div>
-          <div class="layer hc" id="hc1"></div>
-          <div class="layer water" id="water1"></div>
-        </div>
-        <input class="slider" id="s1" type="range" min="5" max="70" value="30" oninput="updateVessel(1,this.value)">
-        <div class="level-label"><span>menos água</span><span>mais água</span></div>
-        <div class="warning" id="warn1"></div>
-      </div>
-      <div class="sim-card">
-        <h3>F-3907 • LIC-39166</h3>
-        <div class="vessel">
-          <div class="layer gas"></div>
-          <div class="layer hc" id="hc2"></div>
-          <div class="layer water" id="water2"></div>
-        </div>
-        <input class="slider" id="s2" type="range" min="5" max="70" value="30" oninput="updateVessel(2,this.value)">
-        <div class="level-label"><span>menos água</span><span>mais água</span></div>
-        <div class="warning" id="warn2"></div>
-      </div>
-    </div>
-    <div class="insight"><b>Regra mental:</b> interface muito baixa aumenta o risco de hidrocarboneto seguir pela retirada de água; interface muito alta reduz o volume útil para separação e aumenta o risco de água alcançar a região de retirada de hidrocarboneto.</div>
-  </section>
-
-  <section class="section" id="cic">
-    <div class="section-title">
-      <div>
-        <h2>Painel CIC — “o que mudou primeiro?”</h2>
-        <div class="section-sub">Monte uma combinação de tendências e interprete o sistema.</div>
-      </div>
-    </div>
-    <div class="cic-grid">
-      <div class="trend-panel">
-        <div class="trend-row"><b>LIC-39164</b><select id="t1" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Interface F-3906</span></div>
-        <div class="trend-row"><b>LIC-39166</b><select id="t2" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Interface F-3907</span></div>
-        <div class="trend-row"><b>Nível F-3915</b><select id="t3" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Inventário água ácida</span></div>
-        <div class="trend-row"><b>J-3924</b><select id="t4" onchange="diagnose()"><option value="on">Em operação</option><option value="off">Parada</option></select><span>Transferência p/ U-80</span></div>
-      </div>
-      <div class="scenario-panel">
-        <span class="tag">Interpretação sugerida</span>
-        <div class="insight" id="diagnosis" style="margin-top:12px"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="cenarios">
-    <div class="section-title">
-      <div>
-        <h2>Cenários operacionais encadeados</h2>
-        <div class="section-sub">Use como treino de diagnóstico antes de revelar a análise.</div>
-      </div>
-    </div>
-    <div class="scenarios">
-      <div class="scenario">
-        <h4>Cenário 1 — Interface subindo sem resposta</h4>
-        <p>LIC-39164 sobe continuamente. A saída do controlador aumenta, mas a interface não estabiliza.</p>
-        <button class="reveal" onclick="reveal(this)">Revelar análise</button>
-        <div class="answer">Investigar aumento real da carga de água, restrição/obstrução na retirada, falha de válvula, perda de capacidade do caminho até o F-3915 ou indicação incorreta.</div>
-      </div>
-      <div class="scenario">
-        <h4>Cenário 2 — Ambos os vasos sobem</h4>
-        <p>LIC-39164 ↑, LIC-39166 ↑ e o nível do F-3915 também ↑.</p>
-        <button class="reveal" onclick="reveal(this)">Revelar análise</button>
-        <div class="answer">Como os dois vasos apresentam a mesma tendência, aumenta a suspeita de causa comum a jusante: acúmulo no F-3915, redução da transferência pela J-3924 ou restrição comum no sistema de água ácida.</div>
-      </div>
-      <div class="scenario">
-        <h4>Cenário 3 — Só o F-3907 muda</h4>
-        <p>LIC-39166 ↑ enquanto LIC-39164 permanece estável.</p>
-        <button class="reveal" onclick="reveal(this)">Revelar análise</button>
-        <div class="answer">Direcionar a investigação para o segundo estágio: condições de condensação no C-3903, retirada de água do F-3907, funcionamento da válvula associada ou alteração específica da corrente que chega ao F-3907.</div>
-      </div>
-      <div class="scenario">
-        <h4>Cenário 4 — J-3924 indisponível</h4>
-        <p>A J-3924 para e a geração de água ácida permanece.</p>
-        <button class="reveal" onclick="reveal(this)">Revelar análise</button>
-        <div class="answer">O primeiro efeito esperado é aumento do nível do F-3915. Mantida a condição, a capacidade de receber água dos F-3906/F-3907 diminui e as interfaces podem começar a subir.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="quiz">
-    <div class="section-title">
-      <div>
-        <h2>Quiz rápido</h2>
-        <div class="section-sub">Feedback imediato para fixação.</div>
-      </div>
-    </div>
-    <div class="quiz">
-      <div class="q">
-        <div class="q-title">1. Se o LIC-39164 sobe e o LIC-39163 permanece praticamente estável, qual fase está aumentando prioritariamente no F-3906?</div>
-        <div class="options">
-          <button onclick="answer(this,false)">A) Hidrocarboneto</button>
-          <button onclick="answer(this,true)">B) Água / interface aquosa</button>
-          <button onclick="answer(this,false)">C) Apenas gás</button>
-          <button onclick="answer(this,false)">D) Não há alteração de inventário</button>
-        </div>
-        <div class="feedback">O LIC-39164 representa a interface água/HC do F-3906. Subida isolada dessa variável aponta para aumento da fase aquosa ou redução da sua retirada.</div>
-      </div>
-      <div class="q">
-        <div class="q-title">2. Qual interpretação melhor representa a função do F-3907?</div>
-        <div class="options">
-          <button onclick="answer(this,false)">A) Apenas armazenar gás antes do compressor</button>
-          <button onclick="answer(this,true)">B) Realizar uma segunda separação após condensação adicional</button>
-          <button onclick="answer(this,false)">C) Aquecer a corrente de topo</button>
-          <button onclick="answer(this,false)">D) Substituir a função do F-3906</button>
-        </div>
-        <div class="feedback">O F-3907 recebe a corrente após resfriamento/condensação adicional, separando novamente gás, hidrocarboneto e água.</div>
-      </div>
-      <div class="q">
-        <div class="q-title">3. Se F-3915 ↑ e J-3924 está parada, qual consequência tende a surgir posteriormente?</div>
-        <div class="options">
-          <button onclick="answer(this,false)">A) Interfaces dos F-3906/F-3907 necessariamente caem</button>
-          <button onclick="answer(this,true)">B) A capacidade de retirar água dos vasos de topo pode ser prejudicada</button>
-          <button onclick="answer(this,false)">C) O I-3905 deixa de funcionar por definição</button>
-          <button onclick="answer(this,false)">D) A E-3901 deixa imediatamente de fracionar</button>
-        </div>
-        <div class="feedback">O acúmulo no F-3915 reduz a capacidade do sistema de receber a água drenada dos vasos de topo, podendo repercutir nos níveis de interface.</div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section">
-    <div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
-  </div>
-
-  <div class="footer">E-3901 — Fracionadora Topo Concept • V4 refinada • tela operacional interativa</div>
+<div class="track-info" id="trackInfo"></div>
+<div class="focus-strip">
+<button class="focus-btn" onclick="focusPoint(470,195)"><b>F-3906</b><small>1ª separação + refluxo</small></button>
+<button class="focus-btn" onclick="focusPoint(815,330)"><b>F-3907</b><small>2ª separação</small></button>
+<button class="focus-btn" onclick="focusPoint(1180,505)"><b>F-3915</b><small>Coleta da água ácida</small></button>
+<button class="focus-btn" onclick="focusPoint(915,655)"><b>J-3924</b><small>Transferência para U-80</small></button>
 </div>
+</section><details class="clean-details"><summary>Pontos principais do sistema</summary><p class="details-sub">Os hotspots continuam na tela operacional. Este resumo fica recolhido para não duplicar informação visual.</p><div class="hotspot-grid">
+<div class="hotspot-card"><button onclick="openEquip('F3906')">💡</button><h3>F-3906</h3><p>Primeiro separador do topo: gás, hidrocarboneto líquido e água condensada.</p></div>
+<div class="hotspot-card"><button onclick="openEquip('LIC39164')">💡</button><h3>LIC-39164</h3><p>Controle da interface água/HC do F-3906.</p></div>
+<div class="hotspot-card"><button onclick="openEquip('F3907')">💡</button><h3>F-3907</h3><p>Segunda etapa de separação após a condensação adicional.</p></div>
+<div class="hotspot-card"><button onclick="openEquip('LIC39166')">💡</button><h3>LIC-39166</h3><p>Controle da interface água/HC do F-3907.</p></div>
+<div class="hotspot-card"><button onclick="openEquip('F3915')">💡</button><h3>F-3915</h3><p>Tambor de água ácida, desacoplando geração e transferência.</p></div>
+<div class="hotspot-card"><button onclick="openEquip('J3924')">💡</button><h3>J-3924</h3><p>Bomba de água ácida com sucção normal do F-3915 e envio para U-80.</p></div>
+</div></details>
 
-<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal-card">
-    <div class="modal-head">
-      <h3 id="modalTitle">Equipamento</h3>
-      <button class="close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="drawer-context">Explore a função no processo e depois relacione com as tendências mostradas na própria tela.</div>
-    <div class="tabs">
-      <button data-tab="funcao" onclick="tab(this)">Função</button>
-      <button data-tab="como" onclick="tab(this)">Como funciona</button>
-      <button data-tab="cicTab" onclick="tab(this)">CIC</button>
-      <button data-tab="desvios" onclick="tab(this)">Desvios</button>
-      <button data-tab="teste" onclick="tab(this)">Teste rápido</button>
-    </div>
-    <div class="tabcontent" id="funcao"></div>
-    <div class="tabcontent" id="como"></div>
-    <div class="tabcontent" id="cicTab"></div>
-    <div class="tabcontent" id="desvios"></div>
-    <div class="tabcontent" id="teste"></div>
-  </div>
+
+
+<section class="section section-compact" id="cic">
+<div class="section-title">
+<div>
+<h2>Painel CIC — “o que mudou primeiro?”</h2>
+<div class="section-sub">Monte uma combinação de tendências e interprete o sistema.</div>
 </div>
+<span class="tag">Leitura rápida</span></div>
+<div class="cic-grid">
+<div class="trend-panel">
+<div class="trend-row"><b>LIC-39164</b><select id="t1" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Interface F-3906</span></div>
+<div class="trend-row"><b>LIC-39166</b><select id="t2" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Interface F-3907</span></div>
+<div class="trend-row"><b>Nível F-3915</b><select id="t3" onchange="diagnose()"><option value="stable">→ estável</option><option value="up">↑ subindo</option><option value="down">↓ caindo</option></select><span>Inventário água ácida</span></div>
+<div class="trend-row"><b>J-3924</b><select id="t4" onchange="diagnose()"><option value="on">Em operação</option><option value="off">Parada</option></select><span>Transferência p/ U-80</span></div>
+</div>
+<div class="scenario-panel">
+<span class="tag">Interpretação sugerida</span>
+<div class="insight" id="diagnosis" style="margin-top:12px"></div>
+</div>
+</div>
+</section>
 
+
+<div class="section">
+<div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
+</div>
+<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V5 • layout refinado</div>
+</div>
+<div class="training-backdrop-clean" id="trainingBackdropClean" onclick="closeTrainingDrawer()"></div><aside aria-hidden="true" class="training-drawer-clean" id="trainingDrawerClean"><div class="training-drawer-head"><div><strong>Treinamentos</strong><small id="trainingBreadcrumbClean">Visão geral</small></div><button aria-label="Fechar treinamentos" class="drawer-close" onclick="closeTrainingDrawer()">✕</button></div><div class="training-drawer-body"><nav class="training-drawer-nav"><button class="active" data-training-clean="home" onclick="selectTrainingModule('home', this)"><strong>Visão geral</strong><small>Resumo do método e módulos</small></button><button data-training-clean="quizTreino" onclick="selectTrainingModule('quizTreino', this)"><strong>Quizzes</strong><small>Fixação de equipamentos, fases e malhas</small></button><button data-training-clean="simCIC" onclick="selectTrainingModule('simCIC', this)"><strong>Cenários + Simulações CIC</strong><small>Tendências, diagnóstico e prioridade</small></button><button data-training-clean="mecanica" onclick="selectTrainingModule('mecanica', this)"><strong>Mecânica dos Fluidos</strong><small>Pressão, vazão, ejetor e separação</small></button><button data-training-clean="unitarias" onclick="selectTrainingModule('unitarias', this)"><strong>Operações Unitárias</strong><small>Fracionar, condensar, separar e bombear</small></button><button data-training-clean="avaliacaoCIC" onclick="selectTrainingModule('avaliacaoCIC', this)"><strong>Avaliação Operador CIC</strong><small>Visão integrada de painel e processo</small></button></nav><div class="training-drawer-content"><section class="training-pane-clean active" id="training-clean-home"><span class="module-chip">CENTRO DE TREINAMENTO</span><h2>Treinamento da E-3901 — Topo</h2><p class="training-intro-clean">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</p><div class="training-kpi">
+<div><b>5 módulos</b><small>teoria + prática</small></div>
+<div><b>CIC</b><small>tendência antes do alarme</small></div>
+<div><b>Processo</b><small>física aplicada ao sistema</small></div>
+<div><b>Avaliação</b><small>diagnóstico e decisão</small></div>
+</div><div class="operator-cycle">
+<div><b>1. ESTADO</b><small>o que está mudando?</small></div>
+<div><b>2. INTERPRETAÇÃO</b><small>qual relação faz sentido?</small></div>
+<div><b>3. DECISÃO</b><small>qual ação é prioritária?</small></div>
+<div><b>4. CONFIRMAÇÃO</b><small>o processo respondeu?</small></div>
+</div><div class="training-home-grid"><button class="training-home-card" onclick="selectTrainingModule('quizTreino')"><strong>Quizzes</strong><span>Fixação ativa dos equipamentos, fases e malhas.</span></button><button class="training-home-card" onclick="selectTrainingModule('simCIC')"><strong>Cenários + Simulações CIC</strong><span>Treino de tendência, causa provável e primeira decisão.</span></button><button class="training-home-card" onclick="selectTrainingModule('unitarias')"><strong>Operações Unitárias</strong><span>Integração entre fracionamento, condensação, separação e bombeamento.</span></button><button class="training-home-card" onclick="selectTrainingModule('mecanica')"><strong>Mecânica dos Fluidos</strong><span>Relação entre pressão, vazão, perda de carga, interface e ejetor.</span></button><button class="training-home-card" onclick="selectTrainingModule('avaliacaoCIC')"><strong>Avaliação Operador CIC</strong><span>Diagnóstico, prioridade, ação e confirmação.</span></button></div></section><div class="training-pane-clean" id="training-clean-quizTreino">
+<span class="module-chip">MÓDULO 1 • QUIZZES</span>
+<h3>Quiz de processo</h3>
+<p>As alternativas foram aproximadas para exigir leitura do processo e não simples eliminação.</p>
+<div class="practice-q">
+<strong>1. LIC-39164 sobe enquanto LIC-39163 permanece praticamente estável. Qual interpretação inicial é mais consistente?</strong>
+<div class="practice-options">
+<button onclick="trainingAnswer(this,false)">A) A fase hidrocarboneto aumentou prioritariamente.</button>
+<button onclick="trainingAnswer(this,true)">B) A fase aquosa/interface aumentou ou sua retirada perdeu capacidade.</button>
+<button onclick="trainingAnswer(this,false)">C) A mudança indica primeiro perda de rotação da J-3904.</button>
+<button onclick="trainingAnswer(this,false)">D) A mudança prova perda de eficiência do C-3903.</button>
+</div>
+<div class="practice-feedback">LIC-39164 representa a interface do F-3906; a estabilidade do nível de HC ajuda a deslocar a hipótese para a fase aquosa.</div>
+</div>
+<div class="practice-q">
+<strong>2. Qual é a melhor explicação para a existência do F-3907 depois do F-3906?</strong>
+<div class="practice-options">
+<button onclick="trainingAnswer(this,false)">A) Funcionar como reserva hidráulica do F-3906.</button>
+<button onclick="trainingAnswer(this,true)">B) Separar nova parcela condensada após resfriamento adicional da corrente.</button>
+<button onclick="trainingAnswer(this,false)">C) Controlar diretamente a pressão da E-3901.</button>
+<button onclick="trainingAnswer(this,false)">D) Armazenar apenas a água que não entrou no F-3906.</button>
+</div>
+<div class="practice-feedback">O segundo estágio melhora a recuperação líquida antes de o gás seguir para compressão.</div>
+</div>
+<div class="practice-q">
+<strong>3. F-3915 sobe, J-3924 está parada e depois as duas interfaces começam a subir. Qual hipótese merece prioridade?</strong>
+<div class="practice-options">
+<button onclick="trainingAnswer(this,true)">A) Perda de capacidade de retirada comum a jusante do sistema de água ácida.</button>
+<button onclick="trainingAnswer(this,false)">B) Falha simultânea dos dois transmissores de interface.</button>
+<button onclick="trainingAnswer(this,false)">C) Aumento isolado de hidrocarboneto nos dois vasos.</button>
+<button onclick="trainingAnswer(this,false)">D) Alteração exclusiva no I-3905.</button>
+</div>
+<div class="practice-feedback">A tendência comum em equipamentos diferentes é um forte indício para procurar uma causa compartilhada antes de supor falhas independentes.</div>
+</div>
+<div class="practice-q">
+<strong>4. O controlador abre mais a retirada de água, mas a interface continua subindo. O que deve ser verificado antes de concluir falha de indicação?</strong>
+<div class="practice-options">
+<button onclick="trainingAnswer(this,false)">A) Apenas o valor do setpoint.</button>
+<button onclick="trainingAnswer(this,true)">B) Resposta da válvula, condição hidráulica, restrições e capacidade do caminho até o F-3915.</button>
+<button onclick="trainingAnswer(this,false)">C) Apenas a temperatura da E-3901.</button>
+<button onclick="trainingAnswer(this,false)">D) Somente a pressão do gás externo.</button>
+</div>
+<div class="practice-feedback">No CIC, comando não é sinônimo de efeito. É preciso confirmar a resposta real do elemento final e do processo.</div>
+</div>
+<div class="training-divider">Quiz rápido — revisão</div><div class="quiz">
+<div class="q">
+<div class="q-title">1. Se o LIC-39164 sobe e o LIC-39163 permanece praticamente estável, qual fase está aumentando prioritariamente no F-3906?</div>
+<div class="options">
+<button onclick="answer(this,false)">A) Hidrocarboneto</button>
+<button onclick="answer(this,true)">B) Água / interface aquosa</button>
+<button onclick="answer(this,false)">C) Apenas gás</button>
+<button onclick="answer(this,false)">D) Não há alteração de inventário</button>
+</div>
+<div class="feedback">O LIC-39164 representa a interface água/HC do F-3906. Subida isolada dessa variável aponta para aumento da fase aquosa ou redução da sua retirada.</div>
+</div>
+<div class="q">
+<div class="q-title">2. Qual interpretação melhor representa a função do F-3907?</div>
+<div class="options">
+<button onclick="answer(this,false)">A) Apenas armazenar gás antes do compressor</button>
+<button onclick="answer(this,true)">B) Realizar uma segunda separação após condensação adicional</button>
+<button onclick="answer(this,false)">C) Aquecer a corrente de topo</button>
+<button onclick="answer(this,false)">D) Substituir a função do F-3906</button>
+</div>
+<div class="feedback">O F-3907 recebe a corrente após resfriamento/condensação adicional, separando novamente gás, hidrocarboneto e água.</div>
+</div>
+<div class="q">
+<div class="q-title">3. Se F-3915 ↑ e J-3924 está parada, qual consequência tende a surgir posteriormente?</div>
+<div class="options">
+<button onclick="answer(this,false)">A) Interfaces dos F-3906/F-3907 necessariamente caem</button>
+<button onclick="answer(this,true)">B) A capacidade de retirar água dos vasos de topo pode ser prejudicada</button>
+<button onclick="answer(this,false)">C) O I-3905 deixa de funcionar por definição</button>
+<button onclick="answer(this,false)">D) A E-3901 deixa imediatamente de fracionar</button>
+</div>
+<div class="feedback">O acúmulo no F-3915 reduz a capacidade do sistema de receber a água drenada dos vasos de topo, podendo repercutir nos níveis de interface.</div>
+</div>
+</div></div><div class="training-pane-clean" id="training-clean-simCIC">
+<span class="module-chip">MÓDULO 2 • CENÁRIOS + SIMULAÇÃO CIC</span>
+<h3>Tomada de decisão por tendência</h3>
+<p>O cenário apresenta uma “fotografia dinâmica” do painel. Escolha a primeira linha de diagnóstico e depois avance.</p>
+<div class="cic-sim">
+<div class="cic-console">
+<h4 id="simTitle">Cenário A</h4>
+<div class="cic-line"><b>LIC-39164</b><span id="sim64"></span></div>
+<div class="cic-line"><b>LIC-39166</b><span id="sim66"></span></div>
+<div class="cic-line"><b>F-3915</b><span id="sim15"></span></div>
+<div class="cic-line"><b>J-3924</b><span id="simPump"></span></div>
+<div class="cic-line"><b>FIC-39190</b><span id="sim190"></span></div>
+<div class="progress-bar"><div class="progress-fill" id="simProgress"></div></div>
+</div>
+<div class="cic-console">
+<h4>Primeira linha de raciocínio</h4>
+<div class="cic-actions" id="simActions"></div>
+<div class="sim-result" id="simResult">Selecione uma decisão para ver a análise.</div>
+<button class="reveal" onclick="nextCICScenario()" style="margin-top:10px">Próximo cenário</button>
+</div>
+</div>
+<div class="training-divider">Simulação da interface água / hidrocarboneto</div><div class="sim-grid">
+<div class="sim-card">
+<h3>F-3906 • LIC-39164</h3>
+<div class="vessel">
+<div class="layer gas"></div>
+<div class="layer hc" id="hc1"></div>
+<div class="layer water" id="water1"></div>
+</div>
+<input class="slider" id="s1" max="70" min="5" oninput="updateVessel(1,this.value)" type="range" value="30"/>
+<div class="level-label"><span>menos água</span><span>mais água</span></div>
+<div class="warning" id="warn1"></div>
+</div>
+<div class="sim-card">
+<h3>F-3907 • LIC-39166</h3>
+<div class="vessel">
+<div class="layer gas"></div>
+<div class="layer hc" id="hc2"></div>
+<div class="layer water" id="water2"></div>
+</div>
+<input class="slider" id="s2" max="70" min="5" oninput="updateVessel(2,this.value)" type="range" value="30"/>
+<div class="level-label"><span>menos água</span><span>mais água</span></div>
+<div class="warning" id="warn2"></div>
+</div>
+</div><div class="insight"><b>Regra mental:</b> interface muito baixa aumenta o risco de hidrocarboneto seguir pela retirada de água; interface muito alta reduz o volume útil para separação e aumenta o risco de água alcançar a região de retirada de hidrocarboneto.</div><div class="training-divider">Cenários operacionais encadeados</div><div class="scenarios">
+<div class="scenario">
+<h4>Cenário 1 — Interface subindo sem resposta</h4>
+<p>LIC-39164 sobe continuamente. A saída do controlador aumenta, mas a interface não estabiliza.</p>
+<button class="reveal" onclick="reveal(this)">Revelar análise</button>
+<div class="answer">Investigar aumento real da carga de água, restrição/obstrução na retirada, falha de válvula, perda de capacidade do caminho até o F-3915 ou indicação incorreta.</div>
+</div>
+<div class="scenario">
+<h4>Cenário 2 — Ambos os vasos sobem</h4>
+<p>LIC-39164 ↑, LIC-39166 ↑ e o nível do F-3915 também ↑.</p>
+<button class="reveal" onclick="reveal(this)">Revelar análise</button>
+<div class="answer">Como os dois vasos apresentam a mesma tendência, aumenta a suspeita de causa comum a jusante: acúmulo no F-3915, redução da transferência pela J-3924 ou restrição comum no sistema de água ácida.</div>
+</div>
+<div class="scenario">
+<h4>Cenário 3 — Só o F-3907 muda</h4>
+<p>LIC-39166 ↑ enquanto LIC-39164 permanece estável.</p>
+<button class="reveal" onclick="reveal(this)">Revelar análise</button>
+<div class="answer">Direcionar a investigação para o segundo estágio: condições de condensação no C-3903, retirada de água do F-3907, funcionamento da válvula associada ou alteração específica da corrente que chega ao F-3907.</div>
+</div>
+<div class="scenario">
+<h4>Cenário 4 — J-3924 indisponível</h4>
+<p>A J-3924 para e a geração de água ácida permanece.</p>
+<button class="reveal" onclick="reveal(this)">Revelar análise</button>
+<div class="answer">O primeiro efeito esperado é aumento do nível do F-3915. Mantida a condição, a capacidade de receber água dos F-3906/F-3907 diminui e as interfaces podem começar a subir.</div>
+</div>
+</div></div><div class="training-pane-clean" id="training-clean-mecanica">
+<span class="module-chip">MÓDULO 3 • MECÂNICA DOS FLUIDOS</span>
+<h3>Mecânica dos Fluidos aplicada ao topo</h3>
+<p>O objetivo não é estudar fórmulas isoladas, mas reconhecer a física por trás das tendências observadas no CIC.</p>
+<div class="training-grid">
+<div class="training-card"><h4>I-3905 — ejetor</h4><p>O fluido motriz acelera e cria uma região de menor pressão capaz de succionar outra corrente. A capacidade depende de pressão motriz, contrapressão e geometria.</p></div>
+<div class="training-card"><h4>Separação por densidade</h4><p>F-3906 e F-3907 precisam de diferença de densidade e tempo de residência para formar uma interface estável entre água e hidrocarboneto.</p></div>
+<div class="training-card"><h4>Perda de carga</h4><p>Uma válvula mais aberta não garante maior vazão se houver restrição, contrapressão elevada ou pouca força motriz disponível.</p></div>
+<div class="training-card"><h4>Sucção de bombas</h4><p>Inventário baixo e condições desfavoráveis de sucção reduzem margem hidráulica e podem comprometer a transferência pela bomba.</p></div>
+</div>
+<div class="practice-q">
+<strong>Aplicação: a MV da válvula aumenta, mas a interface continua subindo. Qual raciocínio hidráulico é adequado?</strong>
+<div class="practice-options">
+<button onclick="trainingAnswer(this,true)">A) A vazão depende da curva hidráulica completa; pode existir restrição ou contrapressão.</button>
+<button onclick="trainingAnswer(this,false)">B) A vazão necessariamente aumentou na mesma proporção que a abertura.</button>
+<button onclick="trainingAnswer(this,false)">C) A pressão a jusante não influencia o escoamento.</button>
+<button onclick="trainingAnswer(this,false)">D) O comportamento prova que a densidade da água diminuiu.</button>
+</div>
+<div class="practice-feedback">O operador deve distinguir “comando enviado” de “vazão efetivamente produzida”.</div>
+</div>
+</div><div class="training-pane-clean" id="training-clean-unitarias">
+<span class="module-chip">MÓDULO 4 • OPERAÇÕES UNITÁRIAS</span>
+<h3>Operações Unitárias integradas</h3>
+<p>O sistema de topo conecta operações diferentes; o diagnóstico melhora quando o operador entende como uma perturbação se propaga entre elas.</p>
+<div class="training-grid">
+<div class="training-card"><h4>Fracionamento — E-3901</h4><p>Separação de faixas de hidrocarbonetos por diferença de volatilidade e contato vapor-líquido.</p></div>
+<div class="training-card"><h4>Transferência de calor — C-3902/C-3903</h4><p>Retirada de calor e condensação progressiva da corrente do topo.</p></div>
+<div class="training-card"><h4>Separação de fases — F-3906/F-3907</h4><p>Separação gás-líquido e líquido-líquido para recuperar HC e retirar água ácida.</p></div>
+<div class="training-card"><h4>Bombeamento — J-3904/J-3905/J-3924</h4><p>Fornecimento de energia para refluxo, transferência de líquido de topo e envio de água ácida.</p></div>
+</div>
+<div class="insight"><b>Visão integrada:</b> fracionamento → condensação → separação → bombeamento → absorção/compressão. Um desvio a montante pode alterar simultaneamente várias variáveis a jusante.</div>
+</div><div class="training-pane-clean" id="training-clean-avaliacaoCIC">
+<span class="module-chip">MÓDULO 5 • AVALIAÇÃO OPERADOR CIC</span>
+<div class="eval-head">
+<div><h3>Avaliação integrada</h3><p style="margin:4px 0 0;color:var(--muted)">Diagnóstico, prioridade, causa comum, efeito e confirmação.</p></div>
+<div class="eval-score" id="evalScore">0 / 6</div>
+</div>
+<div class="eval-item"><p><b>1.</b> LIC-39166 ↑, LIC-39164 estável e F-3915 estável. Onde investigar primeiro?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">J-3924 como causa comum</option><option value="b">Segundo estágio: C-3903/F-3907 e retiradas locais</option><option value="c">Fundo da E-3901</option><option value="d">Regenerador</option></select></div>
+<div class="eval-item"><p><b>2.</b> A saída do LIC-39164 aumenta, mas a PV segue subindo. Qual atitude mostra melhor visão de painel?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Aumentar a saída continuamente</option><option value="b">Declarar indicação falsa</option><option value="c">Confirmar válvula, restrições e resposta hidráulica da retirada</option><option value="d">Reduzir carga antes de verificar a cadeia</option></select></div>
+<div class="eval-item"><p><b>3.</b> F-3915 ↑ com J-3924 parada. Qual efeito deve ser antecipado?</p><select class="eval-select" data-correct="a"><option value="">Selecione...</option><option value="a">Possível repercussão a montante nas interfaces</option><option value="b">Queda obrigatória das interfaces</option><option value="c">Aumento automático da capacidade de drenagem</option><option value="d">Nenhum efeito nos vasos</option></select></div>
+<div class="eval-item"><p><b>4.</b> Por que comparar LIC-39163 e LIC-39164?</p><select class="eval-select" data-correct="d"><option value="">Selecione...</option><option value="a">Os dois medem a mesma variável</option><option value="b">Para inferir rotação da J-3904</option><option value="c">Para medir a pressão da sucção do compressor</option><option value="d">Para separar o comportamento do nível HC do comportamento da interface aquosa</option></select></div>
+<div class="eval-item"><p><b>5.</b> Qual sequência representa melhor o raciocínio CIC?</p><select class="eval-select" data-correct="b"><option value="">Selecione...</option><option value="a">Agir → procurar causa → não confirmar</option><option value="b">Identificar tendência → interpretar → agir com segurança → confirmar resposta</option><option value="c">Esperar alarme alto → atuar na variável alarmada</option><option value="d">Alterar várias malhas simultaneamente</option></select></div>
+<div class="eval-item"><p><b>6.</b> LIC-39164 ↑ + LIC-39166 ↑ + F-3915 ↑. Qual princípio de diagnóstico é mais importante?</p><select class="eval-select" data-correct="c"><option value="">Selecione...</option><option value="a">Tratar cada variável como uma falha independente</option><option value="b">Atuar primeiro no refluxo</option><option value="c">Procurar causa comum capaz de explicar a tendência simultânea</option><option value="d">Ignorar F-3915 e focar somente nos vasos</option></select></div>
+<button class="reveal" onclick="gradeCICEvaluation()">Finalizar avaliação</button>
+<div class="eval-report" id="evalReport"></div>
+</div></div></div></aside><div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+<div class="modal-card">
+<div class="modal-head">
+<h3 id="modalTitle">Equipamento</h3>
+<button class="close" onclick="closeModal()">✕</button>
+</div>
+<div class="drawer-context">Explore a função no processo e depois relacione com as tendências mostradas na própria tela.</div>
+<div class="tabs">
+<button data-tab="funcao" onclick="tab(this)">Função</button>
+<button data-tab="como" onclick="tab(this)">Como funciona</button>
+<button data-tab="cicTab" onclick="tab(this)">CIC</button>
+<button data-tab="desvios" onclick="tab(this)">Desvios</button>
+<button data-tab="teste" onclick="tab(this)">Teste rápido</button>
+</div>
+<div class="tabcontent" id="funcao"></div>
+<div class="tabcontent" id="como"></div>
+<div class="tabcontent" id="cicTab"></div>
+<div class="tabcontent" id="desvios"></div>
+<div class="tabcontent" id="teste"></div>
+</div>
+</div>
 <script>
 const data = {
 
@@ -995,7 +998,6 @@ currentZoom = window.innerWidth < 700 ? .72 : (window.innerWidth < 1000 ? .82 : 
 applyZoom();
 </script>
 <div class="pwa-toast" id="pwaToast"></div>
-
 <script>
 let deferredInstallPrompt = null;
 
@@ -1079,8 +1081,6 @@ window.addEventListener('load', () => {
   }
 });
 </script>
-
-
 <script>
 function openTraining(btn){const id=btn.dataset.training;document.querySelectorAll('.training-menu button').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.training-pane').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active')}
 function trainingAnswer(btn,correct){const box=btn.closest('.practice-q');const buttons=box.querySelectorAll('.practice-options button');buttons.forEach(b=>b.disabled=true);btn.classList.add(correct?'correct':'wrong');if(!correct){[...buttons].forEach(b=>{const oc=b.getAttribute('onclick')||'';if(oc.includes(',true)'))b.classList.add('correct')})}const fb=box.querySelector('.practice-feedback');if(fb)fb.style.display='block'}
@@ -1096,5 +1096,53 @@ function gradeCICEvaluation(){const items=[...document.querySelectorAll('.eval-s
 window.addEventListener('load',renderCICScenario);
 </script>
 
+<script id="layout-clean-v5-js">
+const TRAINING_LABELS_CLEAN = {
+  home:'Visão geral',
+  quizTreino:'Quizzes',
+  simCIC:'Cenários + Simulações CIC',
+  mecanica:'Mecânica dos Fluidos',
+  unitarias:'Operações Unitárias',
+  avaliacaoCIC:'Avaliação Operador CIC'
+};
+
+function openTrainingDrawer(module='home'){
+  const drawer=document.getElementById('trainingDrawerClean');
+  const backdrop=document.getElementById('trainingBackdropClean');
+  drawer.classList.add('open');
+  backdrop.classList.add('open');
+  drawer.setAttribute('aria-hidden','false');
+  document.body.classList.add('training-open');
+  selectTrainingModule(module);
+}
+
+function closeTrainingDrawer(){
+  const drawer=document.getElementById('trainingDrawerClean');
+  const backdrop=document.getElementById('trainingBackdropClean');
+  drawer.classList.remove('open');
+  backdrop.classList.remove('open');
+  drawer.setAttribute('aria-hidden','true');
+  document.body.classList.remove('training-open');
+}
+
+function selectTrainingModule(module, btn=null){
+  document.querySelectorAll('.training-pane-clean').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.training-drawer-nav button').forEach(b=>b.classList.remove('active'));
+  const pane=document.getElementById('training-clean-'+module);
+  if(pane) pane.classList.add('active');
+  let target=btn || document.querySelector(`.training-drawer-nav button[data-training-clean="${module}"]`);
+  if(target) target.classList.add('active');
+  const bc=document.getElementById('trainingBreadcrumbClean');
+  if(bc) bc.textContent=TRAINING_LABELS_CLEAN[module] || module;
+  const content=document.querySelector('.training-drawer-content');
+  if(content) content.scrollTop=0;
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && document.getElementById('trainingDrawerClean')?.classList.contains('open')){
+    closeTrainingDrawer();
+  }
+});
+</script>
 </body>
 </html>
