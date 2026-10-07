@@ -1,7 +1,7 @@
 {
   "name": "E-3901 Fracionadora Topo Concept",
   "short_name": "E-3901 Topo",
-  "description": "E-3901 Topo Concept V8.4.2: sistema de hidrocarboneto ajustado para seguir somente o traçado real das linhas existentes na tela.",
+  "description": "E-3901 Topo Concept V8.4.4: hidrocarboneto ajustado conforme o print marcado pelo usuário, mantendo o restante da versão.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
