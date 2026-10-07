@@ -1,4 +1,4 @@
-const CACHE_NAME = 'e3901-topo-concept-v6.2.0';
+const CACHE_NAME = 'e3901-topo-concept-v6.4.1';
 const ASSETS = [
   './',
   './index.html',
