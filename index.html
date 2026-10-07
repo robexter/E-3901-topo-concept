@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <meta content="#0f172a" name="theme-color"/>
-<title>E-3901 — Fracionadora Topo Concept PWA • V7 Estável</title>
+<title>E-3901 — Fracionadora Topo Concept PWA • V8 Aprofundamento Técnico</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -564,7 +564,6 @@ body.training-open{overflow:hidden}
   .quiz-footer-clean .module-action{flex:1}
 }
 </style>
-
 <style id="training-v7-stable-css">
 .competency-panel{
   margin-top:14px;
@@ -687,12 +686,59 @@ body.training-open{overflow:hidden}
   .eval-summary-grid{grid-template-columns:1fr}
 }
 </style>
+
+<style id="v8-technical-deepening-css">
+.v8-module-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:12px}
+.v8-module-head h2{margin:0 0 6px}
+.v8-module-head p{margin:0;color:#9fb6c8;line-height:1.55;max-width:700px}
+.v8-badge{border:1px solid rgba(85,214,190,.28);background:rgba(85,214,190,.06);color:#bff6ec;padding:7px 9px;border-radius:999px;font-size:.72rem;font-weight:900;white-space:nowrap}
+.v8-concept-map{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:12px 0 16px;padding:10px;border:1px solid #29465d;background:#071620;border-radius:12px}
+.v8-concept-map span{padding:6px 8px;border-radius:8px;background:#0d2130;color:#dcecf8;font-size:.78rem}
+.v8-concept-map b{color:#55d6be}
+.v8-tech-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.v8-tech-card{position:relative;border:1px solid #29465d;background:linear-gradient(180deg,#0d2030,#091722);border-radius:14px;padding:14px;overflow:hidden}
+.v8-tech-card h3{margin:0 0 8px;padding-right:34px;font-size:.96rem}
+.v8-tech-card p{margin:7px 0;color:#b0c3d0;font-size:.83rem;line-height:1.55}
+.v8-num{position:absolute;right:11px;top:10px;color:#52758d;font-size:.72rem;font-weight:900;letter-spacing:.08em}
+.v8-equation{margin:9px 0;padding:9px 10px;border-radius:9px;background:#06121b;border:1px solid #25445a;color:#d9eefb;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.83rem;text-align:center}
+.v8-cic{margin-top:9px;padding-top:8px;border-top:1px solid rgba(255,255,255,.07);color:#c8dae6;font-size:.82rem;line-height:1.48}
+.v8-lab{margin-top:16px;border:1px solid #29465d;background:#071620;border-radius:15px;padding:14px}
+.v8-lab-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+.v8-lab-head h3{margin:5px 0 0}.v8-lab-head small{color:#7892a5;text-align:right;max-width:280px}
+.v8-lab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.v8-sim{border:1px solid #29465d;background:#091827;border-radius:12px;padding:12px}
+.v8-sim h4{margin:0 0 10px}
+.v8-sim label{display:block;color:#a9bfcd;font-size:.78rem;margin:8px 0}
+.v8-sim label b{float:right;color:#e1eef6}
+.v8-sim input[type=range]{width:100%;margin-top:6px}
+.v8-sim p{color:#a9bfcd;font-size:.8rem;line-height:1.48;margin:9px 0 0}
+.v8-meter{height:12px;border-radius:999px;background:#06121b;border:1px solid #27465e;overflow:hidden;margin-top:10px}
+.v8-meter span{display:block;height:100%;width:50%;background:linear-gradient(90deg,#5f8db4,#55d6be);transition:width .25s}
+.v8-phasebar{display:flex;height:20px;border-radius:8px;overflow:hidden;border:1px solid #27465e;background:#06121b;margin-top:10px}
+.v8-phasebar span{height:100%;transition:width .25s}.v8-p1{background:#e3b54b}.v8-p2{background:#61a7db}.v8-p3{background:#776bc7}
+.v8-levelbox{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:10px;border:1px solid #27465e;background:#06121b;border-radius:10px;padding:12px}
+.v8-levelbox span{font-size:1.4rem;color:#55d6be}
+.v8-cascade{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.v8-cascade span{padding:7px 8px;background:#06121b;border:1px solid #27465e;border-radius:8px;font-size:.76rem}.v8-cascade b{color:#55d6be}
+.v8-phenomena{margin-top:14px;padding:13px;border-radius:13px;border:1px solid #29465d;background:#091827}
+.v8-phenomena h3{margin:0 0 9px}
+.v8-phenomena button{border:1px solid #31516a;background:#0c1b28;color:#eaf3fa;border-radius:9px;padding:8px 9px;margin:0 5px 7px 0}
+.v8-phenomena button:hover{border-color:#5b86a5}
+.v8-chain-output{margin-top:8px;padding:11px;border-radius:10px;background:#06121b;border:1px solid #27465e;color:#c3d6e2;font-size:.82rem;line-height:1.55}
+.v8-chain-output .step{display:inline-block;padding:5px 7px;border-radius:7px;background:#0d2130;margin:3px;color:#dcecf8}
+.v8-chain-output .arrow{color:#55d6be;margin:0 2px}
+@media(max-width:760px){
+  .v8-module-head,.v8-lab-head{flex-direction:column;align-items:flex-start}
+  .v8-tech-grid,.v8-lab-grid{grid-template-columns:1fr}
+  .v8-lab-head small{text-align:left}
+}
+</style>
 </head>
 <body>
 <div class="app">
 <div class="hero hero-clean">
 <div class="hero-card">
-<span class="kicker">CONCEPT TEMPLATE • U-39 • V7 ESTÁVEL</span>
+<span class="kicker">CONCEPT TEMPLATE • U-39 • V8 TÉCNICA</span>
 <h1>E-3901<br/>Fracionadora — Topo</h1>
 <p>
         One page interativa baseada na própria tela do processo. A proposta é aprender diretamente sobre o diagrama operacional:
@@ -836,7 +882,7 @@ body.training-open{overflow:hidden}
 <div class="section">
 <div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
 </div>
-<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V7 ESTÁVEL • treinamento adaptativo</div>
+<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V8 • aprofundamento técnico de Mecânica dos Fluidos e Operações Unitárias</div>
 </div>
 <div class="training-backdrop-clean" id="trainingBackdropClean" onclick="closeTrainingDrawer()"></div><aside aria-hidden="true" class="training-drawer-clean" id="trainingDrawerClean"><div class="training-drawer-head"><div><strong>Treinamentos</strong><small id="trainingBreadcrumbClean">Visão geral</small></div><button aria-label="Fechar treinamentos" class="drawer-close" onclick="closeTrainingDrawer()">✕</button></div><div class="training-drawer-body"><nav class="training-drawer-nav"><button class="active" data-training-clean="home" onclick="selectTrainingModule('home', this)"><strong>Visão geral</strong><small>Resumo do método e módulos</small></button><button data-training-clean="quizTreino" onclick="selectTrainingModule('quizTreino', this)"><strong>Quizzes</strong><small>Fixação de equipamentos, fases e malhas</small></button><button data-training-clean="simCIC" onclick="selectTrainingModule('simCIC', this)"><strong>Cenários + Simulações CIC</strong><small>Tendências, diagnóstico e prioridade</small></button><button data-training-clean="mecanica" onclick="selectTrainingModule('mecanica', this)"><strong>Mecânica dos Fluidos</strong><small>Pressão, vazão, ejetor e separação</small></button><button data-training-clean="unitarias" onclick="selectTrainingModule('unitarias', this)"><strong>Operações Unitárias</strong><small>Fracionar, condensar, separar e bombear</small></button><button data-training-clean="avaliacaoCIC" onclick="selectTrainingModule('avaliacaoCIC', this)"><strong>Avaliação Operador CIC</strong><small>Visão integrada de painel e processo</small></button></nav><div class="training-drawer-content"><section class="training-pane-clean active" id="training-clean-home"><span class="module-chip">CENTRO DE TREINAMENTO</span><h2>Treinamento da E-3901 — Topo</h2><p class="training-intro-clean">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</p><div class="training-kpi">
 <div><b>5 módulos</b><small>teoria + prática</small></div>
@@ -885,7 +931,6 @@ body.training-open{overflow:hidden}
 <h3 id="cicScenarioTitle">Carregando cenário...</h3>
 <p class="scenario-context-v2" id="cicScenarioContext"></p>
 <div class="branch-banner" id="cicBranchBannerV7"></div>
-
 <div class="trend-grid-v2" id="cicTrendGrid"></div>
 <div class="progress-bar"><div class="progress-fill" id="cicProgressV2"></div></div>
 <div class="cic-step-label" id="cicStepLabel"></div>
@@ -928,138 +973,276 @@ body.training-open{overflow:hidden}
 </div>
 </details>
 </div><div class="training-pane-clean" id="training-clean-mecanica">
-<span class="module-chip">MÓDULO 3 • MECÂNICA DOS FLUIDOS</span>
-<h2>Mecânica dos Fluidos aplicada ao topo da E-3901</h2>
-<p class="technical-intro">O foco é ligar os princípios de conservação de massa, energia e quantidade de movimento às tendências observadas no CIC. As equações abaixo são relações de engenharia para interpretação — não substituem dados de projeto ou curvas dos equipamentos.</p>
-<div class="technical-grid">
-<article class="technical-card">
-<div class="tech-number">01</div>
-<h3>I-3905 — ejetor: quantidade de movimento</h3>
-<p>O gás motriz entra com pressão elevada, acelera no bocal e transfere quantidade de movimento à corrente succionada. A região de mistura opera com pressão suficientemente baixa para promover a sucção, e o difusor converte parte da energia cinética novamente em pressão.</p>
-<div class="equation-box">ṁ<sub>m</sub>·V<sub>m</sub> + ṁ<sub>s</sub>·V<sub>s</sub> → (ṁ<sub>m</sub>+ṁ<sub>s</sub>)·V<sub>mistura</sub></div>
-<p class="operator-link"><b>No CIC:</b> redução da pressão/energia do gás motriz ou aumento de contrapressão pode reduzir a capacidade de arraste do ejetor, sem existir motor ou elemento rotativo a diagnosticar.</p>
+<span class="module-chip">V8 • MÓDULO 3 • MECÂNICA DOS FLUIDOS AVANÇADA</span>
+<div class="v8-module-head">
+<div>
+<h2>Mecânica dos Fluidos — do fenômeno físico ao painel CIC</h2>
+<p>O objetivo não é decorar equações. É reconhecer como <b>pressão, vazão, perda de carga, propriedades do fluido e geometria</b> aparecem como tendências nas malhas da E-3901.</p>
+</div>
+<span class="v8-badge">Engenharia aplicada</span>
+</div>
+<div class="v8-concept-map">
+<span>Energia disponível</span><b>→</b><span>Perda de carga</span><b>→</b><span>Vazão real</span><b>→</b><span>Inventário</span><b>→</b><span>Tendência no CIC</span>
+</div>
+<div class="v8-tech-grid">
+<article class="v8-tech-card">
+<div class="v8-num">01</div>
+<h3>Continuidade, velocidade e regime de escoamento</h3>
+<p>Para uma linha de seção constante, a vazão volumétrica define a velocidade média: <b>Q = A·V</b>. A razão entre forças inerciais e viscosas é expressa pelo número de Reynolds.</p>
+<div class="v8-equation">Re = ρ·V·D / μ</div>
+<p>Reynolds ajuda a definir o regime e influencia o fator de atrito usado na estimativa de perda de carga. Em processo, mudança de vazão, densidade ou viscosidade altera a resistência hidráulica da linha.</p>
+<div class="v8-cic"><b>No CIC:</b> a mesma posição de válvula pode produzir vazões diferentes quando propriedades do fluido ou condições hidráulicas mudam.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">02</div>
-<h3>Perda de carga no caminho da água ácida</h3>
-<p>A vazão retirada do F-3906/F-3907 não depende apenas da abertura da válvula. Linha, acessórios, válvulas, diferença de cotas e contrapressão formam uma resistência hidráulica.</p>
-<div class="equation-box">ΔP ≈ [ f·L/D + ΣK ] · ρV²/2</div>
-<p class="operator-link"><b>No CIC:</b> saída do controlador ↑ com interface ainda ↑ pode significar que o elemento final está abrindo, mas a curva hidráulica não permite a vazão necessária.</p>
+<article class="v8-tech-card">
+<div class="v8-num">02</div>
+<h3>Bernoulli estendido — energia disponível</h3>
+<p>Entre dois pontos, a energia de pressão, elevação e velocidade é redistribuída, enquanto atrito e acessórios consomem parte da carga disponível.</p>
+<div class="v8-equation">P/ρg + z + V²/2g + H<sub>bomba</sub> = constante − h<sub>L</sub></div>
+<p>O balanço explica por que uma válvula mais aberta não resolve necessariamente uma limitação: se a diferença de pressão disponível caiu ou a perda de carga aumentou, a vazão pode permanecer insuficiente.</p>
+<div class="v8-cic"><b>No CIC:</b> MV ↑ + posição da válvula ↑ + PV continua desviando ⇒ confirmar ΔP e vazão real antes de culpar o controlador.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">03</div>
-<h3>Válvula de controle — Cv e ΔP disponível</h3>
-<p>Para líquido incompressível, de forma simplificada, a capacidade de uma válvula cresce com seu Cv e com a raiz da queda de pressão disponível. Por isso, 70% de abertura não significa 70% da vazão máxima.</p>
-<div class="equation-box">Q ∝ Cv · √(ΔP / SG)</div>
-<p class="operator-link"><b>No CIC:</b> comparar MV, posição real da válvula, ΔP disponível e resposta da PV evita concluir incorretamente que “válvula abriu, logo a vazão aumentou”.</p>
+<article class="v8-tech-card">
+<div class="v8-num">03</div>
+<h3>Darcy–Weisbach e perdas localizadas</h3>
+<p>A resistência de uma linha inclui trecho reto, curvas, tês, reduções e válvulas. Para interpretação:</p>
+<div class="v8-equation">h<sub>L</sub> = [f·L/D + ΣK] · V²/2g</div>
+<p>Como a parcela dinâmica cresce aproximadamente com <b>V²</b>, pequenas elevações de vazão podem exigir aumentos expressivos de pressão disponível.</p>
+<div class="v8-cic"><b>Aplicação:</b> restrição parcial no caminho de água ácida pode só ficar evidente quando a geração de água aumenta.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">04</div>
-<h3>Separação água × hidrocarboneto</h3>
-<p>Nos tambores, gotas da fase dispersa precisam se deslocar através da fase contínua. A velocidade de separação depende de diferença de densidade, diâmetro de gota, viscosidade e regime de escoamento. Em regime de Stokes, a tendência é:</p>
-<div class="equation-box">v<sub>t</sub> ∝ (Δρ · g · d²) / μ</div>
-<p class="operator-link"><b>No CIC:</b> maior viscosidade, gotas menores ou agitação podem piorar a separação mesmo sem mudança relevante na vazão total.</p>
+<article class="v8-tech-card">
+<div class="v8-num">04</div>
+<h3>Válvula de controle — Cv, ΔP e característica instalada</h3>
+<p>Para líquido, uma relação simplificada é:</p>
+<div class="v8-equation">Q ∝ Cv · √(ΔP / SG)</div>
+<p>A posição da válvula determina um <i>Cv</i> disponível, mas a vazão final depende também da curva do sistema. Portanto, <b>% abertura ≠ % vazão</b>. A característica instalada pode ser muito diferente da característica inerente da válvula.</p>
+<div class="v8-cic"><b>No CIC:</b> avaliar comando, posição real, ΔP e resposta da PV como uma cadeia única.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">05</div>
-<h3>Tempo de residência e estabilidade da interface</h3>
-<p>O vaso precisa oferecer volume suficiente para desacelerar a corrente e permitir separação. A relação básica entre volume útil e vazão define uma escala de tempo do processo.</p>
-<div class="equation-box">t<sub>R</sub> ≈ V<sub>útil</sub> / Q</div>
-<p class="operator-link"><b>No CIC:</b> aumento de carga líquida reduz o tempo de residência e pode tornar a interface mais sensível, mesmo com a malha de nível corretamente sintonizada.</p>
+<article class="v8-tech-card">
+<div class="v8-num">05</div>
+<h3>Separação água × hidrocarboneto — velocidade terminal</h3>
+<p>Gotas precisam migrar através da fase contínua para formar uma interface estável. Em regime de Stokes, a tendência é:</p>
+<div class="v8-equation">v<sub>t</sub> = Δρ·g·d² / (18·μ)</div>
+<p>Maior diferença de densidade e gotas maiores favorecem separação. Maior viscosidade e gotas menores dificultam. Emulsificação reduz a eficiência mesmo que o nível total pareça normal.</p>
+<div class="v8-cic"><b>No CIC:</b> interface instável pode ser fenômeno de separação, não apenas problema de sintonia ou válvula.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">06</div>
+<article class="v8-tech-card">
+<div class="v8-num">06</div>
+<h3>Tempo de residência e velocidade superficial</h3>
+<p>O vaso precisa desacelerar a corrente para que as fases tenham tempo de se separar.</p>
+<div class="v8-equation">t<sub>R</sub> ≈ V<sub>útil</sub> / Q</div>
+<p>Maior carga líquida reduz tempo de residência. Se simultaneamente houver mais gás, a turbulência e o arraste podem aumentar.</p>
+<div class="v8-cic"><b>No CIC:</b> aumentos de carga podem deteriorar a qualidade da separação antes mesmo de o nível atingir alarme.</div>
+</article>
+<article class="v8-tech-card">
+<div class="v8-num">07</div>
 <h3>J-3924 — curva da bomba × curva do sistema</h3>
-<p>O ponto de operação de uma bomba centrífuga é definido pela interseção entre a curva da bomba e a curva do sistema. Aumento de resistência na descarga desloca o ponto para menor vazão.</p>
-<div class="equation-box">H<sub>sistema</sub> = H<sub>estático</sub> + K·Q²</div>
-<p class="operator-link"><b>No CIC:</b> bomba em operação não garante vazão adequada. Nível do F-3915 subindo com bomba ligada exige confirmar vazão/pressão e condições do sistema.</p>
+<p>O ponto de operação nasce da interseção das duas curvas. A curva do sistema pode ser representada conceitualmente por:</p>
+<div class="v8-equation">H<sub>sistema</sub> = H<sub>estático</sub> + K·Q²</div>
+<p>Maior restrição na descarga eleva a curva do sistema e desloca a operação para menor vazão. “Bomba ligada” não significa “vazão suficiente”.</p>
+<div class="v8-cic"><b>No CIC:</b> F-3915 ↑ com J-3924 ligada ⇒ confirmar vazão, pressão de descarga e resistência do sistema.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">07</div>
-<h3>NPSH e condição de sucção</h3>
-<p>A pressão absoluta na sucção deve permanecer suficientemente acima da pressão de vapor do líquido para evitar formação de vapor na entrada da bomba. A margem é avaliada por NPSH disponível versus requerido.</p>
-<div class="equation-box">NPSH<sub>a</sub> &gt; NPSH<sub>r</sub> + margem</div>
-<p class="operator-link"><b>No CIC:</b> nível baixo no vaso, perda de pressão na sucção ou temperatura mais alta reduzem a margem de NPSH e podem comprometer o desempenho hidráulico.</p>
+<article class="v8-tech-card">
+<div class="v8-num">08</div>
+<h3>NPSH — pressão absoluta na sucção</h3>
+<p>A margem para evitar vaporização na entrada da bomba depende da pressão absoluta, nível, perdas na sucção e pressão de vapor do líquido.</p>
+<div class="v8-equation">NPSH<sub>a</sub> &gt; NPSH<sub>r</sub> + margem</div>
+<p>Temperatura maior aumenta a pressão de vapor; nível menor reduz carga estática. Ambos diminuem a margem disponível.</p>
+<div class="v8-cic"><b>No CIC:</b> queda de desempenho hidráulico deve ser correlacionada com nível do vaso e condições de sucção, não apenas com corrente do motor.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">08</div>
-<h3>Pressão do gás e acoplamento com a compressão</h3>
-<p>O gás separado no F-3907 segue para o F-3908 e depois para a sucção do J-3902. Em um sistema gasoso conectado, a condição de sucção do compressor influencia as pressões a montante e, portanto, o comportamento dos vasos do topo.</p>
-<p class="operator-link"><b>No CIC:</b> alterações de pressão não devem ser interpretadas como fenômeno isolado do F-3907; é necessário correlacionar com F-3908/J-3902 e com as correntes externas.</p>
+<article class="v8-tech-card">
+<div class="v8-num">09</div>
+<h3>I-3905 — ejetor e quantidade de movimento</h3>
+<p>O gás motriz acelera no bocal e transfere quantidade de movimento à corrente aspirada. O desempenho depende da condição motriz, pressão de sucção e contrapressão de descarga.</p>
+<div class="v8-equation">ω = ṁ<sub>sucção</sub> / ṁ<sub>motriz</sub>   (razão de arraste)</div>
+<p>Uma redução de energia motriz ou aumento de contrapressão reduz a capacidade de aspiração. O difusor recupera parte da pressão após a mistura.</p>
+<div class="v8-cic"><b>No CIC:</b> investigar o ejetor como equipamento estático: condições de pressão e fluxo, não rotação.</div>
+</article>
+<article class="v8-tech-card">
+<div class="v8-num">10</div>
+<h3>Acoplamento gasoso F-3907 → F-3908 → J-3902</h3>
+<p>Vasos e compressor estão conectados pelo escoamento gasoso. A pressão de sucção do compressor influencia as pressões a montante e pode alterar densidade do gás, fração condensada e vazões volumétricas.</p>
+<div class="v8-cic"><b>No CIC:</b> uma variação de pressão no F-3907 deve ser correlacionada com F-3908/J-3902 e correntes externas antes de ser tratada como fenômeno local.</div>
 </article>
 </div>
-<div class="technical-check">
-<h3>Aplicação de engenharia</h3>
-<p><b>Situação:</b> LIC-39164 sobe; a saída do controlador aumenta e a válvula confirma maior abertura, mas a interface mantém tendência de alta.</p>
-<p><b>Leitura técnica:</b> a próxima verificação deve buscar se o ΔP disponível e a resistência hidráulica permitem aumento real da vazão. O problema pode estar na capacidade do caminho, não necessariamente no controlador.</p>
+<div class="v8-lab">
+<div class="v8-lab-head">
+<div><span class="module-chip">LABORATÓRIO CONCEITUAL</span><h3>Como o fenômeno aparece no painel</h3></div>
+<small>Índices normalizados — não representam valores de projeto da U-39.</small>
+</div>
+<div class="v8-lab-grid">
+<section class="v8-sim">
+<h4>1. Cv × ΔP → vazão relativa</h4>
+<label>Cv relativo <b id="v8CvVal">60%</b><input id="v8Cv" max="100" min="10" oninput="v8UpdateValve()" type="range" value="60"/></label>
+<label>ΔP disponível <b id="v8DpVal">60%</b><input id="v8Dp" max="100" min="10" oninput="v8UpdateValve()" type="range" value="60"/></label>
+<div class="v8-meter"><span id="v8FlowBar"></span></div>
+<p id="v8FlowText"></p>
+</section>
+<section class="v8-sim">
+<h4>2. Separação de gotas</h4>
+<label>Diâmetro relativo da gota <b id="v8DropVal">1,0×</b><input id="v8Drop" max="20" min="5" oninput="v8UpdateSeparation()" type="range" value="10"/></label>
+<label>Viscosidade relativa <b id="v8MuVal">1,0×</b><input id="v8Mu" max="20" min="5" oninput="v8UpdateSeparation()" type="range" value="10"/></label>
+<label>Δρ relativo <b id="v8RhoVal">1,0×</b><input id="v8Rho" max="20" min="5" oninput="v8UpdateSeparation()" type="range" value="10"/></label>
+<div class="v8-meter"><span id="v8SepBar"></span></div>
+<p id="v8SepText"></p>
+</section>
+<section class="v8-sim">
+<h4>3. Bomba × sistema</h4>
+<label>Resistência K do sistema <b id="v8KVal">1,0×</b><input id="v8K" max="20" min="4" oninput="v8UpdatePump()" type="range" value="10"/></label>
+<label>Carga estática relativa <b id="v8HsVal">20%</b><input id="v8Hs" max="70" min="0" oninput="v8UpdatePump()" type="range" value="20"/></label>
+<div class="v8-meter"><span id="v8PumpBar"></span></div>
+<p id="v8PumpText"></p>
+</section>
+<section class="v8-sim">
+<h4>4. Ejetor — capacidade relativa de sucção</h4>
+<label>Energia motriz <b id="v8MotiveVal">75%</b><input id="v8Motive" max="100" min="20" oninput="v8UpdateEjector()" type="range" value="75"/></label>
+<label>Contrapressão relativa <b id="v8BackVal">35%</b><input id="v8Back" max="90" min="0" oninput="v8UpdateEjector()" type="range" value="35"/></label>
+<div class="v8-meter"><span id="v8EjectBar"></span></div>
+<p id="v8EjectText"></p>
+</section>
+</div>
+</div>
+<div class="v8-phenomena">
+<h3>Do fenômeno ao painel</h3>
+<button onclick="v8FluidChain('restriction')">Restrição na drenagem</button>
+<button onclick="v8FluidChain('pump')">Resistência maior na descarga da J-3924</button>
+<button onclick="v8FluidChain('ejector')">Energia motriz do I-3905 ↓</button>
+<div class="v8-chain-output" id="v8FluidChain">Selecione um fenômeno para visualizar a sequência causal.</div>
 </div>
 </div><div class="training-pane-clean" id="training-clean-unitarias">
-<span class="module-chip">MÓDULO 4 • OPERAÇÕES UNITÁRIAS</span>
-<h2>Operações Unitárias no sistema de topo</h2>
-<p class="technical-intro">O topo da E-3901 é uma sequência integrada de equilíbrio vapor-líquido, transferência de calor, separação de fases e transporte de fluidos. O operador de CIC deve reconhecer como uma perturbação em uma etapa aparece nas etapas seguintes.</p>
-<div class="technical-grid">
-<article class="technical-card">
-<div class="tech-number">01</div>
-<h3>Fracionamento — equilíbrio vapor-líquido</h3>
-<p>A E-3901 promove separação por diferença de volatilidade. O contato contracorrente vapor-líquido aproxima cada estágio de um equilíbrio local: componentes menos voláteis tendem à fase líquida e os mais voláteis à fase vapor.</p>
-<div class="equation-box">y<sub>i</sub> = K<sub>i</sub> · x<sub>i</sub></div>
-<p class="operator-link"><b>Implicação:</b> temperatura, pressão e refluxo alteram o equilíbrio e o tráfego interno; a temperatura de topo é uma variável de inferência, não uma análise direta de composição.</p>
+<span class="module-chip">V8 • MÓDULO 4 • OPERAÇÕES UNITÁRIAS AVANÇADAS</span>
+<div class="v8-module-head">
+<div>
+<h2>Operações Unitárias — integração térmica, equilíbrio e separação</h2>
+<p>O sistema de topo deve ser lido como uma cadeia: <b>fracionamento → condensação parcial → separação de fases → recirculação/transferência → absorção/compressão</b>.</p>
+</div>
+<span class="v8-badge">Visão sistêmica</span>
+</div>
+<div class="v8-concept-map">
+<span>Equilíbrio V–L</span><b>→</b><span>Transferência de calor</span><b>→</b><span>Flash/condensação</span><b>→</b><span>Separação</span><b>→</b><span>Integração a jusante</span>
+</div>
+<div class="v8-tech-grid">
+<article class="v8-tech-card">
+<div class="v8-num">01</div>
+<h3>Equilíbrio vapor-líquido — K-values</h3>
+<p>Em uma mistura multicomponente, a distribuição de cada componente entre vapor e líquido pode ser representada por:</p>
+<div class="v8-equation">y<sub>i</sub> = K<sub>i</sub>(T,P,composição) · x<sub>i</sub></div>
+<p>Componentes com maior volatilidade têm maior tendência a permanecer no vapor. Pressão e temperatura deslocam o equilíbrio.</p>
+<div class="v8-cic"><b>No CIC:</b> temperatura de topo é uma inferência de condição de equilíbrio; não é uma análise direta de composição.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">02</div>
-<h3>Refluxo e controle térmico do topo</h3>
-<p>O hidrocarboneto separado no F-3906 retorna pela J-3904 como refluxo. A estratégia documentada relaciona TIC-39249 à vazão de refluxo FIC-39179. O refluxo aumenta a fase líquida descendente e promove contato com o vapor ascendente.</p>
-<p class="operator-link"><b>Implicação:</b> variar refluxo afeta temperatura, carga térmica dos condensadores e quantidade/composição aproximada do material que alcança o topo.</p>
+<article class="v8-tech-card">
+<div class="v8-num">02</div>
+<h3>Ponto de bolha × ponto de orvalho</h3>
+<p><b>Ponto de bolha:</b> primeira bolha de vapor aparece a partir do líquido. <b>Ponto de orvalho:</b> primeira gota de líquido aparece a partir do vapor. Em corrente multicomponente, a condensação ocorre ao longo de uma faixa, não em uma única temperatura.</p>
+<div class="v8-cic"><b>No topo:</b> o C-3902 e o C-3903 promovem condensação parcial de uma corrente com diferentes volatilidades.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">03</div>
-<h3>Condensação parcial — C-3902</h3>
-<p>A corrente de topo contém hidrocarbonetos, vapor d’água e gases não condensáveis. A retirada de calor no C-3902 provoca condensação parcial; a corrente bifásica/trifásica segue ao F-3906 para separação.</p>
-<div class="equation-box">Q̇ = ṁ·C<sub>p</sub>·ΔT + ṁ<sub>cond</sub>·λ</div>
-<p class="operator-link"><b>Implicação:</b> menor duty de resfriamento desloca material condensável para o estágio seguinte; maior duty tende a antecipar a condensação.</p>
+<article class="v8-tech-card">
+<div class="v8-num">03</div>
+<h3>Fracionamento e refluxo</h3>
+<p>O refluxo fornece líquido descendente para contato com o vapor ascendente. Esse contato favorece transferência de massa: componentes menos voláteis tendem a retornar ao líquido e os mais voláteis permanecem no vapor.</p>
+<div class="v8-equation">Maior refluxo ⇒ maior tráfego líquido e maior carga térmica no topo</div>
+<p>Na configuração documentada, TIC-39249 atua sobre a referência de FIC-39179 no refluxo da J-3904.</p>
+<div class="v8-cic"><b>No CIC:</b> interpretar temperatura + refluxo + níveis dos vasos + condensação como um conjunto.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">04</div>
-<h3>F-3906 — separador de três fases</h3>
-<p>O F-3906 separa gás, hidrocarboneto líquido e água. O LIC-39164 controla a interface aquosa; o LIC-39163 controla o inventário superior de hidrocarboneto. O vaso também fornece líquido para refluxo e para o segundo estágio de condensação.</p>
-<p class="operator-link"><b>Implicação:</b> analisar LIC-39163 e LIC-39164 em conjunto permite diferenciar alteração no inventário de HC de alteração na fase aquosa.</p>
+<article class="v8-tech-card">
+<div class="v8-num">04</div>
+<h3>C-3902 — transferência de calor e condensação parcial</h3>
+<p>O duty térmico combina resfriamento sensível e calor latente associado à condensação.</p>
+<div class="v8-equation">Q̇ ≈ ṁ·C<sub>p</sub>·ΔT + ṁ<sub>cond</sub>·λ</div>
+<p>A capacidade de troca também pode ser interpretada por:</p>
+<div class="v8-equation">Q̇ = U·A·ΔT<sub>lm</sub></div>
+<div class="v8-cic"><b>No CIC:</b> perda de duty desloca parte da condensação para jusante em vez de simplesmente “sumir” com o líquido.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">05</div>
-<h3>Segundo estágio — C-3903 + F-3907</h3>
-<p>Após o F-3906, a corrente ainda contém componentes condensáveis. O C-3903 promove resfriamento adicional e o F-3907 remove a nova parcela de HC e água antes que o gás siga para o F-3908/J-3902.</p>
-<p class="operator-link"><b>Implicação:</b> desvio concentrado no LIC-39166, com F-3906 estável, direciona o diagnóstico ao segundo estágio e não automaticamente ao sistema comum de água ácida.</p>
+<article class="v8-tech-card">
+<div class="v8-num">05</div>
+<h3>F-3906 — separador trifásico</h3>
+<p>Após a condensação parcial, o vaso recebe gás + HC líquido + água. O processo unitário é separação física por gravidade e diferença de densidade, sustentada por volume e tempo de residência.</p>
+<p>LIC-39163 representa o inventário superior de HC; LIC-39164 representa a interface aquosa.</p>
+<div class="v8-cic"><b>Diagnóstico:</b> usar os dois níveis para identificar qual fase está acumulando.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">06</div>
-<h3>Cascata de nível e vazão</h3>
-<p>O manual descreve o LIC-39163 trabalhando em cascata com FIC-39180 na retirada associada ao F-3906. Em cascata, o controlador primário de nível ajusta a referência do controlador secundário de vazão.</p>
-<div class="equation-box">LIC (primário) → SP do FIC (secundário) → válvula</div>
-<p class="operator-link"><b>Implicação:</b> a resposta deve ser interpretada em duas camadas: necessidade de inventário e capacidade efetiva da malha de vazão.</p>
+<article class="v8-tech-card">
+<div class="v8-num">06</div>
+<h3>C-3903 + F-3907 — segunda condensação e novo flash</h3>
+<p>Material ainda condensável deixa o primeiro estágio. Nova retirada de calor altera a fração vapor-líquido e o F-3907 separa o condensado adicional.</p>
+<div class="v8-equation">β = fração vapor após equilíbrio local</div>
+<p>Menor condensação no primeiro estágio pode aumentar a carga potencial de condensação no segundo.</p>
+<div class="v8-cic"><b>No CIC:</b> tendências opostas F-3906 × F-3907 podem representar redistribuição de condensação.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">07</div>
-<h3>Integração com absorção — J-3905 / E-3904</h3>
-<p>O hidrocarboneto líquido do F-3907 é enviado pela J-3905 para utilização como óleo pobre na absorção primária. Portanto, a qualidade e a disponibilidade dessa corrente conectam o sistema de topo ao desempenho da recuperação de C3/C4.</p>
-<p class="operator-link"><b>Implicação:</b> problemas de inventário/retirada no F-3907 não ficam restritos ao vaso; podem alterar a alimentação de óleo pobre à etapa seguinte.</p>
+<article class="v8-tech-card">
+<div class="v8-num">07</div>
+<h3>Cascata LIC-39163 → FIC-39180</h3>
+<p>O inventário é a variável lenta. A vazão é a variável secundária mais rápida. O controlador de nível ajusta a demanda de retirada e a malha de vazão executa essa demanda.</p>
+<div class="v8-equation">Erro de nível → SP de vazão → válvula → vazão → inventário</div>
+<div class="v8-cic"><b>Diagnóstico:</b> SP do FIC aumenta mas PV não acompanha ⇒ o limite está na malha secundária ou na hidráulica.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">08</div>
-<h3>Água ácida — acumulação e bombeamento</h3>
-<p>As águas retiradas dos vasos convergem para o F-3915. A J-3924 succiona normalmente desse vaso e transfere a corrente para a U-80. O F-3915 funciona como capacidade de amortecimento entre geração e retirada.</p>
-<div class="equation-box">dV/dt = Q<sub>entrada</sub> − Q<sub>saída</sub></div>
-<p class="operator-link"><b>Implicação:</b> F-3915 subindo indica balanço positivo de inventário; se a condição persistir, pode reduzir a capacidade de drenagem dos vasos a montante.</p>
+<article class="v8-tech-card">
+<div class="v8-num">08</div>
+<h3>F-3915 — balanço de massa dinâmico</h3>
+<p>O nível representa o resultado acumulado da diferença entre entradas e saída.</p>
+<div class="v8-equation">dV/dt = ΣQ<sub>entrada</sub> − Q<sub>saída</sub></div>
+<p>Se entradas superam a capacidade da J-3924, o vaso acumula. Quando o inventário aumenta suficientemente, a capacidade de receber drenagens a montante pode ser afetada.</p>
+<div class="v8-cic"><b>No CIC:</b> tendência de nível é uma medida integrada do balanço, não apenas um número instantâneo.</div>
 </article>
-<article class="technical-card">
-<div class="tech-number">09</div>
+<article class="v8-tech-card">
+<div class="v8-num">09</div>
+<h3>F-3907 → J-3905 → absorção primária</h3>
+<p>O HC líquido do F-3907 é utilizado como óleo pobre na absorção. Essa etapa conecta o balanço do topo ao sistema de recuperação de componentes leves.</p>
+<p>A absorção física depende de equilíbrio gás-líquido, vazão de solvente, pressão e temperatura.</p>
+<div class="v8-cic"><b>Integração:</b> disponibilidade e condição da corrente da J-3905 podem afetar a etapa de absorção a jusante.</div>
+</article>
+<article class="v8-tech-card">
+<div class="v8-num">10</div>
 <h3>Integração com compressão</h3>
-<p>O gás remanescente do F-3907 segue ao F-3908 e à sucção do J-3902. A compressão a jusante estabelece uma condição de pressão que se propaga pelo sistema conectado e influencia a operação a montante.</p>
-<p class="operator-link"><b>Implicação:</b> pressão, condensação e separação não devem ser analisadas como operações independentes; o topo e a compressão formam um sistema acoplado.</p>
+<p>O gás remanescente segue ao F-3908/J-3902. Compressão aumenta a pressão e, combinada com resfriamento posterior, favorece liquefação/recuperação de componentes na seção de recuperação de gases.</p>
+<div class="v8-cic"><b>Visão sistêmica:</b> pressão do topo, condensação e desempenho do compressor estão acoplados.</div>
 </article>
 </div>
-<div class="technical-check">
-<h3>Mapa de integração</h3>
-<p><b>Fracionar → condensar → separar → recircular/transferir → absorver/comprimir.</b> Esse encadeamento explica por que uma mudança térmica no topo pode aparecer depois como mudança de nível, vazão, interface ou carga no sistema de recuperação de gases.</p>
+<div class="v8-lab">
+<div class="v8-lab-head">
+<div><span class="module-chip">LABORATÓRIO DE OPERAÇÕES UNITÁRIAS</span><h3>Redistribuição, balanço e controle</h3></div>
+<small>Modelo conceitual normalizado — não reproduz rigorosamente a termodinâmica da U-39.</small>
+</div>
+<div class="v8-lab-grid">
+<section class="v8-sim">
+<h4>1. Condensação em dois estágios</h4>
+<label>Duty relativo C-3902 <b id="v8Duty1Val">65%</b><input id="v8Duty1" max="100" min="10" oninput="v8UpdateCondensation()" type="range" value="65"/></label>
+<label>Duty relativo C-3903 <b id="v8Duty2Val">60%</b><input id="v8Duty2" max="100" min="10" oninput="v8UpdateCondensation()" type="range" value="60"/></label>
+<div class="v8-phasebar">
+<span class="v8-p1" id="v8Cond1Bar"></span>
+<span class="v8-p2" id="v8Cond2Bar"></span>
+<span class="v8-p3" id="v8GasBar"></span>
+</div>
+<p id="v8CondText"></p>
+</section>
+<section class="v8-sim">
+<h4>2. Balanço do F-3915</h4>
+<label>Entrada relativa de água <b id="v8InVal">60%</b><input id="v8In" max="100" min="0" oninput="v8UpdateBalance()" type="range" value="60"/></label>
+<label>Retirada pela J-3924 <b id="v8OutVal">55%</b><input id="v8Out" max="100" min="0" oninput="v8UpdateBalance()" type="range" value="55"/></label>
+<div class="v8-levelbox"><span id="v8BalanceArrow">↑</span><b id="v8BalanceTrend">nível tende a subir</b></div>
+<p id="v8BalanceText"></p>
+</section>
+<section class="v8-sim">
+<h4>3. Cascata LIC → FIC</h4>
+<label>Desvio de nível (PV − SP) <b id="v8LevelErrVal">+20%</b><input id="v8LevelErr" max="50" min="-50" oninput="v8UpdateCascade()" type="range" value="20"/></label>
+<div class="v8-cascade">
+<span>LIC</span><b>→</b><span id="v8FicSp">FIC SP 60%</span><b>→</b><span id="v8ValveDemand">demanda 60%</span>
+</div>
+<p id="v8CascadeText"></p>
+</section>
+<section class="v8-sim">
+<h4>4. Refluxo × carga térmica conceitual</h4>
+<label>Refluxo relativo <b id="v8RefluxVal">60%</b><input id="v8Reflux" max="100" min="20" oninput="v8UpdateReflux()" type="range" value="60"/></label>
+<div class="v8-meter"><span id="v8RefluxBar"></span></div>
+<p id="v8RefluxText"></p>
+</section>
+</div>
+</div>
+<div class="v8-phenomena">
+<h3>Do fenômeno ao painel</h3>
+<button onclick="v8UnitChain('c3902')">C-3902 perde duty</button>
+<button onclick="v8UnitChain('j3924')">Capacidade J-3924 ↓</button>
+<button onclick="v8UnitChain('reflux')">Refluxo de topo ↓</button>
+<button onclick="v8UnitChain('c3903')">Condensação no 2º estágio ↑</button>
+<div class="v8-chain-output" id="v8UnitChain">Selecione um fenômeno para montar a sequência processo → tendência → confirmação.</div>
 </div>
 </div><div class="training-pane-clean" id="training-clean-avaliacaoCIC">
 <span class="module-chip">MÓDULO 5 • AVALIAÇÃO</span>
@@ -1093,7 +1276,6 @@ body.training-open{overflow:hidden}
 </div>
 <div id="smartReviewEngineV7"></div>
 </div>
-
 </div></div></div></aside><div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
 <div class="modal-card">
 <div class="modal-head">
@@ -2005,7 +2187,6 @@ window.selectTrainingModule=function(module,btn=null){
   if(module==='avaliacaoCIC') startCICEvaluation();
 };
 </script>
-
 <script id="training-v7-stable-js">
 /* ===== V7 ESTÁVEL — competências, revisão inteligente e CIC com consequência da decisão ===== */
 
@@ -2301,6 +2482,148 @@ window.startCICEvaluation=function(){
   const r=document.getElementById('smartReviewBoxV7'); if(r)r.classList.remove('show');
   const e=document.getElementById('smartReviewEngineV7'); if(e)e.innerHTML='';
   _v6StartEval();
+};
+</script>
+
+<script id="v8-technical-deepening-js">
+function v8Clamp(v,min=0,max=100){return Math.max(min,Math.min(max,v))}
+function v8Pct(v){return Math.round(v)+'%'}
+
+function v8UpdateValve(){
+  const cv=+document.getElementById('v8Cv').value/100;
+  const dp=+document.getElementById('v8Dp').value/100;
+  const q=v8Clamp(cv*Math.sqrt(dp)*125);
+  document.getElementById('v8CvVal').textContent=Math.round(cv*100)+'%';
+  document.getElementById('v8DpVal').textContent=Math.round(dp*100)+'%';
+  document.getElementById('v8FlowBar').style.width=v8Pct(q);
+  document.getElementById('v8FlowText').innerHTML=`Índice de vazão ≈ <b>${Math.round(q)}%</b>. Aumentar Cv com ΔP baixo produz ganho menor do que o esperado pela abertura isolada.`;
+}
+function v8UpdateSeparation(){
+  const d=+document.getElementById('v8Drop').value/10;
+  const mu=+document.getElementById('v8Mu').value/10;
+  const dr=+document.getElementById('v8Rho').value/10;
+  const rel=dr*d*d/mu;
+  const idx=v8Clamp(rel*42);
+  document.getElementById('v8DropVal').textContent=d.toFixed(1)+'×';
+  document.getElementById('v8MuVal').textContent=mu.toFixed(1)+'×';
+  document.getElementById('v8RhoVal').textContent=dr.toFixed(1)+'×';
+  document.getElementById('v8SepBar').style.width=v8Pct(idx);
+  const band=rel>1.5?'separação favorecida':rel>.7?'separação intermediária':'separação dificultada';
+  document.getElementById('v8SepText').innerHTML=`Velocidade terminal relativa ≈ <b>${rel.toFixed(2)}×</b> → ${band}. Observe o forte efeito de d².`;
+}
+function v8UpdatePump(){
+  const k=+document.getElementById('v8K').value/10;
+  const hs=+document.getElementById('v8Hs').value/100;
+  const q=Math.sqrt(Math.max(0.01,(1.20-hs)/(0.55+k)));
+  const qn=v8Clamp(q/0.95*100);
+  const h=1.20-0.55*q*q;
+  document.getElementById('v8KVal').textContent=k.toFixed(1)+'×';
+  document.getElementById('v8HsVal').textContent=Math.round(hs*100)+'%';
+  document.getElementById('v8PumpBar').style.width=v8Pct(qn);
+  document.getElementById('v8PumpText').innerHTML=`Ponto conceitual: vazão relativa <b>${Math.round(qn)}%</b>, carga relativa ${h.toFixed(2)}. Aumentar K desloca o ponto para menor Q.`;
+}
+function v8UpdateEjector(){
+  const motive=+document.getElementById('v8Motive').value/100;
+  const back=+document.getElementById('v8Back').value/100;
+  const index=v8Clamp((motive*(1-0.78*back))*125);
+  document.getElementById('v8MotiveVal').textContent=Math.round(motive*100)+'%';
+  document.getElementById('v8BackVal').textContent=Math.round(back*100)+'%';
+  document.getElementById('v8EjectBar').style.width=v8Pct(index);
+  document.getElementById('v8EjectText').innerHTML=`Índice conceitual de sucção <b>${Math.round(index)}%</b>. Mais energia motriz favorece arraste; maior contrapressão reduz a capacidade.`;
+}
+
+function v8FluidChain(type){
+  const el=document.getElementById('v8FluidChain');
+  const chains={
+    restriction:[
+      'Restrição / ΣK ↑','perda de carga ↑','vazão de drenagem não acompanha MV','interface ↑','LIC aumenta saída','confirmar ΔP + vazão real'
+    ],
+    pump:[
+      'Resistência de descarga ↑','curva do sistema sobe','Q da J-3924 ↓','F-3915 ↑','capacidade de receber drenagens ↓','interfaces podem subir'
+    ],
+    ejector:[
+      'Energia motriz ↓','velocidade/quantidade de movimento ↓','capacidade de sucção ↓','corrente aspirada ↓','condição no F-3907 muda','correlacionar pressões'
+    ]
+  };
+  el.innerHTML=chains[type].map((s,i)=>`<span class="step">${s}</span>${i<chains[type].length-1?'<span class="arrow">→</span>':''}`).join('');
+}
+
+function v8UpdateCondensation(){
+  const d1=+document.getElementById('v8Duty1').value/100;
+  const d2=+document.getElementById('v8Duty2').value/100;
+  const c1=Math.min(.72,d1*.62);
+  const remaining=1-c1;
+  const c2=remaining*Math.min(.72,d2*.60);
+  const gas=Math.max(0,1-c1-c2);
+  document.getElementById('v8Duty1Val').textContent=Math.round(d1*100)+'%';
+  document.getElementById('v8Duty2Val').textContent=Math.round(d2*100)+'%';
+  document.getElementById('v8Cond1Bar').style.width=(c1*100)+'%';
+  document.getElementById('v8Cond2Bar').style.width=(c2*100)+'%';
+  document.getElementById('v8GasBar').style.width=(gas*100)+'%';
+  document.getElementById('v8CondText').innerHTML=`Distribuição conceitual: <b>${Math.round(c1*100)}%</b> condensa no 1º estágio, <b>${Math.round(c2*100)}%</b> no 2º e <b>${Math.round(gas*100)}%</b> permanece como gás.`;
+}
+function v8UpdateBalance(){
+  const qin=+document.getElementById('v8In').value;
+  const qout=+document.getElementById('v8Out').value;
+  const d=qin-qout;
+  document.getElementById('v8InVal').textContent=qin+'%';
+  document.getElementById('v8OutVal').textContent=qout+'%';
+  let arrow='→',trend='nível tende a estabilizar',txt='Entradas e saída estão aproximadamente balanceadas.';
+  if(d>4){arrow='↑';trend='nível tende a subir';txt=`Entrada supera saída em ${d} pontos relativos: o F-3915 acumula inventário.`}
+  if(d<-4){arrow='↓';trend='nível tende a cair';txt=`Saída supera entrada em ${Math.abs(d)} pontos relativos: o F-3915 perde inventário.`}
+  document.getElementById('v8BalanceArrow').textContent=arrow;
+  document.getElementById('v8BalanceTrend').textContent=trend;
+  document.getElementById('v8BalanceText').textContent=txt;
+}
+function v8UpdateCascade(){
+  const err=+document.getElementById('v8LevelErr').value;
+  const sp=v8Clamp(50+err*.5,15,85);
+  const demand=v8Clamp(sp,10,90);
+  document.getElementById('v8LevelErrVal').textContent=(err>=0?'+':'')+err+'%';
+  document.getElementById('v8FicSp').textContent='FIC SP '+Math.round(sp)+'%';
+  document.getElementById('v8ValveDemand').textContent='demanda '+Math.round(demand)+'%';
+  document.getElementById('v8CascadeText').innerHTML=err>5?
+    'Nível acima do SP → controlador primário pede maior retirada. Se a PV do FIC não acompanhar o novo SP, o gargalo está na malha secundária/hidráulica.':
+    err<-5?'Nível abaixo do SP → demanda de retirada reduzida para preservar inventário.':
+    'Erro pequeno → demanda de retirada próxima do ponto intermediário.';
+}
+function v8UpdateReflux(){
+  const r=+document.getElementById('v8Reflux').value;
+  document.getElementById('v8RefluxVal').textContent=r+'%';
+  document.getElementById('v8RefluxBar').style.width=r+'%';
+  const thermal=Math.round(35+r*.65);
+  document.getElementById('v8RefluxText').innerHTML=`Refluxo relativo ${r}% → índice conceitual de carga líquida/térmica do topo ≈ <b>${thermal}%</b>. A resposta real depende de carga, composição, pressão e condições dos condensadores.`;
+}
+
+function v8UnitChain(type){
+  const el=document.getElementById('v8UnitChain');
+  const chains={
+    c3902:[
+      'Duty C-3902 ↓','T de saída ↑','condensação 1º estágio ↓','F-3906 recebe menos líquido','mais carga condensável chega ao C-3903','F-3907 tende a receber mais condensado','confirmar temperaturas + níveis dos dois vasos'
+    ],
+    j3924:[
+      'Capacidade J-3924 ↓','Q saída F-3915 ↓','dV/dt > 0','nível F-3915 ↑','menor margem para receber drenagens','LIC-39164/39166 podem subir','confirmar vazão/pressão da bomba'
+    ],
+    reflux:[
+      'Refluxo ↓','tráfego líquido no topo ↓','temperatura/composição de topo tendem a mudar','carga dos condensadores se redistribui','inventários dos vasos podem mudar','correlacionar TIC-39249 + FIC-39179 + níveis'
+    ],
+    c3903:[
+      'Duty C-3903 ↑','condensação 2º estágio ↑','F-3907 recebe mais líquido','LIC-39165/39166 tendem a responder','gás remanescente para compressão tende a reduzir','confirmar temperatura + níveis + gás'
+    ]
+  };
+  el.innerHTML=chains[type].map((s,i)=>`<span class="step">${s}</span>${i<chains[type].length-1?'<span class="arrow">→</span>':''}`).join('');
+}
+
+/* Inicialização quando os módulos são abertos */
+const _v7SelectTrainingModule=window.selectTrainingModule;
+window.selectTrainingModule=function(module,btn=null){
+  _v7SelectTrainingModule(module,btn);
+  if(module==='mecanica'){
+    setTimeout(()=>{v8UpdateValve();v8UpdateSeparation();v8UpdatePump();v8UpdateEjector();},0);
+  }
+  if(module==='unitarias'){
+    setTimeout(()=>{v8UpdateCondensation();v8UpdateBalance();v8UpdateCascade();v8UpdateReflux();},0);
+  }
 };
 </script>
 </body>
