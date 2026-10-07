@@ -1,7 +1,7 @@
 {
   "name": "E-3901 Fracionadora Topo Concept",
   "short_name": "E-3901 Topo",
-  "description": "E-3901 Topo Concept V8: V7 preservada, com aprofundamento técnico de Mecânica dos Fluidos e Operações Unitárias e simuladores conceituais.",
+  "description": "E-3901 Topo Concept V8.1: correção da animação/rota do gás, passando pelos dois ramais do C-3903 e representando a saída do F-3907 para o F-3908.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
