@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <meta content="#0f172a" name="theme-color"/>
-<title>E-3901 — Fracionadora Topo Concept PWA • V8.1 Fluxo de Gás Corrigido</title>
+<title>E-3901 — Fracionadora Topo Concept PWA • V8.2 Rota de Gás Fiel</title>
 <style>
 :root{
   --bg:#07111f; --panel:#0d1b2a; --panel2:#10243a; --card:#13263d; --line:#263b55;
@@ -732,12 +732,19 @@ body.training-open{overflow:hidden}
   .v8-lab-head small{text-align:left}
 }
 </style>
-</head>
+<style id="gas-faithful-v82">
+.route.gas.gas-faithful{
+  stroke-width:4;
+  stroke:rgba(155,140,255,.88);
+  stroke-dasharray:10 9;
+  filter:drop-shadow(0 0 2px rgba(155,140,255,.35));
+}
+</style></head>
 <body>
 <div class="app">
 <div class="hero hero-clean">
 <div class="hero-card">
-<span class="kicker">CONCEPT TEMPLATE • U-39 • V8.1 CORREÇÃO FLUXO DE GÁS</span>
+<span class="kicker">CONCEPT TEMPLATE • U-39 • V8.2 ROTA FIEL</span>
 <h1>E-3901<br/>Fracionadora — Topo</h1>
 <p>
         One page interativa baseada na própria tela do processo. A proposta é aprender diretamente sobre o diagrama operacional:
@@ -781,8 +788,8 @@ body.training-open{overflow:hidden}
 <div class="screen-stage show-gas" id="screenStage">
 <img alt="Tela operacional do sistema de topo da E-3901" src="e3901-screen.png"/>
 <svg aria-hidden="true" class="overlay-svg" preserveaspectratio="none" viewbox="0 0 1280 768">
-<!-- GÁS CORRIGIDO: E-3901 → F-3906 → distribuição em dois ramais do C-3903 → F-3907 → F-3908 --><path class="route gas" d="M68 360 L68 88 L332 88 L438 88 L438 150 L535 150 L590 150"></path><!-- Ramal superior do C-3903 --><path class="route gas" d="M590 150 L590 98 L642 98 L642 48 L938 48 L938 98 L1012 98"></path><!-- Ramal inferior do C-3903 --><path class="route gas" d="M590 150 L590 160 L642 160 L642 210 L938 210 L938 160 L1012 160"></path><!-- Saída combinada do C-3903 e entrada no F-3907 --><path class="route gas" d="M1012 129 L1012 225 L814 225 L814 274"></path><!-- Saída de gás do F-3907 para o F-3908 --><path class="route gas" d="M882 258 L882 236 L1062 236 L1062 266 L1260 266"></path><circle class="route-end gas" cx="1255" cy="266" fill="var(--gas)" r="7"></circle><!-- Rotas DIDÁTICAS: destacam caminho funcional, sem substituir o traçado de engenharia da tela -->
-<path class="route hc" d="M478 220 L478 292 L449 292 L449 389 L207 389 L136 389"></path>
+<!-- GÁS CORRIGIDO: E-3901 → F-3906 → distribuição em dois ramais do C-3903 → F-3907 → F-3908 --><!-- Ramal superior do C-3903 --><!-- Ramal inferior do C-3903 --><!-- Saída combinada do C-3903 e entrada no F-3907 --><!-- Saída de gás do F-3907 para o F-3908 --><!-- Rotas DIDÁTICAS: destacam caminho funcional, sem substituir o traçado de engenharia da tela -->
+<circle class="route-end gas" cx="1262" cy="259" fill="var(--gas)" r="6"></circle><path class="route gas gas-faithful" d="M880 278 L880 259 L1265 259"></path><!-- Saída de gás do F-3907 -> GAS F-3908 --><path class="route gas gas-faithful" d="M1055 174 L1055 203 L1013 203"></path><!-- I-3905: incorporação de gás ao header que segue para o F-3907 --><path class="route gas gas-faithful" d="M937 99 L1013 99 L1013 203 L812 203 L812 278"></path><!-- Header de saída do C-3903 -> entrada do F-3907 --><path class="route gas gas-faithful" d="M645 121 L645 151 L937 151 L937 99"></path><!-- C-3903: RAMAL INFERIOR C/D --><path class="route gas gas-faithful" d="M645 121 L645 49 L937 49 L937 99"></path><!-- C-3903: RAMAL SUPERIOR A/B --><path class="route gas gas-faithful" d="M535 148 L535 121 L645 121"></path><!-- Saída gasosa do F-3906 até o header de entrada do C-3903 --><path class="route gas gas-faithful" d="M68 360 L68 87 L331 87 L438 87 L438 148"></path><!-- E-3901 -> C-3902 -> F-3906 --><!-- ROTA DE GÁS V8.2 — traçada sobre as linhas existentes da tela --><path class="route hc" d="M478 220 L478 292 L449 292 L449 389 L207 389 L136 389"></path>
 <path class="route hc" d="M820 356 L820 432 L1180 432"></path>
 <path class="route water" d="M530 220 L530 558 L691 558 L691 556 L1188 556 L1188 595 L1188 653 L948 653"></path>
 <path class="route water" d="M870 357 L870 519 L1188 519"></path>
@@ -877,7 +884,7 @@ body.training-open{overflow:hidden}
 <div class="section">
 <div class="confirm-box"><b>Refinamento confirmado pela tela:</b> a própria tela operacional anexada mostra o <b>LIC-39164</b> associado à retirada/interface de água do <b>F-3906</b> e o <b>LIC-39166</b> no <b>F-3907</b>. Por isso, o LIC-39167 foi retirado da lógica principal desta versão.</div>
 </div>
-<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V8.1 • correção do fluxo de gás na tela operacional</div>
+<div class="footer">E-3901 — Fracionadora Topo Concept • PWA V8.2 • rota de gás redesenhada sobre a tubulação original</div>
 </div>
 <div class="training-backdrop-clean" id="trainingBackdropClean" onclick="closeTrainingDrawer()"></div><aside aria-hidden="true" class="training-drawer-clean" id="trainingDrawerClean"><div class="training-drawer-head"><div><strong>Treinamentos</strong><small id="trainingBreadcrumbClean">Visão geral</small></div><button aria-label="Fechar treinamentos" class="drawer-close" onclick="closeTrainingDrawer()">✕</button></div><div class="training-drawer-body"><nav class="training-drawer-nav"><button class="active" data-training-clean="home" onclick="selectTrainingModule('home', this)"><strong>Visão geral</strong><small>Resumo do método e módulos</small></button><button data-training-clean="quizTreino" onclick="selectTrainingModule('quizTreino', this)"><strong>Quizzes</strong><small>Fixação de equipamentos, fases e malhas</small></button><button data-training-clean="simCIC" onclick="selectTrainingModule('simCIC', this)"><strong>Cenários + Simulações CIC</strong><small>Tendências, diagnóstico e prioridade</small></button><button data-training-clean="mecanica" onclick="selectTrainingModule('mecanica', this)"><strong>Mecânica dos Fluidos</strong><small>Pressão, vazão, ejetor e separação</small></button><button data-training-clean="unitarias" onclick="selectTrainingModule('unitarias', this)"><strong>Operações Unitárias</strong><small>Fracionar, condensar, separar e bombear</small></button><button data-training-clean="avaliacaoCIC" onclick="selectTrainingModule('avaliacaoCIC', this)"><strong>Avaliação Operador CIC</strong><small>Visão integrada de painel e processo</small></button></nav><div class="training-drawer-content"><section class="training-pane-clean active" id="training-clean-home"><span class="module-chip">CENTRO DE TREINAMENTO</span><h2>Treinamento da E-3901 — Topo</h2><p class="training-intro-clean">Aprender o processo, interpretar o painel, decidir e confirmar a resposta do sistema.</p><div class="training-kpi">
 <div><b>5 módulos</b><small>teoria + prática</small></div>
@@ -1379,7 +1386,7 @@ function setTrack(type, el){
   wrap.classList.add('show-'+type);
   const box=document.getElementById('trackInfo');
   if(type==='gas') {
-    box.innerHTML="<b style='color:var(--gas)'>GÁS</b><br>E-3901 → condensação parcial → F-3906 → distribuição pelos dois ramais do C-3903 → F-3907 → saída de gás para o F-3908 / sistema de compressão. O I-3905 adiciona uma corrente gasosa ao sistema.";
+    box.innerHTML="<b style='color:var(--gas)'>GÁS</b><br>E-3901 → C-3902 → F-3906 → header de entrada do C-3903 → ramais A/B e C/D → recombinação → F-3907 → F-3908. O I-3905 se conecta ao header que alimenta o F-3907.";
   } else if(type==='hc') {
     box.innerHTML="<b style='color:var(--hc)'>HIDROCARBONETO</b><br>F-3906 → J-3904 → refluxo da E-3901. No segundo estágio: F-3907 → J-3905 → sistema de absorção.";
   } else {

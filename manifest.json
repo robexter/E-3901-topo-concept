@@ -1,7 +1,7 @@
 {
   "name": "E-3901 Fracionadora Topo Concept",
   "short_name": "E-3901 Topo",
-  "description": "E-3901 Topo Concept V8.1: correção da animação/rota do gás, passando pelos dois ramais do C-3903 e representando a saída do F-3907 para o F-3908.",
+  "description": "E-3901 Topo Concept V8.2: rota de gás redesenhada seguindo a tubulação original da tela, incluindo os dois ramais do C-3903 e F-3907 para F-3908.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
